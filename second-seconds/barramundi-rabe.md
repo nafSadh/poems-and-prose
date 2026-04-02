@@ -1,6 +1,5 @@
 # Barramundi Rabe
 
-# Barramundi Rabe
 
 Pale kale, three spears of rabe,  
 warm on a white stone.  

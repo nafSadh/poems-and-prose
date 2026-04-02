@@ -1,6 +1,5 @@
 # Freedom to Belong
 
-# Freedom to Belong
 
 The blues bleed into reds, the whites flash into greens,  
 and deep purples chase the orange glow  

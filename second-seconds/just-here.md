@@ -1,6 +1,5 @@
 # just here
 
-# just here
 
 at the end of a day, sorrow  
 or sadness  

@@ -1,6 +1,5 @@
 # The Tulip
 
-# The Tulip
 
 A fallen petal \-  
 fiery red, vivid orange,  

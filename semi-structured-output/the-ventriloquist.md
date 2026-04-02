@@ -1,6 +1,5 @@
 # The Ventriloquist
 
-# The Ventriloquist
 
 Sometimes,  
 nay oftentimes,  

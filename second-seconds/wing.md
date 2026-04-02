@@ -1,6 +1,5 @@
 # Wing
 
-# Wing
 
 Without the wing,  
 it's wind.  

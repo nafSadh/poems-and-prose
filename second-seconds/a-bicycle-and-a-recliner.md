@@ -1,6 +1,5 @@
 # A Bicycle and a Recliner
 
-# A Bicycle and a Recliner
 
 My recliner holds my body,  
 pondering,  

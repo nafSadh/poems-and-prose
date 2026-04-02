@@ -1,6 +1,5 @@
 # L's Dancefloor
 
-# L’s Dancefloor
 
 Purple.  
 Half a crowd.  

@@ -1,6 +1,5 @@
 # Numbed Anguish
 
-# numbed anguish
 
 Every waking hour  
 is either work or feeling.  

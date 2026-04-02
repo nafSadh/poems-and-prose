@@ -1,6 +1,5 @@
 # ​A View from Above
 
-# ​A View from Above
 
 ​I look at myself.  
 I see me walking,  

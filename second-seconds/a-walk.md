@@ -1,6 +1,5 @@
 # a walk?
 
-# a walk?
 
 Have you ever  
 been on a duo walk, with  

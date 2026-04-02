@@ -1,6 +1,5 @@
 # View from My Couch
 
-# View from My Couch
 
 looking through my windows,  
 nice clouds drifting—  

@@ -1,6 +1,5 @@
 # Blunt
 
-# blunt
 
 I want to feel pain  
 because  

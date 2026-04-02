@@ -1,6 +1,5 @@
 # A Settlement
 
-# A Settlement
 
 Where am I?  
 Why am I here?   

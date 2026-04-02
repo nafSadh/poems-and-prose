@@ -1,6 +1,5 @@
 # Shattered Sweetheart
 
-# Shattered Sweetheart
 
 A flash of love.  
 Then the impact.  

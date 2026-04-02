@@ -1,6 +1,5 @@
 # Lavender Miles
 
-# Lavender Miles
 
 There's a bicycle  
 in the middle of a field.  

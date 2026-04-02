@@ -1,6 +1,5 @@
 # Amber Ablution
 
-# Amber Ablution
 
 The morning sun spills  
 into my room.  

@@ -1,6 +1,5 @@
 # Confetti
 
-# Confetti
 
 ​They call me grounded.  
 Composed. Calm.  

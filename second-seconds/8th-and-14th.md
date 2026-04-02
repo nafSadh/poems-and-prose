@@ -1,6 +1,5 @@
 # 8th and 14th
 
-# 8th and 14th
 
 A creased face,  
 unnoticed by most  

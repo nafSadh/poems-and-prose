@@ -1,6 +1,5 @@
 # The Faithful Lie
 
-# The Faithful Lie
 
 The person I chose to love,   
 and have loved —  

@@ -1,6 +1,5 @@
 # An Erosion
 
-# An Erosion
 
 I loved her.  
 And she loved me.  

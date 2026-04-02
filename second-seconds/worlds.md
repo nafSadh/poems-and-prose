@@ -1,6 +1,5 @@
 # Worlds
 
-# Worlds
 
 What you see,  
 in this world that you experience in  

@@ -1,6 +1,5 @@
 # Lull
 
-# Lull
 
 I built a castle of nobody  
 and a playlist of pauses,  

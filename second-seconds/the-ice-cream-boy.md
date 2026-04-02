@@ -1,6 +1,5 @@
 # The Ice-cream Boy
 
-# The Ice-cream Boy
 
 Neon signs glitter a brittle freeze  
 into the hollow ice cream shop.  

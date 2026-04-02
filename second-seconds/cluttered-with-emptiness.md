@@ -1,6 +1,5 @@
 # Cluttered with Emptiness
 
-# Cluttered with Emptiness
 
 ## V2
 

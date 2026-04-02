@@ -1,6 +1,5 @@
 # The System
 
-# The System
 
 Ari was.  
 And Riri was.

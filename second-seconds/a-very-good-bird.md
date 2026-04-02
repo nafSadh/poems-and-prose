@@ -1,6 +1,5 @@
 # A very good Bird
 
-# A very good Bird
 
 There’s a bird,  
 if you look through the double pane  

@@ -1,6 +1,5 @@
 # Shrimp Wonton
 
-# Shrimp Wonton
 
 Drowsy watermelon walks into the bar,  
 the bar shatters in laughter.

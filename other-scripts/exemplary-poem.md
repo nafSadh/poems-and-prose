@@ -1,6 +1,5 @@
 # Exemplary Poem
 
-# Exemplary Poem
 
 Here's a word.  
 And that's a sentence.  

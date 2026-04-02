@@ -1,6 +1,5 @@
 # Inventory of Lot 3B
 
-# Inventory of Lot 3B
 
 One (1) key, turning in lock.  
 Silence (heavy).  
