@@ -1,7 +1,5 @@
 # Company
 
-\# Company
-
 Borough's band, dappled drift.  
 Silence speaks several storms.  
 Musk masks mischievous mirth  
