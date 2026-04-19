@@ -31,11 +31,13 @@
 27. [Lavender Miles](second-seconds/lavender-miles.md)
 28. [Worlds](second-seconds/worlds.md)
 29. [A Monument (draft)](second-seconds/a-monument-draft.md)
-30. [They are there (draft)](second-seconds/they-are-there-draft.md)
-31. [They are there](second-seconds/they-are-there.md)
-32. [Lull](second-seconds/lull.md)
-33. [Wing](second-seconds/wing.md)
-34. [Company](second-seconds/company.md)
+30. [They are there](second-seconds/they-are-there.md)
+31. [Lull](second-seconds/lull.md)
+32. [Wing](second-seconds/wing.md)
+33. [Company](second-seconds/company.md)
+34. [Stable](second-seconds/stable.md)
+35. [She](second-seconds/she.md)
+36. [Saratoga Scene](second-seconds/saratoga-scene.md)
 
 ## [Semi-Structured Output](semi-structured-output/~index.md)
 
