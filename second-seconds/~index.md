@@ -20,7 +20,7 @@
 16. [Barramundi Rabe](barramundi-rabe.md) ~ February 17, 2026
 17. [The Tulip](the-tulip.md) ~ February 17, 2026
 18. [L's Dancefloor](ls-dancefloor.md) ~ February 17, 2026
-19. [​A View from Above](​a-view-from-above.md) ~ February 18–19, 2026
+19. [A View from Above](a-view-from-above.md) ~ February 18–19, 2026
 20. [A very good Bird](a-very-good-bird.md) ~ February 21, 2026
 21. [Shrimp Wonton](shrimp-wonton.md) ~ February 2026
 22. [8th and 14th](8th-and-14th.md) ~ February 24–26, 2026
@@ -35,6 +35,7 @@
 31. [Lull](lull.md) ~ March 6–7, 2026
 32. [Wing](wing.md) ~ March 21, 2026
 33. [Company](company.md) ~ March 30, 2026
-34. [Stable](stable.md) ~ April 13, 2026
-35. [She](she.md) ~ April 17, 2026
-36. [Saratoga Scene](saratoga-scene.md) ~ April 18, 2026
+34. [shadow's edge](shadows-edge.md) ~ April 3, 2026 *(reconstructed)*
+35. [Stable](stable.md) ~ April 13, 2026
+36. [She](she.md) ~ April 17, 2026
+37. [Saratoga Scene](saratoga-scene.md) ~ April 18, 2026
