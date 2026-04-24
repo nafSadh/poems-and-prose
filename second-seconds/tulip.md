@@ -1,7 +1,7 @@
 # The Tulip
+<date: Feb 17, 2026 />
 
-
-A fallen petal \-  
+A fallen petal -  
 fiery red, vivid orange,  
 a bruise of brown at the edge.
 

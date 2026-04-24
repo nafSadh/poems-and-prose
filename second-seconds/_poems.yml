@@ -10,186 +10,223 @@ lang: mixed
 icon: 🪞
 
 poems:
-  - t: "এক টুকরো গগনে গনগনে চাঁদ"
-    f: এক-টুকরো-গগনে-গনগনে-চাঁদ.md
-    lang: bn
-    date: "April 2025"
-  - t: "বিদায়, নীহারিকা"
-    f: বিদায়-নীহারিকা.md
-    lang: bn
-    date: "April–May 2025"
   - t: "পরশপাথর"
     f: পরশপাথর.md
     lang: bn
     date: "April–May 2025"
+    art: art-heron-pond
+  - t: "বিদায়, নীহারিকা"
+    f: বিদায়-নীহারিকা.md
+    lang: bn
+    date: "April–May 2025"
+    art: art-travel-bag
+  - t: "এক টুকরো গগনে গনগনে চাঁদ"
+    f: এক-টুকরো-গগনে-গনগনে-চাঁদ.md
+    lang: bn
+    date: "April 2025"
+    art: art-moon-tea
   - t: "A Settlement"
     f: a-settlement.md
     lang: en
-    date: "October 2025"
+    date: "Aug 08, 2025"
     note: "came in one sit"
-  - t: "View from My Couch"
-    f: view-from-my-couch.md
-    lang: en
-    date: "April–October 2025"
-    note: "written on couch"
+    art: art-winding-path
   - t: "Cluttered with Emptiness"
     f: cluttered-with-emptiness.md
     lang: en
-    date: "October 2025"
+    date: "Sept 14, 2025"
     note: "yes, exactly this"
+    art: art-stacked-boxes
   - t: "Inventory of Lot 3B"
     f: inventory-of-lot-3b.md
     lang: en
-    date: "April–October 2025"
+    date: "Sept 14, 2025"
     note: "(auction notes!)"
+    art: art-clipboard
   - t: "Shattered Sweetheart"
     f: shattered-sweetheart.md
     lang: en
-    date: "April–October 2025"
+    date: "Sept 16, 2025"
     note: "the hard one"
-  - t: "Numbed Anguish"
-    f: numbed-anguish.md
-    lang: en
-    date: "April–October 2025"
-    note: "keep returning"
+    art: art-broken-heart
   - t: "Freedom to Belong"
     f: freedom-to-belong.md
     lang: en
-    date: "April–October 2025"
+    date: "Oct 01, 2025"
     note: "question or stat"
+    art: art-strobe-lights
+  - t: "Numbed Anguish"
+    f: numbed-anguish.md
+    lang: en
+    date: "Oct 01, 2025"
+    note: "keep returning"
+    art: art-clock
   - t: "Amber Ablution"
     f: amber-ablution.md
     lang: en
-    date: "April–October 2025"
+    date: "Oct 04, 2025"
     note: "love the light"
-  - t: "An Erosion"
-    f: an-erosion.md
+    art: art-coffee-cup
+  - t: "View from My Couch"
+    f: view-from-my-couch.md
     lang: en
-    date: "April–October 2025"
+    date: "Oct 05, 2025"
+    note: "written on couch"
+    art: art-window-mountains
+  - t: "An Erosion"
+    f: erosion.md
+    lang: en
+    date: "Oct 21, 2025"
     note: "slow & right"
+    art: art-orbiting-bodies
   - t: "Confetti"
     f: confetti.md
     lang: en
-    date: "January 2026"
+    date: "Jan 13, 2026"
     note: "like rain, like"
+    art: art-confetti
   - t: "The Ice-cream Boy"
-    f: the-ice-cream-boy.md
+    f: ice-cream-boy.md
     lang: en
-    date: "January 2026"
+    date: "Jan 15, 2026"
     note: "summer of '18?"
+    art: art-ice-cream-cone
   - t: "The Faithful Lie"
-    f: the-faithful-lie.md
+    f: faithful-lie.md
     lang: en
-    date: "February 2026"
+    date: "Feb 11, 2026"
     note: "contradiction"
+    art: art-glass-water
   - t: "Barramundi Rabe"
     f: barramundi-rabe.md
     lang: en
-    date: "February 17, 2026"
+    date: "Feb 17, 2026"
     note: "unexpected joy"
+    art: art-fish-plate
   - t: "The Tulip"
-    f: the-tulip.md
+    f: tulip.md
     lang: en
-    date: "February 17, 2026"
+    date: "Feb 17, 2026"
     note: "delicate force"
+    art: art-fallen-petal
   - t: "L's Dancefloor"
     f: ls-dancefloor.md
     lang: en
-    date: "February 17, 2026"
+    date: "Feb 18, 2026"
     note: "heard the music"
+    art: art-headphones
   - t: "A View from Above"
-    f: a-view-from-above.md
+    f: view-from-above.md
     lang: en
-    date: "February 18–19, 2026"
+    date: "Feb 19, 2026"
     note: "altitude = clarity"
+    art: art-bird-eye-view
   - t: "A very good Bird"
-    f: a-very-good-bird.md
+    f: good-bird.md
     lang: en
-    date: "February 21, 2026"
+    date: "Feb 21, 2026"
     note: "this bird! yes"
+    art: art-bird-window
   - t: "Shrimp Wonton"
     f: shrimp-wonton.md
     lang: en
-    date: "February 2026"
+    date: "Feb 22, 2026"
     note: "thursday night"
+    art: art-wonton-bowl
   - t: "8th and 14th"
     f: 8th-and-14th.md
     lang: en
-    date: "February 24–26, 2026"
+    date: "Feb 26, 2026"
     note: "two dates, one"
+    art: art-phone-portrait
   - t: "a walk?"
     f: a-walk.md
     lang: en
-    date: "February 2026"
+    date: "Feb 26, 2026"
     note: "question mark earns"
-  - t: "just here"
-    f: just-here.md
-    lang: en
-    date: "February 2026"
-    note: "just here. period."
+    art: art-chai-cup
   - t: "Blunt"
     f: blunt.md
     lang: en
-    date: "February 2026"
+    date: "Feb 27, 2026"
     note: "shortest & sharpest"
-  - t: "A Bicycle and a Recliner"
-    f: a-bicycle-and-a-recliner.md
+    art: art-crescent-stars
+  - t: "just here"
+    f: just-here.md
     lang: en
-    date: "February 27–28, 2026"
+    date: "Feb 27, 2026"
+    note: "just here. period."
+    art: ta-bird
+  - t: "A Bicycle and a Recliner"
+    f: bicycle-and-recliner.md
+    lang: en
+    date: "Feb 28, 2026"
     note: "still life, moving"
+    art: art-woven-mountains
   - t: "Lavender Miles"
     f: lavender-miles.md
     lang: en
-    date: "February 27–28, 2026"
+    date: "Feb 28, 2026"
     note: "colour as distance"
-  - t: "Worlds"
-    f: worlds.md
-    lang: en
-    date: "March 1, 2026"
-    note: "plural, always"
+    art: "sc-seconds-lavender"
   - t: "A Monument (draft)"
-    f: a-monument-draft.md
+    f: a-monument.md
     lang: en
     kind: draft
-    date: "March 1–2, 2026"
+    date: "March 1, 2026"
     note: "still drafting"
+    art: art-box-sealed
   - t: "They are there"
     f: they-are-there.md
     lang: en
-    date: "March 1–2, 2026"
+    date: "March 01, 2026"
     note: "presence, not ghost"
+    art: art-cupped-hands
+  - t: "Worlds"
+    f: worlds.md
+    lang: en
+    date: "March 01, 2026"
+    note: "plural, always"
+    art: art-brain-sparkling
   - t: "Lull"
     f: lull.md
     lang: en
-    date: "March 6–7, 2026"
+    date: "March 06, 2026"
     note: "the pause breathes"
+    art: art-fork
   - t: "Wing"
     f: wing.md
     lang: en
     date: "March 21, 2026"
     note: "one word, whole sky"
+    art: art-wing
   - t: "Company"
     f: company.md
     lang: en
     date: "March 30, 2026"
     note: "who is with you?"
+    art: art-candle
   - t: "shadow's edge"
     f: shadows-edge.md
     lang: en
-    date: "April 3, 2026"
+    date: "March 31, 2026"
     note: "liminal — exact"
+    art: art-bicycle-tracks
   - t: "Stable"
     f: stable.md
     lang: en
-    date: "April 13, 2026"
+    date: "Apr 13, 2026"
     note: "a verb not a noun"
+    art: art-horse
   - t: "She"
     f: she.md
     lang: en
     date: "April 17, 2026"
     note: "just the pronoun"
+    art: art-two-circles
   - t: "Saratoga Scene"
     f: saratoga-scene.md
     lang: en
     date: "April 18, 2026"
     note: "place becomes poem"
+    art: art-cappuccino

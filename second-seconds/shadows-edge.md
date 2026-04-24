@@ -1,8 +1,6 @@
 # shadow's edge
-
-[drafts]
-
----
+<date: March 31, 2026 />
+<status: draft />
 
 there's a shadow,
 sharp shadow with fine lines and edges.

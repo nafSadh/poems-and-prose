@@ -1,5 +1,5 @@
 # A Settlement
-
+<date: Aug 08, 2025 />
 
 Where am I?  
 Why am I here?   
@@ -60,9 +60,7 @@ And move on.
 Back to my life.  
 My self.
 
-### ---
-
-## V1
+<!-- `previous draft:`
 
 A prickling, pervasive puzzlement  
 settles in my head.  
@@ -143,3 +141,4 @@ Everything will be okay.
 Because when you look within,  
 you know.
 
+-->

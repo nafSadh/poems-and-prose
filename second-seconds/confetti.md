@@ -1,5 +1,5 @@
 # Confetti
-
+<date: Jan 13, 2026 />
 
 ​They call me grounded.  
 Composed. Calm.  
@@ -70,9 +70,8 @@ still buffering,
 a boy-shaped space  
 where the light used to be.
 
----
 
-### Previous Versions
+<!-- Previous versions:
 
 …  
 I want to scream until the veins in my neck  
@@ -102,3 +101,4 @@ Grounded.
 It doesn’t fade.  
 …
 
+-->

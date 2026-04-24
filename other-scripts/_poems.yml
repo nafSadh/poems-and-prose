@@ -13,10 +13,13 @@ poems:
     f: shorts.md
     lang: en
     note: "compressed, potent"
+    art: art-paper-slips
   - t: "Seeds/Blurbs"
     f: seeds-blurbs.md
     lang: en
+    art: art-seed-envelope
   - t: "Exemplary Poem"
     f: exemplary-poem.md
     lang: en
     note: "what is exemplary?"
+    art: art-page-lines

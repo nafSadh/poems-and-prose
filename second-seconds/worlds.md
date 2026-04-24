@@ -1,5 +1,6 @@
 # Worlds
-
+<date: March 01, 2026 />
+<note: Los Gatos, California />
 
 What you see,  
 in this world that you experience in  

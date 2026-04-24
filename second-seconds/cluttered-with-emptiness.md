@@ -1,7 +1,5 @@
 # Cluttered with Emptiness
-
-
-## V2
+<date: Sept 14, 2025 />
 
 Silence pours into the hall, a greeting  
 from this bright, curated cell.  
@@ -38,9 +36,11 @@ The rooms are full. So full.
 Everything is here  
 but me.
 
-## Just this clutter, and this vast, elegant emptiness.
+> Just this clutter, and this vast, elegant emptiness.
 
-##  V1
+<!-- `previous draft:`
+
+## V1
 
 The key turns.  
 And silence pours into the hall, a greeting  
@@ -85,4 +85,4 @@ but me.
 
 Just this clutter,  
 and this vast, elegant emptiness.
-
+-->

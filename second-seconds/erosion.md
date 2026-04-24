@@ -1,5 +1,5 @@
 # An Erosion
-
+<date: Oct 21, 2025 />
 
 I loved her.  
 And she loved me.  
@@ -57,9 +57,7 @@ And she failed to save me.
 We both decayed.  
 It is just so hard.
 
----
-
-### Other versions
+<!-- `previous draft:`
 
 I loved her.  
 And she loved me.  
@@ -121,4 +119,6 @@ It is just so hard.
 
 I know I loved her  
 That’s all I have
+
+-->
 

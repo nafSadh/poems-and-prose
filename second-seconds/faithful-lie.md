@@ -1,5 +1,5 @@
 # The Faithful Lie
-
+<date: Feb 11, 2026 />
 
 The person I chose to love,   
 and have loved —  
@@ -47,9 +47,8 @@ It's not fun.
 It's not fair.  
 But, I go on.
 
----
 
-### Other versions
+<!-- `previous draft:`
 
 The person I chose to love,   
 and have loved —  
@@ -97,3 +96,4 @@ It's not fun.
 It's not fair.  
 But, I go on.
 
+-->

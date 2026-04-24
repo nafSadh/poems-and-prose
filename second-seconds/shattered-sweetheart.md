@@ -1,5 +1,5 @@
 # Shattered Sweetheart
-
+<date: Sept 16, 2025 />
 
 A flash of love.  
 Then the impact.  
@@ -8,7 +8,7 @@ Broken.
 I woke to   
 your face in the dark.  
 And I was happy,  
-for a second.
+for a second. 
 
 But you were collecting,  
 counting,  
@@ -32,9 +32,8 @@ in you.
 
 Now, I just remember the storm.
 
----
 
-# Other versions
+<!-- `previous draft:`
 
 A flash of love.  
 Then the impact.  
@@ -68,3 +67,4 @@ in you.
 
 Now, I just remember the storm.
 
+-->

@@ -1,5 +1,5 @@
 # The Ice-cream Boy
-
+<date: Jan 15, 2026 />
 
 Neon signs glitter a brittle freeze  
 into the hollow ice cream shop.  
@@ -32,9 +32,7 @@ Ice cream boy
 in the frosted kingdom,  
 holding winter on his tongue.
 
----
-
-previous drafts:
+<!-- `previous drafts:`
 
 ### V3
 
@@ -120,3 +118,4 @@ But pleasing gold.
 Ice cream boy  
 In the curly haired shop.
 
+-->

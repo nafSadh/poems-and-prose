@@ -1,4 +1,5 @@
 # She
+<date: April 17, 2026 />
 
 She was mine.
 Then not.

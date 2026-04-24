@@ -1,5 +1,5 @@
 # Barramundi Rabe
-
+<date: Feb 17, 2026 />
 
 Pale kale, three spears of rabe,  
 warm on a white stone.  
@@ -9,10 +9,10 @@ bleeding into the puree.
 Under the low light,  
 my eyes feast hard, even before  
 it touches the mahogany.  
-I take out my snapdragon \- photos  
+I take out my snapdragon - photos  
 for the story.
 
-Barramundi says hi\!  
+Barramundi says hi!  
 I gape.  
 Silver knife glides through white flesh,  
 the tines of the fork scrape the stone.  
@@ -23,9 +23,8 @@ I devour
 Barramundi gone.  
 Now, chocolate cup.
 
----
 
-OTHER VERSIONS
+<!-- `previous draft:`
 
 A slice of pale kale, three spears of broccoli rabe,  
 resting on a white stone plate, warm.  
@@ -50,3 +49,4 @@ I devour
 Barramundi gone.  
 Now, chocolate cup.
 
+-->

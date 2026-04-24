@@ -1,4 +1,8 @@
-# In Sue's Gallery
+# Saratoga Scene
+<date: April 18, 2026 /><location: Saratoga, California />
+> a diptych 
+
+## In Sue's Gallery
 
 Sound waves of Saratoga cafe
 soothingly dance by the shores
@@ -64,6 +68,7 @@ Why should I ask for another coffee?
 
 
 # In Exit
+<date: April 18, 2026 />
 
 The cafe closes in twenty-four minutes.
 People are prepping departures.

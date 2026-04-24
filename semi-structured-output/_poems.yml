@@ -13,11 +13,9 @@ poems:
     f: the-system.md
     lang: en
     note: "also: every system"
+    art: art-prison-bars
   - t: "The Ventriloquist"
     f: the-ventriloquist.md
     lang: en
     note: "who speaks? who hears?"
-  - t: "Tab 16"
-    f: tab-16.md
-    lang: en
-    note: "open tabs = open"
+    art: art-puppet

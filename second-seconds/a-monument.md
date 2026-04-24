@@ -1,4 +1,6 @@
-# A Monument (draft)
+# A Monument
+<date: March 1, 2026 />
+<status: draft />
 
 I have a box,  
 it holds the things;  
