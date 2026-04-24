@@ -1,0 +1,58 @@
+name: Deploy to GitHub Pages
+
+# Rebuilds the site on every push that touches poems or build inputs,
+# and on manual dispatch from the Actions tab.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**/*.md"
+      - "**/_poems.yml"
+      - "_site.yml"
+      - "scripts/**"
+      - ".github/workflows/deploy.yml"
+      - "CNAME"
+      - ".nojekyll"
+  workflow_dispatch:
+
+# Permissions required by actions/deploy-pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Don't cancel an in-flight deploy; queue the next one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install pyyaml
+
+      - name: Build site
+        run: python3 scripts/build.py
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,6 +1,6 @@
 # shadow's edge
 
-*Reconstructed from `simulated-reviews/shadows-edge/editor-versions.md` — the original source was lost. Text is the consensus across the lightest-touch rewrites (ABCD, Cynic, Comedy Desk, Bangla Voice, Stoic, Werner Herzog), where 6 of 16 editors left the opening stanzas verbatim. Review date: 2026-04-03.*
+[drafts]
 
 ---
 

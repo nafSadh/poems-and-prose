@@ -1,0 +1,500 @@
+:root{
+  --paper:#f4f3ee;
+  --paper-hi:#fafaf5;
+  --paper-cool:#eeefe9;
+  --glow-warm:rgba(220, 180, 120, .18);
+  --glow-cool:rgba(42, 107, 184, .06);
+  --ink:#1a1208;
+  --ink-soft:#3d2a16;
+  --dim:#8a7a56;
+  --azure:#2a6bb8;
+  --azure-deep:#1a3e68;
+  --azure-soft:#7aa8d8;
+  --red-pen:#b8422a;
+  --line:rgba(26,18,8,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-weight:400;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh;position:relative}
+/* Page-wide ambient gradient (all views) — warmer top, cooler bottom */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:linear-gradient(180deg, rgba(250,245,230,.55) 0%, rgba(244,243,238,0) 40%, rgba(238,239,233,.35) 100%)}
+.bn{font-family:'Noto Serif Bengali',serif;font-weight:500}
+a{text-decoration:none;color:inherit}
+
+/* Subtle paper grain */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.04;z-index:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 0.8 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");mix-blend-mode:multiply}
+
+.view{display:none}
+.view.active{display:block}
+
+/* ── Shared bar ── */
+.bar{position:relative;z-index:1;padding:20px 36px;display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);font-family:'Inter',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);font-weight:500}
+.bar .mark{color:var(--ink);font-family:'Fraunces',serif;font-style:italic;font-size:22px;letter-spacing:0;text-transform:none;font-weight:400;display:flex;align-items:center;gap:9px;font-variation-settings:"opsz" 144}
+.bar .mark svg{width:22px;height:22px;color:var(--azure)}
+.bar a{color:var(--dim);transition:color .2s}
+.bar a:hover{color:var(--azure)}
+.bar .crumb{display:flex;align-items:baseline;gap:12px}
+.bar .folio{font-family:'Fraunces',serif;font-style:italic;text-transform:none;letter-spacing:0;font-size:14px;color:var(--azure)}
+
+/* ── HOME ── */
+.hero{position:relative;z-index:1;max-width:1020px;margin:0 auto;padding:8vh 36px 4vh;display:grid;grid-template-columns:1fr 300px;gap:56px;align-items:center}
+.hero-text .kicker{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--azure);font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.hero-text .kicker::before{content:'';width:28px;height:1px;background:currentColor}
+.hero-text h1{font-family:'Fraunces',serif;font-weight:400;font-style:italic;font-size:clamp(56px,10vw,120px);letter-spacing:-.04em;line-height:.9;color:var(--ink);font-variation-settings:"opsz" 144,"SOFT" 50}
+.hero-text h1 em{font-style:italic;color:var(--azure)}
+.hero-text .sub{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(18px,2.3vw,23px);color:var(--ink-soft);margin-top:22px;max-width:440px;line-height:1.5;font-variation-settings:"opsz" 144,"SOFT" 100}
+.hero-art{display:flex;justify-content:center;position:relative}
+.hero-art::before{content:'';position:absolute;width:520px;height:520px;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle at center, rgba(255,220,150,.42) 0%, rgba(255,210,140,.22) 22%, rgba(250,200,130,.08) 45%, rgba(250,200,130,0) 70%);pointer-events:none;z-index:0;filter:blur(2px)}
+.hero-art svg{width:280px;height:280px;color:var(--azure);position:relative;z-index:1}
+
+.divider{position:relative;z-index:1;max-width:1020px;margin:0 auto;padding:0 36px;display:flex;align-items:center;gap:16px;color:var(--azure);opacity:.55}
+.divider .line{flex:1;height:1px;background:currentColor;opacity:.35}
+.divider svg{width:70px;height:22px}
+
+.sec-label{position:relative;z-index:1;max-width:1020px;margin:44px auto 6px;padding:0 36px;display:flex;align-items:baseline;justify-content:space-between;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--dim);font-weight:600}
+.sec-label em{font-family:'Fraunces',serif;font-style:italic;text-transform:none;letter-spacing:0;color:var(--azure);font-size:14px;font-weight:400}
+
+/* ── Walking-pace collection rhythm (from 405) ── */
+.books{
+  position:relative;z-index:1;
+  max-width:620px;
+  margin:0 auto;
+  padding:4vh 36px 2vh;
+  display:flex;flex-direction:column;
+}
+.book{
+  color:var(--ink);
+  display:flex;flex-direction:column;
+  align-items:center;text-align:center;
+  padding:12vh 0;
+  transition:opacity .3s;
+  position:relative;
+}
+.book:first-child{padding-top:6vh}
+.book:last-child{padding-bottom:6vh}
+.book + .book::before{
+  content:'';
+  position:absolute;top:0;left:50%;
+  width:1px;height:48px;
+  background:color-mix(in srgb,var(--azure),transparent 82%);
+  transform:translateX(-.5px);
+}
+.book .glyph{
+  display:flex;justify-content:center;
+  margin-bottom:30px;
+  transition:transform .35s ease;
+}
+.book .glyph svg{
+  width:120px;height:120px;
+  color:var(--azure);
+  opacity:.82;
+  transition:opacity .35s ease, transform .35s ease;
+}
+.book:hover .glyph svg{opacity:1;transform:scale(1.06) rotate(-1deg)}
+.book:hover h2{color:var(--azure-deep)}
+.book .no{
+  font-family:'Inter',sans-serif;
+  font-size:10px;letter-spacing:4px;
+  text-transform:uppercase;color:var(--dim);
+  font-weight:600;
+  margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.book .no::before,.book .no::after{
+  content:'';width:22px;height:1px;
+  background:currentColor;opacity:.4;
+}
+.book .no .sep{
+  font-family:'Fraunces',serif;font-style:italic;
+  letter-spacing:0;text-transform:none;
+  font-size:15px;color:var(--azure);
+  font-variation-settings:"opsz" 72;
+}
+.book h2{
+  font-family:'Fraunces',serif;
+  font-weight:400;font-style:italic;
+  font-size:clamp(30px,4.4vw,42px);
+  letter-spacing:-.5px;line-height:1.1;
+  color:var(--ink);
+  transition:color .25s;
+  font-variation-settings:"opsz" 144,"SOFT" 50;
+  max-width:460px;
+  margin-bottom:6px;
+}
+.book h2.bn{
+  font-family:'Noto Serif Bengali',serif;
+  font-weight:500;font-style:normal;
+  letter-spacing:-.2px;line-height:1.32;
+  font-size:clamp(26px,3.8vw,36px);
+}
+.book h2 em{
+  font-style:italic;display:block;
+  font-size:.48em;color:var(--dim);
+  margin-top:14px;font-weight:400;
+  letter-spacing:0;
+  line-height:1.2;
+}
+.book .blurb{
+  font-family:'Fraunces',serif;font-style:italic;
+  font-size:clamp(16px,1.8vw,18px);
+  color:var(--ink-soft);
+  line-height:1.55;
+  font-variation-settings:"opsz" 72,"SOFT" 100;
+  margin-top:22px;
+  max-width:440px;
+}
+.book .meta{
+  font-family:'Inter',sans-serif;
+  font-size:10px;letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--dim);font-weight:500;
+  margin-top:26px;
+  display:flex;gap:12px;align-items:center;
+  justify-content:center;
+}
+.book .meta .cnt{
+  font-family:'Fraunces',serif;font-style:italic;
+  font-size:15px;color:var(--azure);
+  letter-spacing:0;text-transform:none;
+  font-weight:500;
+}
+.book .meta .dot{opacity:.4}
+
+/* Walking-pace rule between dividers + last closing paren */
+.walk-close{
+  position:relative;z-index:1;
+  max-width:620px;
+  margin:0 auto;
+  padding:10vh 36px 6vh;
+  text-align:center;
+}
+.walk-close .paren{
+  font-family:'Fraunces',serif;font-style:italic;
+  font-size:52px;color:var(--azure);
+  opacity:.5;line-height:1;
+  font-variation-settings:"opsz" 144;
+}
+.walk-close .line{
+  font-family:'Fraunces',serif;font-style:italic;
+  font-size:14px;color:var(--dim);
+  margin-top:20px;letter-spacing:.02em;
+}
+
+/* ── BOOK ── */
+.title-page{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:6vh 32px 3vh;text-align:center}
+.title-art{display:flex;justify-content:center;padding:10px 0 24px}
+.title-art svg{width:260px;height:260px;color:var(--azure);opacity:.85}
+.title-page .no{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--azure);font-weight:600;display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:16px}
+.title-page .no::before,.title-page .no::after{content:'';width:28px;height:1px;background:currentColor}
+.title-page h1{font-family:'Fraunces',serif;font-weight:400;font-style:italic;font-size:clamp(44px,8vw,78px);letter-spacing:-.03em;line-height:1;color:var(--ink);font-variation-settings:"opsz" 144,"SOFT" 50}
+.title-page h1.bn{font-family:'Noto Serif Bengali',serif;font-weight:500;font-style:normal;letter-spacing:-.3px;line-height:1.18;font-size:clamp(40px,7vw,68px)}
+.title-page h1 em{font-style:italic;color:var(--azure);display:block;font-size:.48em;margin-top:8px;letter-spacing:0;font-weight:400}
+.title-page .blurb{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(16px,2vw,20px);color:var(--ink-soft);margin-top:20px;line-height:1.55;max-width:440px;margin-left:auto;margin-right:auto;font-variation-settings:"opsz" 72,"SOFT" 100}
+.title-page .meta{margin-top:24px;display:flex;gap:24px;justify-content:center;font-family:'Inter',sans-serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dim);font-weight:500}
+.title-page .meta b{font-family:'Fraunces',serif;font-style:italic;font-size:16px;color:var(--azure);text-transform:none;letter-spacing:0;font-weight:500;margin-left:6px}
+
+.rule{position:relative;z-index:1;max-width:640px;margin:28px auto 0;padding:0 32px;display:flex;align-items:center;gap:14px;color:var(--azure-soft)}
+.rule .l{flex:1;height:1px;background:currentColor}
+.rule svg{width:54px;height:16px;color:var(--azure);opacity:.7}
+
+.contents-label{position:relative;z-index:1;max-width:640px;margin:18px auto 4px;padding:0 32px;font-family:'Inter',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--dim);font-weight:600;text-align:center}
+
+.poem-list{position:relative;z-index:1;max-width:640px;margin:0 auto;padding:10px 32px 6vh;list-style:none}
+.poem-row{
+  display:grid;
+  grid-template-columns:48px 1fr auto;
+  gap:18px;
+  align-items:baseline;
+  padding:14px 14px;
+  border-bottom:1px dotted rgba(26,18,8,.18);
+  border-radius:2px;
+  transition:background .2s, padding-left .2s;
+}
+.poem-row:hover{background:color-mix(in srgb,var(--azure),transparent 94%);padding-left:22px}
+.poem-row:hover .p-title{color:var(--azure)}
+.poem-row:hover .roman{color:var(--azure-deep)}
+.poem-row .roman{font-family:'Fraunces',serif;font-style:italic;font-size:16px;font-weight:400;color:var(--dim);letter-spacing:0;transition:color .2s}
+.poem-row .p-title{font-family:'Fraunces',serif;font-size:22px;font-weight:400;color:var(--ink);line-height:1.25;transition:color .2s;font-variation-settings:"opsz" 72,"SOFT" 50}
+.poem-row .p-title.bn{font-family:'Noto Serif Bengali',serif;font-weight:500;font-size:21px;line-height:1.42;letter-spacing:-.1px}
+.poem-row .kind{font-family:'Fraunces',serif;font-style:italic;font-size:11px;color:var(--dim);letter-spacing:1.2px;text-transform:uppercase;font-weight:500;font-variation-settings:"opsz" 9}
+.poem-row.kind-draft{opacity:.6}
+.poem-row.kind-draft .p-title{font-style:italic}
+
+.book-empty{font-family:'Fraunces',serif;font-style:italic;color:var(--dim);font-size:17px;padding:28px 0;text-align:center}
+
+.book-sibling{position:relative;z-index:1;max-width:640px;margin:16px auto 0;padding:26px 32px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:center;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);font-weight:500}
+.book-sibling a{color:var(--ink);transition:color .2s;display:flex;align-items:center;gap:10px;max-width:100%;overflow:hidden}
+.book-sibling a:hover{color:var(--azure)}
+.book-sibling a svg{width:20px;height:10px;color:var(--azure);flex:0 0 auto}
+.book-sibling a.prev svg{transform:rotate(180deg)}
+.book-sibling a .lbl{display:block;font-size:9px;color:var(--dim);letter-spacing:2px;margin-bottom:2px;opacity:.8}
+.book-sibling a .nm{font-family:'Fraunces',serif;font-style:italic;font-size:15px;text-transform:none;letter-spacing:0;color:var(--ink);font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.book-sibling a .nm.bn{font-family:'Noto Serif Bengali',serif;font-style:normal;font-weight:500;font-size:14px}
+.book-sibling a.disabled{opacity:.25;pointer-events:none}
+.book-sibling .up a{color:var(--azure);border:1px solid var(--azure);padding:7px 14px;border-radius:2px;display:inline-block;font-size:10px;letter-spacing:2.5px}
+.book-sibling .up a:hover{background:var(--azure);color:var(--paper-hi)}
+.book-sibling .next{justify-self:end;text-align:right}
+.book-sibling .next .text-block{text-align:right}
+
+/* ── READ ── */
+.page-wrap{
+  position:relative;z-index:1;
+  max-width:620px;margin:0 auto;
+  padding:clamp(6vh,10vh,14vh) 32px clamp(48px,7vh,80px);
+}
+.margin-col{display:none}
+
+.head-wrap{
+  position:relative;
+  padding:0 0 clamp(32px,4vh,44px);
+}
+.head-inner{
+  display:block;
+}
+
+.head-text .from{
+  font-family:'Inter',sans-serif;
+  font-size:10px;letter-spacing:3px;
+  text-transform:uppercase;color:var(--dim);
+  font-weight:600;margin-bottom:14px;
+}
+.head-text .from a{
+  color:var(--azure);
+  border-bottom:1px solid color-mix(in srgb,var(--azure),transparent 60%);
+  transition:color .2s;
+  padding-bottom:1px;
+}
+.head-text .from a:hover{color:var(--azure-deep)}
+.head-text .from a.bn{font-family:'Noto Serif Bengali',serif;text-transform:none;letter-spacing:.3px;font-size:13px;font-weight:500}
+
+.head-text h1{
+  font-family:'Fraunces',serif;
+  font-weight:400;font-style:italic;
+  font-size:clamp(38px,6.5vw,58px);
+  letter-spacing:-.5px;
+  line-height:1.06;
+  color:var(--azure-deep);
+  margin-bottom:clamp(18px,2vh,28px);
+  font-variation-settings:"opsz" 144,"SOFT" 50;
+  max-width:calc(100% - 80px);
+}
+.head-text h1::after{
+  content:'';display:block;
+  width:80px;height:0;
+  border-top:0.5px solid color-mix(in srgb,var(--azure),transparent 55%);
+  margin-top:clamp(18px,2vh,26px);
+}
+.head-text h1.bn{
+  font-family:'Noto Serif Bengali',serif;
+  font-weight:500;font-style:normal;
+  font-size:clamp(32px,6vw,50px);
+  letter-spacing:-.2px;line-height:1.3;
+  color:var(--azure-deep);
+}
+
+.head-art{
+  position:absolute;
+  top:4px;right:0;
+  width:60px;height:60px;
+  display:flex;align-items:center;justify-content:center;
+}
+.head-art svg{
+  width:100%;height:100%;
+  color:var(--azure);
+  opacity:.8;
+}
+
+.poem-col{min-width:0}
+
+.body{
+  font-family:'Special Elite',monospace;
+  font-size:17px;
+  line-height:1.9;
+  color:var(--ink);
+  max-width:540px;
+}
+.body.bn{
+  font-family:'Noto Serif Bengali',serif;
+  font-size:19px;
+  font-weight:400;
+  line-height:2.02;
+}
+.stanza{margin-bottom:2em}
+.stanza:last-child{margin-bottom:0}
+.body em{font-style:italic;color:var(--ink-soft)}
+
+.variant-sep{
+  margin:56px 0 14px;
+  border:none;
+  border-top:1px solid color-mix(in srgb,var(--azure),transparent 72%);
+}
+.variant-label{
+  font-family:'Inter',sans-serif;
+  font-size:10px;letter-spacing:3.5px;
+  text-transform:uppercase;
+  color:var(--azure);
+  font-weight:600;
+  margin-bottom:2em;
+  display:flex;align-items:center;gap:8px;
+}
+.variant-label::before{
+  content:'§';
+  font-family:'Fraunces',serif;
+  font-style:italic;
+  font-size:16px;
+  color:var(--azure);
+  opacity:.75;
+  letter-spacing:0;
+}
+
+.loading{
+  font-family:'Caveat',cursive;
+  font-size:20px;color:var(--dim);
+  font-style:italic;font-weight:600;
+}
+
+.margin-col{
+  grid-area:margin;
+  padding-top:clamp(96px,14vh,160px);
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:22px;
+}
+.margin-note{
+  font-family:'Caveat',cursive;
+  font-weight:600;
+  font-size:15px;
+  line-height:1.45;
+  color:var(--red-pen);
+  text-align:right;
+  transform:rotate(.6deg);
+  display:block;
+  max-width:130px;
+  letter-spacing:.2px;
+}
+.margin-note::before{
+  content:'';display:block;
+  width:28px;height:1px;
+  background:currentColor;
+  opacity:.5;margin-bottom:8px;
+  margin-left:auto;
+  transform:rotate(-1deg);
+}
+
+.poem-nav{
+  margin-top:clamp(44px,6vh,64px);
+  padding:26px 0 0;
+  border-top:1px solid var(--line);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+.pn-link{
+  display:flex;flex-direction:column;gap:4px;
+  font-family:'Inter',sans-serif;
+  font-size:10px;letter-spacing:2.5px;
+  text-transform:uppercase;
+  color:var(--dim);font-weight:600;
+  transition:color .2s;
+  max-width:100%;
+}
+.pn-link:hover{color:var(--azure)}
+.pn-link:hover .pn-title{color:var(--azure)}
+.pn-dir{display:flex;align-items:center;gap:8px;color:var(--azure);opacity:.9}
+.pn-dir svg{width:18px;height:9px;color:currentColor}
+.pn-title{
+  font-family:'Fraunces',serif;
+  font-style:italic;
+  font-size:17px;
+  color:var(--ink);
+  text-transform:none;
+  letter-spacing:0;
+  font-weight:400;
+  line-height:1.25;
+  transition:color .2s;
+}
+.pn-title.bn{font-family:'Noto Serif Bengali',serif;font-style:normal;font-weight:500;font-size:16px}
+.pn-link.right{text-align:right}
+.pn-link.right .pn-dir{justify-content:flex-end}
+.pn-link.right .pn-dir svg{order:2}
+.pn-link.prev .pn-dir svg{transform:rotate(180deg)}
+
+.back-link{
+  grid-area:back;
+  padding:24px 0 0;
+  text-align:center;
+  font-family:'Inter',sans-serif;
+  font-size:10px;letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--dim);font-weight:500;
+}
+.back-link a{
+  color:var(--azure);
+  border-bottom:1px solid color-mix(in srgb,var(--azure),transparent 70%);
+  transition:color .2s;padding-bottom:1px;
+}
+.back-link a:hover{color:var(--azure-deep)}
+
+.mobile-note{display:none}
+
+/* ── Shared footer ── */
+.foot{position:relative;z-index:1;max-width:1020px;margin:0 auto;padding:24px 36px 52px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);font-weight:500}
+.foot em{font-family:'Fraunces',serif;font-style:italic;text-transform:none;letter-spacing:0;font-size:14px;color:var(--azure);font-weight:400}
+.foot .sig{font-family:'Caveat',cursive;font-size:20px;color:var(--ink);letter-spacing:.3px;font-weight:600;text-transform:none}
+.foot a{transition:color .2s}
+.foot a:hover{color:var(--azure)}
+
+@media(max-width:760px){
+  .bar{padding:18px 22px}
+  .page-wrap{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "head"
+      "poem"
+      "nav"
+      "back";
+    padding:0 22px clamp(40px,6vh,64px);
+    gap:0;
+  }
+  .head-wrap{padding:28px 0 18px}
+  .head-inner{grid-template-columns:1fr;gap:14px}
+  .head-art{justify-self:flex-start}
+  .head-art svg{width:64px;height:64px}
+  .poem-col{padding-top:24px}
+  .margin-col{display:none}
+  .mobile-note{
+    display:block;
+    margin-top:38px;
+    padding-top:22px;
+    border-top:1px dashed color-mix(in srgb,var(--red-pen),transparent 60%);
+    font-family:'Caveat',cursive;
+    font-size:16px;font-weight:600;
+    color:var(--red-pen);
+    transform:rotate(-.4deg);
+    max-width:100%;
+  }
+  .poem-nav{margin-top:32px;gap:14px}
+}
+
+@media(max-width:720px){
+  .hero{grid-template-columns:1fr;gap:28px;padding-top:5vh}
+  .hero-art{order:-1}
+  .hero-art svg{width:220px;height:220px}
+  .books{padding:18px 22px 5vh;gap:36px 24px;grid-template-columns:1fr}
+  .foot{padding:22px 22px 40px;flex-wrap:wrap;gap:10px}
+  .sec-label{padding:0 22px}
+  .divider{padding:0 22px}
+}
+
+@media(max-width:680px){
+  .title-page{padding:4vh 22px 2vh}
+  .title-art svg{width:200px;height:200px}
+  .rule{padding:0 22px}
+  .contents-label{padding:0 22px}
+  .poem-list{padding:10px 22px 4vh}
+  .poem-row{padding:14px 8px;grid-template-columns:36px 1fr auto;gap:14px}
+  .poem-row:hover{padding-left:14px}
+  .book-sibling{padding:22px 22px 0;grid-template-columns:1fr 1fr;gap:12px}
+  .book-sibling .up{grid-column:1/-1;text-align:center;margin-top:6px}
+  .foot{padding:40px 22px 40px;flex-wrap:wrap;gap:10px}
+}

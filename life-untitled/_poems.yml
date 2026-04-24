@@ -1,0 +1,12 @@
+# Per-book manifest for life-untitled.
+# Edit this file to reorder poems, add new ones, or update metadata.
+# The build script generates the live site from this + the .md files.
+
+id: life-untitled
+title: Life, Untitled
+blurb: yet to be written
+lang: en
+icon: 🪷
+
+poems:
+  []

@@ -1,0 +1,169 @@
+# Per-book manifest for sulol-songroho.
+# Edit this file to reorder poems, add new ones, or update metadata.
+# The build script generates the live site from this + the .md files.
+
+id: sulol-songroho
+title: সুলল সংগ্রহ
+roman: Sulol Songroho
+blurb: early earnest Bengali verses
+lang: bn
+icon: 🌿
+
+poems:
+  - t: "সুলল সংগ্রহ ও কিছু কথা"
+    f: sulol-songroho-o-kichhu-kotha.md
+    lang: bn
+  - t: "ঘাসফুল"
+    f: ghasphul.md
+    lang: bn
+  - t: "শব্দকল্প"
+    f: shobdokolp.md
+    lang: bn
+  - t: "রইবি হৃদয়ে"
+    f: roibi-hridoye.md
+    lang: bn
+  - t: "লিমেরিক ১"
+    f: limerick-1.md
+    lang: bn
+    kind: limerick
+  - t: "লিমেরিক ২"
+    f: limerick-2.md
+    lang: bn
+    kind: limerick
+  - t: "লিমেরিক ৩"
+    f: limerick-3.md
+    lang: bn
+    kind: limerick
+  - t: "রংধনু খেলা"
+    f: rongdhonu-khela.md
+    lang: bn
+  - t: "লিমেরিক ৪"
+    f: limerick-4.md
+    lang: bn
+    kind: limerick
+  - t: "লিমেরিক ৫"
+    f: limerick-5.md
+    lang: bn
+    kind: limerick
+  - t: "আলোড়ন তোলা আলো"
+    f: aloron-tola-alo.md
+    lang: bn
+  - t: "লিমেরিক ৬"
+    f: limerick-6.md
+    lang: bn
+    kind: limerick
+  - t: "অন্ধকার বিকেল শেষে"
+    f: aundhokar-bikel-shesse.md
+    lang: bn
+  - t: "অনুভূতি জালে হওয়া"
+    f: onubhooti-jale-hooya.md
+    lang: bn
+  - t: "প্লাবিত নদীতে তৃষিত অবগাহন"
+    f: plabito-nodeete-trissito-obogahon.md
+    lang: bn
+  - t: "লিমেরিক ৭"
+    f: limerick-7.md
+    lang: bn
+    kind: limerick
+  - t: "লিমেরিক ৮"
+    f: limerick-8.md
+    lang: bn
+    kind: limerick
+  - t: "এমনি কবিতা ১"
+    f: emni-kobita-1.md
+    lang: bn
+  - t: "এমনি কবিতা ২"
+    f: emni-kobita-2.md
+    lang: bn
+  - t: "গতানুগতিক তুমি"
+    f: gotanugotik-tumi.md
+    lang: bn
+  - t: "মগজহীন দেহে বসবাস"
+    f: mogojheen-dehe-bosobas.md
+    lang: bn
+  - t: "লিমেরিক ৯"
+    f: limerick-9.md
+    lang: bn
+    kind: limerick
+  - t: "গন্ধকাব্যঃ ১ম পর্ব"
+    f: gondhokabyo-1m-porbo.md
+    lang: bn
+  - t: "অপলাপ ১"
+    f: opolap-1.md
+    lang: bn
+  - t: "পাখিয়াল"
+    f: pakhiyal.md
+    lang: bn
+  - t: "কখনো কাব্য"
+    f: kokhono-kabyo.md
+    lang: bn
+  - t: "এমনি কবিতা ৩"
+    f: emni-kobita-3.md
+    lang: bn
+  - t: "এমনি কবিতা ৪"
+    f: emni-kobita-4.md
+    lang: bn
+  - t: "কবিতা"
+    f: kobita.md
+    lang: bn
+  - t: "অধরা ধরার সাধ"
+    f: audhora-dhorar-sadh.md
+    lang: bn
+  - t: "নীল গোলাপ"
+    f: neel-golap.md
+    lang: bn
+  - t: "'অমৃত পিয়াস' হলো যেভাবে"
+    f: omrit-piyas-holo-jebhabe.md
+    lang: bn
+  - t: "লিমেরিক ১০"
+    f: limerick-10.md
+    lang: bn
+    kind: limerick
+  - t: "পৌনঃপুনিক জীবনে"
+    f: pownohpunik-jeebone.md
+    lang: bn
+  - t: "নীড় নিশ্চুপ"
+    f: neer-nishchup.md
+    lang: bn
+  - t: "নিদাঘক্লিষ্ট"
+    f: nidaghklissto.md
+    lang: bn
+  - t: "যেই ভালোবাসার রং নাই"
+    f: jei-bhalobasar-rong-nai.md
+    lang: bn
+  - t: "বরফ চড়ুই"
+    f: boroph-chorui.md
+    lang: bn
+  - t: "তোর ভাবনায়"
+    f: tor-bhabonay.md
+    lang: bn
+  - t: "এমনি কবিতা ৫"
+    f: emni-kobita-5.md
+    lang: bn
+  - t: "নাতিসম্ভ্রান্ত কোলাহল"
+    f: natisombhranto-kolahol.md
+    lang: bn
+  - t: "ভালোবেসেছি তোকে"
+    f: bhalobesechhi-toke.md
+    lang: bn
+  - t: "নির্লিপ্ত কবির কবিতা খোঁজা"
+    f: nirlipt-kobir-kobita-khoja.md
+    lang: bn
+  - t: "গাংচিলের সময়"
+    f: gangchiler-somoy.md
+    lang: bn
+  - t: "আজব নদী"
+    f: ajob-nodee.md
+    lang: bn
+  - t: "নিদাঘপক্ষ শেষে"
+    f: nidaghopokqho-shesse.md
+    lang: bn
+  - t: "লাল পদ্ম পুকুর"
+    f: lal-podmo-pukur.md
+    lang: bn
+  - t: "বিদগ্ধ, উদ্ভ্রান্ত"
+    f: bidogdho-udbhranto.md
+    lang: bn
+  - t: "প্রত্যাশা"
+    f: protyasha.md
+    lang: bn

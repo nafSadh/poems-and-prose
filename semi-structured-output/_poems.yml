@@ -1,0 +1,23 @@
+# Per-book manifest for semi-structured-output.
+# Edit this file to reorder poems, add new ones, or update metadata.
+# The build script generates the live site from this + the .md files.
+
+id: semi-structured-output
+title: Semi-structured Output
+blurb: an analysis of the surroundings
+lang: en
+icon: ⚙
+
+poems:
+  - t: "The System"
+    f: the-system.md
+    lang: en
+    note: "also: every system"
+  - t: "The Ventriloquist"
+    f: the-ventriloquist.md
+    lang: en
+    note: "who speaks? who hears?"
+  - t: "Tab 16"
+    f: tab-16.md
+    lang: en
+    note: "open tabs = open"

@@ -1,0 +1,46 @@
+<div class="view view-book active">
+  <nav class="bar">
+    <a href="/" class="mark"><svg><use href="#bar-mark"/></svg>sadh</a>
+    <span class="crumb"><a href="/">← all books</a> <span>Book {{ROMAN}}</span></span>
+  </nav>
+  <section class="title-page">
+    <div class="title-art"><svg width="260" height="260"><use href="#{{ILL_ID}}"/></svg></div>
+    <div class="no">Book <span style="font-family:'Fraunces',serif;font-style:italic;letter-spacing:0;text-transform:none;font-size:15px;color:var(--azure-deep)">{{ROMAN}}</span> of {{ROMAN_LAST}}</div>
+    <h1 class="{{TITLE_CLASS}}">{{BOOK_TITLE}}{{SUBTITLE_HTML}}</h1>
+    <p class="blurb">{{BLURB}}</p>
+    <div class="meta">
+      <span>Extent<b>{{COUNT}}</b></span>
+      <span>Language<b>{{LANG_LABEL}}</b></span>
+    </div>
+  </section>
+  <div class="rule">
+    <div class="l"></div>
+    <svg><use href="#swash-sm"/></svg>
+    <div class="l"></div>
+  </div>
+  <div class="contents-label">Contents</div>
+  <ol class="poem-list">
+{{POEM_LIST}}
+  </ol>
+  <nav class="book-sibling">
+{{PREV_LINK}}
+    <span class="up"><a href="/">all books</a></span>
+{{NEXT_LINK}}
+  </nav>
+  <footer class="foot">
+    <span>{{DOMAIN}}</span>
+    <span class="sig">~ {{AUTHOR_LOWER}}</span>
+    <a href="mailto:{{EMAIL}}">write</a>
+  </footer>
+  <script>
+  document.addEventListener('keydown', function(e){
+    if(e.metaKey||e.ctrlKey||e.altKey||e.shiftKey) return;
+    var t=e.target.tagName; if(t==='INPUT'||t==='TEXTAREA') return;
+    var sel = e.key==='ArrowLeft' ? '.book-sibling a.prev'
+            : e.key==='ArrowRight' ? '.book-sibling a.next' : null;
+    if(!sel) return;
+    var a=document.querySelector(sel);
+    if(a && a.getAttribute('href')){ e.preventDefault(); location.href=a.getAttribute('href'); }
+  });
+  </script>
+</div>

@@ -1,0 +1,22 @@
+# Per-book manifest for other-scripts.
+# Edit this file to reorder poems, add new ones, or update metadata.
+# The build script generates the live site from this + the .md files.
+
+id: other-scripts
+title: Other Scripts
+blurb: stanzas for future poems
+lang: mixed
+icon: 🖋
+
+poems:
+  - t: "Shorts"
+    f: shorts.md
+    lang: en
+    note: "compressed, potent"
+  - t: "Seeds/Blurbs"
+    f: seeds-blurbs.md
+    lang: en
+  - t: "Exemplary Poem"
+    f: exemplary-poem.md
+    lang: en
+    note: "what is exemplary?"

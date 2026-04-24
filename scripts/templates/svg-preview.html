@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SVG symbol preview</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; background: #f4f3ee; color: #1a1208; margin: 0; padding: 32px; }
+  h1 { font-family: Georgia, serif; font-style: italic; font-weight: 400; margin: 0 0 8px; }
+  p  { color: #8a7a56; margin: 0 0 32px; font-size: 14px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
+  .cell { background: #fafaf5; border: 1px solid rgba(26,18,8,.14); border-radius: 4px; padding: 16px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .cell svg { width: 120px; height: 120px; color: #2a6bb8; opacity: .85; }
+  .cell code { font-size: 11px; color: #3d2a16; background: rgba(42,107,184,.06); padding: 3px 8px; border-radius: 3px; }
+  .cell .dim { font-size: 10px; color: #8a7a56; letter-spacing: 1px; text-transform: uppercase; }
+  .empty { color: #b8422a; padding: 40px; text-align: center; font-style: italic; }
+</style>
+</head>
+<body>
+<h1>SVG symbol preview</h1>
+<p>Every <code>&lt;symbol&gt;</code> defined in <code>svg-defs.html</code>, rendered via <code>&lt;use href="#id"/&gt;</code>.</p>
+
+<div id="defs-slot"></div>
+<main id="grid" class="grid"></main>
+
+<script>
+(async function(){
+  const grid = document.getElementById('grid');
+  const slot = document.getElementById('defs-slot');
+  try {
+    const res = await fetch('svg-defs.html');
+    if(!res.ok) throw new Error(res.status);
+    slot.innerHTML = await res.text();
+  } catch (e) {
+    grid.innerHTML = '<div class="empty">could not load svg-defs.html — serve via a web server, not file://</div>';
+    return;
+  }
+  const symbols = Array.from(slot.querySelectorAll('symbol'));
+  if(!symbols.length){
+    grid.innerHTML = '<div class="empty">no &lt;symbol&gt; elements found in svg-defs.html</div>';
+    return;
+  }
+  // Sort by ID for a predictable grid order.
+  symbols.sort((a,b)=>a.id.localeCompare(b.id));
+  for(const sym of symbols){
+    const cell = document.createElement('div');
+    cell.className = 'cell';
+    const vb = sym.getAttribute('viewBox') || '';
+    cell.innerHTML =
+      '<svg viewBox="'+vb+'"><use href="#'+sym.id+'"/></svg>'+
+      '<code>'+sym.id+'</code>'+
+      (vb ? '<span class="dim">viewBox: '+vb+'</span>' : '');
+    grid.appendChild(cell);
+  }
+})();
+</script>
+</body>
+</html>

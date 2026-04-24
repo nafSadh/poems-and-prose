@@ -1,0 +1,85 @@
+# Site-wide config for the poems.nafsadh.com build.
+# Edit this to change global text, domain, or collection order.
+# Collection ordering is implicit from `collections:` list order.
+
+site:
+  title: Poems by Sadh
+  author: Sadh
+  domain: poems.nafsadh.com
+  epigraph: '"All poetry comes from silence"'
+  description: Sadh's poetry collections — Bengali and English, curated into books.
+
+# Collection order + per-collection glyph/illustration IDs (SVG symbols defined
+# in templates/svg-defs.html). To add a new collection, append to this list and
+# create <collection-id>/_poems.yml.
+collections:
+  - id: sulol-songroho
+    ill: ill-sulol
+    mark: mark-sulol
+    corner: a small bird
+    pool:
+      - sc-sulol-branch
+      - sc-sulol-gangchil
+      - sc-sulol-ghasphul
+      - sc-sulol-harmonium
+      - sc-sulol-kash
+      - sc-sulol-leaf
+      - sc-sulol-lotus
+      - sc-sulol-nidagh
+      - sc-sulol-snow-sparrow
+  - id: second-seconds
+    ill: ill-seconds
+    mark: mark-seconds
+    corner: the window
+    pool:
+      - sc-seconds-chair
+      - sc-seconds-couch-vista
+      - sc-seconds-counter
+      - sc-seconds-desk
+      - sc-seconds-lavender
+      - sc-seconds-mirror
+      - sc-seconds-petal
+      - sc-seconds-slippers
+      - sc-seconds-window
+  - id: semi-structured-output
+    ill: ill-ssol
+    mark: mark-ssol
+    corner: a friend
+    pool:
+      - sc-ssol-flags
+      - sc-ssol-gears
+      - sc-ssol-maze
+      - sc-ssol-mobius
+      - sc-ssol-punchcard
+      - sc-ssol-robot
+      - sc-ssol-tab16
+      - sc-ssol-typewriter
+      - sc-ssol-ventriloquist
+  - id: life-untitled
+    ill: ill-life
+    mark: mark-life
+    corner: the sand
+    pool:
+      - sc-life-book
+      - sc-life-bridge
+      - sc-life-clock
+      - sc-life-doorway
+      - sc-life-footprints
+      - sc-life-hourglass
+      - sc-life-phone
+      - sc-life-record
+      - sc-life-teacup
+  - id: other-scripts
+    ill: ill-other
+    mark: mark-other
+    corner: ink drops
+    pool:
+      - sc-other-alphabets
+      - sc-other-crane
+      - sc-other-dress
+      - sc-other-inkwell
+      - sc-other-onebook
+      - sc-other-papers
+      - sc-other-quill
+      - sc-other-sieve
+      - sc-other-sodium
