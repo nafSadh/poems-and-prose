@@ -1,6 +1,6 @@
 # View from My Couch
-<by: Sadh /><date: Oct 05, 2025 />
 
+<by: Sadh /><date: Oct 05, 2025 />
 
 looking through my windows,  
 nice clouds drifting—  
@@ -25,4 +25,3 @@ nice for what it could have been
 
 every possibility holds its own beauty  
 a reason to be grateful
-

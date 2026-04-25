@@ -1,11 +1,11 @@
 # The Ventriloquist
-<date: Oct 15, 2025 />
 
+<date: Oct 15, 2025 />
 
 Sometimes,  
 nay oftentimes,  
 they tell us:  
-*what would everyone think\!*
+_what would everyone think\!_
 
 They never claim as their own  
 the opinions  
@@ -15,8 +15,7 @@ in the name of others.
 Every time—  
 every single time—  
 you tell me  
-*what would X think,* I know,  
+_what would X think,_ I know,  
 it's only you  
 who wants to shove  
 your vile constraints down my throat.
-

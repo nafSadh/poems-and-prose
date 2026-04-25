@@ -54,10 +54,6 @@
 
 ## [Second Seconds - A Conversation with Self](second-seconds/~index.md)
 
-
-
-
-
 1. [পরশপাথর](second-seconds/পরশপাথর.md)
 2. [বিদায়, নীহারিকা](second-seconds/বিদায়-নীহারিকা.md)
 3. [এক টুকরো গগনে গনগনে চাঁদ](second-seconds/এক-টুকরো-গগনে-গনগনে-চাঁদ.md)
@@ -104,11 +100,10 @@
 
 ## [Life Untitled](life-untitled/~index.md)
 
-*No poems listed yet.*
+_No poems listed yet._
 
 ## [Other Scripts](other-scripts/~index.md)
 
 1. [Shorts](other-scripts/shorts.md)
 2. [Seeds/Blurbs](other-scripts/seeds-blurbs.md)
 3. [Exemplary Poem](other-scripts/exemplary-poem.md)
-

@@ -2,9 +2,9 @@
 
 Sadh’s 2nd Book of Poems
 
-# 
+#
 
-# সুলল দ্বিত 
+# সুলল দ্বিত
 
 ## অব্যক্ত হৃদয়ের কথোপকথন
 
@@ -14,7 +14,7 @@ Sadh’s 2nd Book of Poems
 
 # এক টুকরো গগনে গনগনে চাঁদ
 
-# এক টুকরো গগনে গনগনে চাঁদ 
+# এক টুকরো গগনে গনগনে চাঁদ
 
 গত রাতের কথা,  
 অন্ধকারের আলোতে বন্ধুর চোখে দেখা,  
@@ -25,47 +25,47 @@ Sadh’s 2nd Book of Poems
 অপূর্ব সৌন্দর্যের মায়াময় রজনী,  
 বিধাতার বিস্ময়াবৃত ধূপ শীতল ধরণীর  
 মায়াকান্নার মাঝে,  
-এক টুকরো গগনে গনগনে চাঁদ   
-  আকাশের মাঝে অনেকটা জায়গা করে,  
-  ধূপছায়ার মৃদুমন্দ আলোকছটায়   
-ধুম্রজাল সৃষ্টি করেছিল   
-আমাদের কাব্যের জালে বাঁধার ছলনায়। 
+এক টুকরো গগনে গনগনে চাঁদ  
+ আকাশের মাঝে অনেকটা জায়গা করে,  
+ ধূপছায়ার মৃদুমন্দ আলোকছটায়  
+ধুম্রজাল সৃষ্টি করেছিল  
+আমাদের কাব্যের জালে বাঁধার ছলনায়।
 
-এরই মাঝে মেঘ মন্ডলী   
-  চন্দ্রালোকে মুগ্ধ গগনে   
+এরই মাঝে মেঘ মন্ডলী  
+ চন্দ্রালোকে মুগ্ধ গগনে  
 চারিদিকে ঘুরপাক খায় অযথাই ।
 
 চন্দ্রকলার ছলনায় আবদ্ধ ধরণীর অসহায়  
 মানবসন্তান, দুর নিঃসীমানায় চায়  
-সময়ের অজানায়…   
+সময়ের অজানায়…  
 অল্প কিছুক্ষন হারানোর বাসনায়।
 
-এরই মাঝে, তিন চা-চামচ চায়ের ঘ্রাণে   
-পাগলপ্রায় অসহায়   
-বন্ধু আমার বারেবার   
+এরই মাঝে, তিন চা-চামচ চায়ের ঘ্রাণে  
+পাগলপ্রায় অসহায়  
+বন্ধু আমার বারেবার  
 আকাশ পানে চায়।
 
 প্রাত্যহিক চন্দ্রগাগনিক ছলনায়,  
-বায়ুবাহিত বিমানের ছায়ায়   
+বায়ুবাহিত বিমানের ছায়ায়  
 আর নিশাচর চামচিকার হাওয়ায়,  
 বুনো বাতাসের হাছনাহেনার ঘ্রাণে  
-“তিন চা-চামচ চা হবে কি আবার?”   
-  সেই বাসনায়,  
+“তিন চা-চামচ চা হবে কি আবার?”  
+ সেই বাসনায়,  
 বন্ধু আমার আকাশ পানে চায়  
-অসহায়, ক্ষীণকায়,   
-অথচ মহিমাময় আপন মনসায় –   
-তপস্যা করে   
-আবারিত আকাশের আবাহনে   
+অসহায়, ক্ষীণকায়,  
+অথচ মহিমাময় আপন মনসায় –  
+তপস্যা করে  
+আবারিত আকাশের আবাহনে  
 আবারও চলবে পথে  
 দুই কাপ চা হবে এই আশায়।
 
 # বিদায়, নীহারিকা
 
-# বিদায়, নীহারিকা 
+# বিদায়, নীহারিকা
 
 ([published](https://docs.google.com/document/d/e/2PACX-1vQ8SuuWTxYG91FneWf209aKJ0yQgGWHVfMgyy6vsCVw1UYwcgU1YXCg7DyCcwbdjY9IFBumelLeQpgC/pub))
 
-সেই প্রত্যুষে, যখন আধার নীরবতায় আচ্ছন্ন ধরণী –   
+সেই প্রত্যুষে, যখন আধার নীরবতায় আচ্ছন্ন ধরণী –  
 কিছুটা শ্রান্ত, কিছুটা শিহরিত, তাড়িত মন জুড়ে,  
 অবাধ্য হৃদয়ের কষ্টগুলো আলতো হাতে মুছে,  
 সাহসগুলো একোণ, ওকোণ থেকে কুড়োতে কুড়োতে —  
@@ -94,16 +94,16 @@ Sadh’s 2nd Book of Poems
 কুঁড়েঘর বা শ্রান্ত দালান— বনোবাসের কারাগার,  
 যেখানে অন্ধকার নেমে আসে বারবার।
 
-আজো দাঁড়িয়ে আমি,   
+আজো দাঁড়িয়ে আমি,  
 নীহারিকার অমোঘ আকর্ষে  
 তোমার নীরব চাহনির গভীরে বাঁধা,  
-মুক্তির অভিলাষ মনে,   
+মুক্তির অভিলাষ মনে,  
 তবু পায়ে ভয়ের আঠালো মায়া\!
 
 সেখানে — শুধু ক্ষয়ে গেছি প্রতি ক্ষণে, প্রতি নিশ্বাসে,  
 চূর্ণ কাঁচের মতো অস্তিত্ব, নীরব হয়ে বিঁধে বুকে, প্রতিশ্বাসে
 
-এই প্রত্যুষে, এখনো আধার নীরবতায় আচ্ছন্ন ধরণী –   
+এই প্রত্যুষে, এখনো আধার নীরবতায় আচ্ছন্ন ধরণী –  
 শুধু শ্রান্ত, না শিহরিত, ক্লান্ত মন জুড়ে,  
 অবাধ্য হৃদয়ের কষ্টগুলো অভ্যাসবশে মুছে,  
 যেটুকু ছিল সাহস, সেটুকু কুড়িয়ে  
@@ -197,83 +197,122 @@ Farewell, my love. Farewell, my hope, my fear.
 الوداع، نیہاریکا  
 আল্বিদা, নীহারিকা Alvida, Niharika  
 وہ صبحِ کاذب، جب خاموشی میں ڈوبا تھا جہان سارا –  
-ওহ্ সুব্হ-এ-কাজ়িব্, জব্ খ়ামোশী মেঁ ডূবা থা জহান্ সারা – Woh subah-e-kazib, jab khamoshi mein dooba tha jahaan sara –  
+ওহ্ সুব্হ-এ-কাজ়িব্, জব্ খ়ামোশী মেঁ ডূবা থা জহান্ সারা – Woh subah-e-kazib, jab
+khamoshi mein dooba tha jahaan sara –  
 کچھ شکستہ دل، کچھ پُر سوز، آوارہ تھا دل میرا بے چارہ،  
-কুছ্ শিকস্তা-দিল্, কুছ্ পুর্-সোজ়, আৱারা থা দিল্ মেরা বেচারা, Kuch shikasta-dil, kuch pur-soz, awaara tha dil mera bechara,  
+কুছ্ শিকস্তা-দিল্, কুছ্ পুর্-সোজ়, আৱারা থা দিল্ মেরা বেচারা, Kuch shikasta-dil,
+kuch pur-soz, awaara tha dil mera bechara,  
 یوں دردِ دل کی گرد کو ہولے سے ہٹانے کی جستجو میں،  
-ইয়ूँ দর্দ-এ-দিল্ কী গর্দ্ কো হঔলে সে হঠানে কী জুস্তুজূ মেঁ, Yun dard-e-dil ki gard ko haule se hatane ki justuju mein,  
+ইয়ूँ দর্দ-এ-দিল্ কী গর্দ্ কো হঔলে সে হঠানে কী জুস্তুজূ মেঁ, Yun dard-e-dil ki
+gard ko haule se hatane ki justuju mein,  
 ہمت کے ریزے چنتا تھا ہر گوشے سے، تیری آرزو میں —  
-হিম্মত্ কে রেজ়ে চুন্তা থা হর্ গোশে সে, তেরী আরজ়ূ মেঁ — Himmat ke reze chunta tha har goshe se, teri aarzoo mein —  
+হিম্মত্ কে রেজ়ে চুন্তা থা হর্ গোশে সে, তেরী আরজ়ূ মেঁ — Himmat ke reze chunta
+tha har goshe se, teri aarzoo mein —  
 چپ چاپ اندھیرے میں کچھ سامانِ سفر میں باندھ رہا تھا،  
-চুপ্চাপ্ अँধেরে মেঁ কুছ্ সামান্-এ-সফ়র্ মঁয় বাঁধ্ রহা থা, Chup chaap andhere mein kuch samaan-e-safar main baandh raha tha,  
+চুপ্চাপ্ अँধেরে মেঁ কুছ্ সামান্-এ-সফ়র্ মঁয় বাঁধ্ রহা থা, Chup chaap andhere
+mein kuch samaan-e-safar main baandh raha tha,  
 تھوڑی کتابیں، پیرہن، کچھ مرض کی دوائیں سادھ رہا تھا،  
-থোড়ী কিতাবেঁ, পয়রহন্, কুছ্ মর্জ় কী দৱায়েঁ সাধ্ রহা থা, Thori kitabein, pairahan, kuch marz ki dawaaein saadh raha tha,  
+থোড়ী কিতাবেঁ, পয়রহন্, কুছ্ মর্জ় কী দৱায়েঁ সাধ্ রহা থা, Thori kitabein,
+pairahan, kuch marz ki dawaaein saadh raha tha,  
 سب باندھ کے خاموش، تیار گویا، ایک رہائی کی آس میں ناتواں سا۔  
-সব্ বাঁধ্ কে খ়ামোশ্, তয়্যার্ গোয়া, এক্ রিহায়ী কী আস্ মেঁ নাতৱাঁ সা। Sab baandh ke khamosh, tayyar goya, ek rihaai ki aas mein na-tawaan sa.  
+সব্ বাঁধ্ কে খ়ামোশ্, তয়্যার্ গোয়া, এক্ রিহায়ী কী আস্ মেঁ নাতৱাঁ সা। Sab baandh
+ke khamosh, tayyar goya, ek rihaai ki aas mein na-tawaan sa.  
 جب اپنی راہ ملنی نہ تھی، منزل جدا تھی اپنی قسمت میں،  
-জব্ অপ্নী রাহ্ মিল্নী না থী, মন্জ়িল্ জুদা থী অপ্নী ক়িস্মত্ মেঁ, Jab apni raah milni na thi, manzil juda thi apni qismat mein,  
+জব্ অপ্নী রাহ্ মিল্নী না থী, মন্জ়িল্ জুদা থী অপ্নী ক়িস্মত্ মেঁ, Jab apni raah
+milni na thi, manzil juda thi apni qismat mein,  
 ممکن نہ تھا وہ ہمسفری، ڈوبے تھے چاہے جتنی محبت میں۔  
-মুম্কিন্ না থা ওহ্ হম্সফ়রী, ডূবে থে চাহে জিত্নী মুহব্বত্ মেঁ। Mumkin na tha woh humsafarī, doobe the chahe jitni mohabbat mein.  
+মুম্কিন্ না থা ওহ্ হম্সফ়রী, ডূবে থে চাহে জিত্নী মুহব্বত্ মেঁ। Mumkin na tha woh
+humsafarī, doobe the chahe jitni mohabbat mein.  
 اس خواب کی راہ پہ صدیاں چلا، حاصل مگر کچھ بھی نہیں آیا،  
-উস্ খ়্ৱাব্ কী রাহ্ পে সদিয়ঁ চলা, হাসিল্ মগর্ কুছ্ ভী নহীঁ আয়া, Us khwaab ki raah pe sadiyaan chala, haasil magar kuch bhi nahin aaya,  
+উস্ খ়্ৱাব্ কী রাহ্ পে সদিয়ঁ চলা, হাসিল্ মগর্ কুছ্ ভী নহীঁ আয়া, Us khwaab ki
+raah pe sadiyaan chala, haasil magar kuch bhi nahin aaya,  
 دس برس تنہا کھڑا ہوں، شعر سے باہر – گمراہوں کا میں ہمسایہ۔  
-দস্ বরস্ তন্হা খড়া হুঁ, শে’র্ সে বাহর্ – গুম্রাহোঁ কা মঁয় হম্সায়া। Das baras tanha khara hoon, she'r se baahar – gumraahon ka main humsaaya.  
+দস্ বরস্ তন্হা খড়া হুঁ, শে’র্ সে বাহর্ – গুম্রাহোঁ কা মঁয় হম্সায়া। Das baras
+tanha khara hoon, she'r se baahar – gumraahon ka main humsaaya.  
 فسردہ قصے، سرد آہیں، سیاہ راتوں کے بجھے افسانے،  
-ফ়সুর্দা ক়িস্সে, সর্দ্ আহেঁ, স্যাহ্ রাতোঁ কে বুঝে অফ়্সানে, Fasurda qisse, sard aahein, siyaah raaton ke bujhe afsaane,  
+ফ়সুর্দা ক়িস্সে, সর্দ্ আহেঁ, স্যাহ্ রাতোঁ কে বুঝে অফ়্সানে, Fasurda qisse, sard
+aahein, siyaah raaton ke bujhe afsaane,  
 چند دھندلی یادیں ہیں جو جکڑے ہیں، وعدے وہ ادھورے، بیگانے۔  
-চন্দ্ ধুँধ্লী ইয়াদেঁ হ্যাঁয় জো জক্ড়ে হ্যাঁয়, ৱাদে ওহ্ অধূরে, বেগানে। Chand dhundhli yaadein hain jo jakre hain, waade woh adhure, begaane.  
+চন্দ্ ধুँধ্লী ইয়াদেঁ হ্যাঁয় জো জক্ড়ে হ্যাঁয়, ৱাদে ওহ্ অধূরে, বেগানে। Chand
+dhundhli yaadein hain jo jakre hain, waade woh adhure, begaane.  
 اس تیرگی میں، تو بتا، بچتی ہے کتنی روشنی جاں پہ؟  
-ইস্ তীরগী মেঁ, তূ বতা, বচ্তী হৈ কিত্নী রৌশনী জাঁ পে? Is teergi mein, tu bata, bachti hai kitni raushni jaan pe?  
+ইস্ তীরগী মেঁ, তূ বতা, বচ্তী হৈ কিত্নী রৌশনী জাঁ পে? Is teergi mein, tu bata,
+bachti hai kitni raushni jaan pe?  
 دل تجھ پہ وارا تھا کبھی، موجود تھی کیا تو وہاں پہ؟ میرے پاس میں؟  
-দিল্ তুঝ্পে ৱারা থা কভী, মওজূদ্ থী ক্যা তূ ৱহাঁ পে? মেরে পাস্ মেঁ? Dil tujhpe waara tha kabhi, maujood thi kya tu wahaan pe? Mere paas mein?  
+দিল্ তুঝ্পে ৱারা থা কভী, মওজূদ্ থী ক্যা তূ ৱহাঁ পে? মেরে পাস্ মেঁ? Dil tujhpe
+waara tha kabhi, maujood thi kya tu wahaan pe? Mere paas mein?  
 آج یہ دل چاک چاک ہے، مٹے ہوئے ہیں سب نشاں تیرے نام کے،  
-আজ্ ইয়ে দিল্ চাক্ চাক্ হৈ, মিটে হুয়ে হ্যাঁয় সব্ নিশা্ঁ তেরে নাম্ কে, Aaj yeh dil chaak chaak hai, mite hue hain sab nishaan tere naam ke,  
+আজ্ ইয়ে দিল্ চাক্ চাক্ হৈ, মিটে হুয়ে হ্যাঁয় সব্ নিশা্ঁ তেরে নাম্ কে, Aaj yeh dil
+chaak chaak hai, mite hue hain sab nishaan tere naam ke,  
 زرد ہے یہ درد سے حضور، لیتا ہوں اب میں تم سے — الوداع\!  
-জ়র্দ্ হৈ ইয়ে দর্দ্ সে হুজ়ূর, লেতা হুঁ অব্ মঁয় তুম্সে — আল্বিদা\! Zard hai yeh dard se huzoor, leta hoon ab main tumse — Alvida\!  
+জ়র্দ্ হৈ ইয়ে দর্দ্ সে হুজ়ূর, লেতা হুঁ অব্ মঁয় তুম্সে — আল্বিদা\! Zard hai yeh
+dard se huzoor, leta hoon ab main tumse — Alvida\!  
 وہ رازِ دل جو تھا بڑا... نہیں، حرفِ دیگر اب نہ کہوں گا میں،  
-ওহ্ রাজ়-এ-দিল্ জো থা বড়া... নহীঁ, হর্ফ়-এ-দিগর্ অব্ না কহूँगा মঁয়, Woh raaz-e-dil jo tha bara... nahin, harf-e-digar ab na kahunga main,  
+ওহ্ রাজ়-এ-দিল্ জো থা বড়া... নহীঁ, হর্ফ়-এ-দিগর্ অব্ না কহूँगा মঁয়, Woh
+raaz-e-dil jo tha bara... nahin, harf-e-digar ab na kahunga main,  
 (یہ آج کی شب نہیں، شاید پھر کبھی...)  
-(ইয়ে আজ্ কী শব্ নহীঁ, শায়েদ্ ফির্ কভী...) (Yeh aaj ki shab nahin, shayad phir kabhi...)  
+(ইয়ে আজ্ কী শব্ নহীঁ, শায়েদ্ ফির্ কভী...) (Yeh aaj ki shab nahin, shayad phir
+kabhi...)  
 چاہی تھی راہِ فرار پر، سمٹی ملی وہ راہ گزر مجھ کو—  
-চাহী থী রাহ্-এ-ফ়রার্ পর্, সিম্টী মিলী ওহ্ রাহ্-গুজ়র্ মুঝ্কো— Chaahi thi raah-e-faraar par, simti mili woh raah-guzar mujhko—  
+চাহী থী রাহ্-এ-ফ়রার্ পর্, সিম্টী মিলী ওহ্ রাহ্-গুজ়র্ মুঝ্কো— Chaahi thi
+raah-e-faraar par, simti mili woh raah-guzar mujhko—  
 جکڑ لیا یوں ماضی کے سایوں نے، بھولی وفا نے، ٹوٹی قسم نے تجھ کو مجھ کو۔  
-জকড়্ লিয়া ইয়ूँ মাজ়ী কে সায়োঁ নে, ভূলী ৱফ়া নে, টূটী ক়সম্ নে तुझ्को-मुझ्को। Jakar liya yun maazi ke saayon ne, bhooli wafa ne, tooti qasam ne tujhko-mujhko.  
+জকড়্ লিয়া ইয়ूँ মাজ়ী কে সায়োঁ নে, ভূলী ৱফ়া নে, টূটী ক়সম্ নে तुझ्को-मुझ्को।
+Jakar liya yun maazi ke saayon ne, bhooli wafa ne, tooti qasam ne
+tujhko-mujhko.  
 یہ کوئی کٹیا ہو یا اجڑا مکاں — گویا ہے ہجر کا زندان،  
-ইয়ে কোয়ী কুটিয়া হো ইয়া উজড়া মকাঁ—গোয়া হৈ হিজ্র্ কা জ়িন্দান্, Yeh koi kutiya ho ya ujra makaan—goya hai hijr ka zindaan,  
+ইয়ে কোয়ী কুটিয়া হো ইয়া উজড়া মকাঁ—গোয়া হৈ হিজ্র্ কা জ়িন্দান্, Yeh koi kutiya ho
+ya ujra makaan—goya hai hijr ka zindaan,  
 جہاں پہ شام اترتی ہے بار بار بن کے مری جاں کا نقصان۔  
-জহাঁ পে শাম্ উর্তী হৈ বार्-বার্ বন্কে মিরী জাঁ কা নুক়্সান্। Jahaan pe shaam utarti hai baar-baar banke miri jaan ka nuqsaan.  
+জহাঁ পে শাম্ উর্তী হৈ বार्-বার্ বন্কে মিরী জাঁ কা নুক়্সান্। Jahaan pe shaam
+utarti hai baar-baar banke miri jaan ka nuqsaan.  
 آج بھی وہیں کھڑا ہوں میں، مری جاں،  
 আজ্ ভী ৱহীঁ খড়া হুঁ মঁয়, মিরী জাঁ, Aaj bhi waheen khara hoon main, miri jaan,  
 نیہاریکا، تیری کشش کا ہوں قیدی مہرباں،  
-নীহারিকা, তেরী ক়শিশ্ কা হুঁ ক়য়দী মেহর্বাঁ, Niharika, teri kashish ka hoon qaidi meherbaan,  
+নীহারিকা, তেরী ক়শিশ্ কা হুঁ ক়য়দী মেহর্বাঁ, Niharika, teri kashish ka hoon
+qaidi meherbaan,  
 تیری خاموش نگاہوں کی گہرائی میں ہوں یوں گرفتار،  
-তেরী খ়ামোশ্ নিগাহোঁ কী গহ্রায়ী মেঁ হুঁ ইয়ूँ গির্ফ়্তার, Teri khamosh nigaahon ki gehraai mein hoon yun giraftaar,  
+তেরী খ়ামোশ্ নিগাহোঁ কী গহ্রায়ী মেঁ হুঁ ইয়ूँ গির্ফ়্তার, Teri khamosh nigaahon
+ki gehraai mein hoon yun giraftaar,  
 رہائی کی حسرت ہے دل میں بے قرار،  
 রিহায়ী কী হসত্ হৈ দিল্ মেঁ বে-ক়রার্, Rihaai ki hasrat hai dil mein be-qaraar,  
 مگر پیروں میں خوف کا چپچپا سا ہے اک حصار\!  
-মগর্ প্যরোঁ মেঁ খ়ওফ়্ কা চিপ্চিপা সা হৈ ইক্ হিসার্\! Magar pairon mein khauf ka chipchipa sa hai ik hisaar\!  
+মগর্ প্যরোঁ মেঁ খ়ওফ়্ কা চিপ্চিপা সা হৈ ইক্ হিসার্\! Magar pairon mein khauf ka
+chipchipa sa hai ik hisaar\!  
 وہاں — بس اپنی ہستی کو مٹتے دیکھا ہر لمحہ، ہر سانس کے سنگ،  
-ৱহাঁ — বস্ অপ্নী হসতী কো মিট্তে দেখা হর্ লমহা, হর্ সাँস্ কে সঙ্গ্, Wahaan — bas apni hasti ko mit-te dekha har lamha, har saans ke sang,  
+ৱহাঁ — বস্ অপ্নী হসতী কো মিট্তে দেখা হর্ লমহা, হর্ সাँস্ কে সঙ্গ্, Wahaan — bas
+apni hasti ko mit-te dekha har lamha, har saans ke sang,  
 شیشۂ دل ٹوٹ کر چبھتا رہا سینے میں خاموشی سے، ہر اک امنگ کے سنگ۔  
-শীশা-এ-দিল্ টূট্ কর্ চভ্তা রহা সীনে মেঁ খ়ামোশী সে, হর্ ইক্ উমঙ্গ্ কে সঙ্গ্। Sheesha-e-dil toot kar chubhta raha seene mein khamoshi se, har ik umang ke sang.  
+শীশা-এ-দিল্ টূট্ কর্ চভ্তা রহা সীনে মেঁ খ়ামোশী সে, হর্ ইক্ উমঙ্গ্ কে সঙ্গ্।
+Sheesha-e-dil toot kar chubhta raha seene mein khamoshi se, har ik umang ke
+sang.  
 اس صبحِ غم میں، اب بھی ہے خاموشی میں ڈوبا جہان سارا –  
-ইস্ সুব্হ-এ-ঘ়ম্ মেঁ, অব্ ভী হৈ খ়ামোশী মেঁ ডূবা জহান্ সারা – Is subah-e-gham mein, ab bhi hai khamoshi mein dooba jahaan sara –  
+ইস্ সুব্হ-এ-ঘ়ম্ মেঁ, অব্ ভী হৈ খ়ামোশী মেঁ ডূবা জহান্ সারা – Is subah-e-gham
+mein, ab bhi hai khamoshi mein dooba jahaan sara –  
 بس خستہ حال ہوں، نہیں وہ سوز اب، تھکا ہوا ہے دل میرا بے چارہ،  
-বস্ খ়স্তা-হাল্ হুঁ, নহীঁ ওহ্ সোজ় অব্, থকা হুয়া হৈ দিল্ মেরা বেচারা, Bas khasta-haal hoon, nahin woh soz ab, thaka hua hai dil mera bechara,  
+বস্ খ়স্তা-হাল্ হুঁ, নহীঁ ওহ্ সোজ় অব্, থকা হুয়া হৈ দিল্ মেরা বেচারা, Bas
+khasta-haal hoon, nahin woh soz ab, thaka hua hai dil mera bechara,  
 یوں دل کے زخموں کی ٹپک کو پونچھتا ہوں اب عادت سے،  
-ইয়ूँ দিল্ কে জ়খ়্মোঁ কী টপক্ কো পোঁছ্তা হুঁ অব্ আদত্ সে, Yun dil ke zakhmon ki tapak ko ponchhta hoon ab aadat se,  
+ইয়ूँ দিল্ কে জ়খ়্মোঁ কী টপক্ কো পোঁছ্তা হুঁ অব্ আদত্ সে, Yun dil ke zakhmon ki
+tapak ko ponchhta hoon ab aadat se,  
 بچی کھچی ہمت کو چنتا ہوں میں بڑی مشقت سے،  
-বচী-খুচী হিম্মত্ কো চুন্তা হুঁ মঁয় বড়ী মশক়্ক়ত্ সে, Bachi-khuchi himmat ko chunta hoon main bari mashaqqat se,  
+বচী-খুচী হিম্মত্ কো চুন্তা হুঁ মঁয় বড়ী মশক়্ক়ত্ সে, Bachi-khuchi himmat ko
+chunta hoon main bari mashaqqat se,  
 چپ چاپ اندھیرے میں یہ سامانِ سفر پھر باندھ رہا ہوں،  
-চুপ্চাপ্ अँধেরে মেঁ ইয়ে সামান্-এ-সফ়র্ ফির্ বাঁধ্ রহা হুঁ, Chup chaap andhere mein yeh samaan-e-safar phir baandh raha hoon,  
+চুপ্চাপ্ अँধেরে মেঁ ইয়ে সামান্-এ-সফ়র্ ফির্ বাঁধ্ রহা হুঁ, Chup chaap andhere
+mein yeh samaan-e-safar phir baandh raha hoon,  
 تھوڑی کتابیں، پیرہن، کچھ مرض کی دوائیں سادھ رہا ہوں،  
-থোড়ী কিতাবেঁ, পয়রহন্, কুছ্ মর্জ় কী দৱায়েঁ সাধ্ রহা হুঁ, Thori kitabein, pairahan, kuch marz ki dawaaein saadh raha hoon,  
+থোড়ী কিতাবেঁ, পয়রহন্, কুছ্ মর্জ় কী দৱায়েঁ সাধ্ রহা হুঁ, Thori kitabein,
+pairahan, kuch marz ki dawaaein saadh raha hoon,  
 سب باندھ کے خاموش، جیسے تیار، رہائی کی کسی مدھم سی اک روشنی میں۔  
-সব্ বাঁধ্ কে খ়ামোশ্, জ্যসে তয়্যার্, রিহায়ী কী কিসী মদ্ধম্ সী ইক্ রৌশনী মেঁ। Sab baandh ke khamosh, jaise tayyar, rihaai ki kisi maddham si ik raushni mein.  
+সব্ বাঁধ্ কে খ়ামোশ্, জ্যসে তয়্যার্, রিহায়ী কী কিসী মদ্ধম্ সী ইক্ রৌশনী মেঁ। Sab
+baandh ke khamosh, jaise tayyar, rihaai ki kisi maddham si ik raushni mein.  
 نیہاریکا\! اے مری محبت\! اے مری جاں\!  
-নীহারিকা\! অ্যায়ে মিরী মুহব্বত্\! অ্যায়ে মিরী জাঁ\! Niharika\! Aye miri mohabbat\! Aye miri jaan\!  
+নীহারিকা\! অ্যায়ে মিরী মুহব্বত্\! অ্যায়ে মিরী জাঁ\! Niharika\! Aye miri
+mohabbat\! Aye miri jaan\!  
 آج بس اتنا ہی کہنا ہے میری مہرباں — الوداع\!  
-আজ্ বস্ ইৎনা হী কহ্না হৈ মেরী মেহর্বাঁ — আল্বিদা\! Aaj bas itna hi kehna hai meri meherbaan — Alvida\!
+আজ্ বস্ ইৎনা হী কহ্না হৈ মেরী মেহর্বাঁ — আল্বিদা\! Aaj bas itna hi kehna hai
+meri meherbaan — Alvida\!
 
 ## ---
 
@@ -282,79 +321,111 @@ Hindi Poetic Rewrite
 विदाई, नीहारिका  
 বিদায়ী, নীহারিকা Vidai, Niharika  
 उस प्रभात में, जब अंधियारी चुप्पी छाई थी धरती पर –  
-উস্ প্রভাত্ মেঁ, জব্ অন্ধিয়ারী চুপ্পী ছায়ী থী ধর্তী পর্ – Us prabhat mein, jab andhiyari chuppi chhai thi dharti par –  
+উস্ প্রভাত্ মেঁ, জব্ অন্ধিয়ারী চুপ্পী ছায়ী থী ধর্তী পর্ – Us prabhat mein, jab
+andhiyari chuppi chhai thi dharti par –  
 कुछ थका हुआ, कुछ सिहरा सा, मन व्याकुल था भीतर,  
-কুছ্ থকা হুয়া, কুছ্ সিহ্রা সা, মন্ ব্যাকুল্ থা ভীতর্, Kuch thaka hua, kuch sihra sa, man vyakul tha bheetar,  
+কুছ্ থকা হুয়া, কুছ্ সিহ্রা সা, মন্ ব্যাকুল্ থা ভীতর্, Kuch thaka hua, kuch sihra
+sa, man vyakul tha bheetar,  
 अनियंत्रित हृदय के कष्टों को हौले से मैं पोंछ रहा,  
-অনিয়ন্ত্রিত্ হৃদয় কে কষ্টোঁ কো হৌলে সে মঁয় পোঁছ্ রহা, Aniyantrit hriday ke kashton ko haule se main ponchh raha,  
+অনিয়ন্ত্রিত্ হৃদয় কে কষ্টোঁ কো হৌলে সে মঁয় পোঁছ্ রহা, Aniyantrit hriday ke
+kashton ko haule se main ponchh raha,  
 साहस कण कोने-कोने से धीरे-धीरे नोंच रहा —  
-সাহস্ কষ্ কোনে-কোনে সে ধীরে-ধীরে নোঁচ্ রহা — Saahas kan kone-kone se dheere-dheere nonch raha —  
+সাহস্ কষ্ কোনে-কোনে সে ধীরে-ধীরে নোঁচ্ রহা — Saahas kan kone-kone se
+dheere-dheere nonch raha —  
 मौन अँधेरे में बाँधे थे मैंने कुछ थैले चुपचाप,  
-মৌন্ अँধেরে মেঁ বাঁধে থে মঁয়নে কুছ্ থৈলে চুপ্চাপ্, Maun andhere mein baandhe the maine kuch thaile chupchaap,  
+মৌন্ अँধেরে মেঁ বাঁধে থে মঁয়নে কুছ্ থৈলে চুপ্চাপ্, Maun andhere mein baandhe the
+maine kuch thaile chupchaap,  
 अल्प सामग्री— पुस्तक, वस्त्र, व्याधि का उपचार,  
-অল্प् সামগ্রী— পুস্তক্, বস্ত্র্, ব্যাধি কা উপ্চার্, Alp saamgri— pustak, vastra, vyadhi ka upchar,  
+অল্प् সামগ্রী— পুস্তক্, বস্ত্র্, ব্যাধি কা উপ্চার্, Alp saamgri— pustak, vastra,
+vyadhi ka upchar,  
 बाँधा सब चुपके से, लगभग प्रस्तुत, मुक्ति की क्षीण सी आस लिए।  
-বাঁধা সব্ চুপ্কে সে, লগ্ভগ্ প্রস্তুত্, মুক্তি কী ক্ষীণ্ সী আস্ লিএ। Baandha sab chupke se, lagbhag prastut, mukti ki ksheen si aas liye.  
+বাঁধা সব্ চুপ্কে সে, লগ্ভগ্ প্রস্তুত্, মুক্তি কী ক্ষীণ্ সী আস্ লিএ। Baandha sab
+chupke se, lagbhag prastut, mukti ki ksheen si aas liye.  
 जब राह शुरू होनी न थी, तुम्हारी-मेरी साथ कभी,  
-জব্ রাহ্ শুরু হোনী ন থী, তুম্হারী-মেরী সাথ্ কভী, Jab raah shuru honi na thi, tumhari-meri saath kabhi,  
+জব্ রাহ্ শুরু হোনী ন থী, তুম্হারী-মেরী সাথ্ কভী, Jab raah shuru honi na thi,
+tumhari-meri saath kabhi,  
 संभव न थी वो सहयात्रा, अथाह प्रेम था यद्यपि।  
-সম্ভব্ ন থী ওহ্ সহয়াত্রা, অথাহ্ প্রেম্ থা যদ্যপি। Sambhav na thi woh sahayatra, athaah prem tha yadyapi.  
+সম্ভব্ ন থী ওহ্ সহয়াত্রা, অথাহ্ প্রেম্ থা যদ্যপি। Sambhav na thi woh sahayatra,
+athaah prem tha yadyapi.  
 उस स्वप्न की राह पे बरसों चला, व्यर्थ आना-जाना,  
-উস্ স্বপ্ন কী রাহ্ পে বরসোঁ চলা, ব্যর্্থ আনা-জানা, Us swapna ki raah pe barson chala, vyarth aana-jaana,  
+উস্ স্বপ্ন কী রাহ্ পে বরসোঁ চলা, ব্যর্্থ আনা-জানা, Us swapna ki raah pe barson
+chala, vyarth aana-jaana,  
 दस वर्ष खड़ा अकेला, काव्य के बाहर – बन के अनजाना।  
-দস্ বর্ষ্ খড়া অকেলা, কাব্য কে বাহর্ – বন্ কে অনজানা। Das varsh khara akela, kavya ke baahar – ban ke anjaana.  
+দস্ বর্ষ্ খড়া অকেলা, কাব্য কে বাহর্ – বন্ কে অনজানা। Das varsh khara akela,
+kavya ke baahar – ban ke anjaana.  
 छोटी कथाएँ, श्रांत शब्द, काली रातों की करुण आहें,  
-ছোটী কথাএঁ, শ্রান্त् शब्দ্, কালী রাতোঁ কী করুণ্ আহেঁ, Chhoti kathaein, shraant shabd, kaali raaton ki karun aahein,  
+ছোটী কথাএঁ, শ্রান্त् शब्দ্, কালী রাতোঁ কী করুণ্ আহেঁ, Chhoti kathaein, shraant
+shabd, kaali raaton ki karun aahein,  
 अल्प स्मृतियाँ, आज भी जकड़े हैं अधूरे वादे, अधूरी राहें।  
-অল্प् স্মৃতियाँ, আজ্ ভী জক্ড়ে হ্যাঁয় অধূরে ৱাদে, অধূরী রাহেঁ। Alp smritiyaan, aaj bhi jakre hain adhure waade, adhuri raahein.  
+অল্प् স্মৃতियाँ, আজ্ ভী জক্ড়ে হ্যাঁয় অধূরে ৱাদে, অধূরী রাহেঁ। Alp smritiyaan,
+aaj bhi jakre hain adhure waade, adhuri raahein.  
 इस घोर तिमिर में, बोलो, प्रेम कितना जीवित रहता है?  
-ইস্ ঘোर् তিমির মেঁ, বোলো, প্রেম্ কিৎনা জীৱিত্ রহ্তা হৈ? Is ghor timir mein, bolo, prem kitna jeevit rehta hai?  
+ইস্ ঘোर् তিমির মেঁ, বোলো, প্রেম্ কিৎনা জীৱিত্ রহ্তা হৈ? Is ghor timir mein,
+bolo, prem kitna jeevit rehta hai?  
 हृदय सौंप दिया था तुम्हें, क्या तुम संग थी, निकटस्थ थी?  
-হৃদয়্ সোঁ্প দিয়া থা তুম্হেঁ, ক্যা তুম্ সঙ্গ্ থী, নিকটস্থ্ থী? Hriday saump diya tha tumhein, kya tum sang thi, nikatasth thi?  
+হৃদয়্ সোঁ্প দিয়া থা তুম্হেঁ, ক্যা তুম্ সঙ্গ্ থী, নিকটস্থ্ থী? Hriday saump diya
+tha tumhein, kya tum sang thi, nikatasth thi?  
 आज वो हृदय है खंड-खंड, मिटे चिह्न सब जाने-पहचाने,  
-আজ্ ওহ্ হৃদয় হৈ খন্্ড-খন্্ড, মিটে চিহ্ন্ সব্ জানে-পহ্চানে, Aaj woh hriday hai khand-khand, mite chihn sab jaane-pehchaane,  
+আজ্ ওহ্ হৃদয় হৈ খন্্ড-খন্্ড, মিটে চিহ্ন্ সব্ জানে-পহ্চানে, Aaj woh hriday hai
+khand-khand, mite chihn sab jaane-pehchaane,  
 पीड़ा से বিবर्ण हुआ, विदाई\!  
 পীড়া সে বিৱর্ণ হুয়া, বিদায়ী\! Peera se vivarn hua, Vidai\!  
 हृदय की जो सबसे गूढ़ बात... नहीं, शेष अब ना कहूँगा मैं,  
-হৃদয় কী জো সসে গূঢ়্ বাৎ... নহীঁ, শেশ্ অব্ না কহूँगा মঁয়, Hriday ki jo sabse goorh baat... nahin, shesh ab na kahunga main,  
+হৃদয় কী জো সসে গূঢ়্ বাৎ... নহীঁ, শেশ্ অব্ না কহूँगा মঁয়, Hriday ki jo sabse
+goorh baat... nahin, shesh ab na kahunga main,  
 (आज नहीं, कदाचित किसी और दिन...)  
 (আজ্ নহীঁ, কদাচিৎ কিসী ঔর্ দিন্...) (Aaj nahin, kadachit kisi aur din...)  
 फिर भी निकलना चाहा था, सिमट गई वो चलने की राह मगर—  
-ফির্ ভী নিকল্না চাহা থা, সিমট্ গয়ী ওহ্ চল্নে কী রাহ্ মগর্— Phir bhi nikalna chaha tha, simat gayi woh chalne ki raah magar—  
+ফির্ ভী নিকল্না চাহা থা, সিমট্ গয়ী ওহ্ চল্নে কী রাহ্ মগর্— Phir bhi nikalna
+chaha tha, simat gayi woh chalne ki raah magar—  
 पकड़ लिया ज्यों अतीत की छाया ने, टूटी प्रतिज्ञाओं ने पकड़ कर।  
-পকড়্ লিয়া জ্যোঁ অতীত্ কী ছায়া নে, টূটী প্রতিজ্ঞাোঁ নে পকড়্ কর্। Pakar liya jyon ateet ki chhaya ne, tooti pratigyaon ne pakar kar.  
+পকড়্ লিয়া জ্যোঁ অতীত্ কী ছায়া নে, টূটী প্রতিজ্ঞাোঁ নে পকড়্ কর্। Pakar liya jyon
+ateet ki chhaya ne, tooti pratigyaon ne pakar kar.  
 कोई पर्णकुटी या श्रांत भवन— वनवास का ये कारागार,  
-কোয়ী পর্ণকূটী যা শ্রান্त् ভৱন্— বন্ৱাস্ কা ইয়ে কারাগার্, Koi parnakuti ya shraant bhavan— vanvaas ka yeh karagar,  
+কোয়ী পর্ণকূটী যা শ্রান্त् ভৱন্— বন্ৱাস্ কা ইয়ে কারাগার্, Koi parnakuti ya
+shraant bhavan— vanvaas ka yeh karagar,  
 जहाँ अंधकार उतर आता है बार-बार ले कर अँधियार।  
-জহাঁ অন্ধকার্ উতার্ আতা হৈ বार्-বার্ লে কর্ अँধিয়ার্। Jahaan andhkaar utar aata hai baar-baar le kar andhiyaar.  
+জহাঁ অন্ধকার্ উতার্ আতা হৈ বार्-বার্ লে কর্ अँধিয়ার্। Jahaan andhkaar utar aata
+hai baar-baar le kar andhiyaar.  
 आज भी वहीं खड़ा हूँ मैं,  
 আজ্ ভী ৱহীঁ খড়া হুঁ মঁয়, Aaj bhi waheen khara hoon main,  
 नीहारिका के अमोघ आकर्षण में बँधा,  
 নীহারিকা কে অমোঘ্ আকর্ষণ্ মেঁ बँধা, Niharika ke amogh aakarshan mein bandha,  
 तुम्हारी मौन दृष्टि की गहराई में जकड़ा हुआ,  
-তুম্হারী মৌন্ দৃষ্টি কী গহ্রায়ী মেঁ জক্ড়া হুয়া, Tumhari maun drishti ki gehraai mein jakra hua,  
+তুম্হারী মৌন্ দৃষ্টি কী গহ্রায়ী মেঁ জক্ড়া হুয়া, Tumhari maun drishti ki gehraai
+mein jakra hua,  
 मुक्ति की अभिलाषा मन में,  
 মুক্তি কী অভিলাষা মন্ মেঁ, Mukti ki abhilasha man mein,  
 पर पैरों में भय का चिपचिपा सा माया जाल\!  
-পর্ প্যরোঁ মেঁ ভয় কা চিপ্চিপা সা মায়া জাল্\! Par pairon mein bhay ka chipchipa sa maya jaal\!  
+পর্ প্যরোঁ মেঁ ভয় কা চিপ্চিপা সা মায়া জাল্\! Par pairon mein bhay ka chipchipa
+sa maya jaal\!  
 वहाँ — बस क्षीण होता गया हर पल, हर इक श्वास के साथ,  
-ৱহাঁ — বস্ ক্ষীণ্ হোতা গয়া হর্ পল্, হর্ ইক্ শ্বাस् কে সাথ্, Wahaan — bas ksheen hota gaya har pal, har ik shwaas ke saath,  
+ৱহাঁ — বস্ ক্ষীণ্ হোতা গয়া হর্ পল্, হর্ ইক্ শ্বাस् কে সাথ্, Wahaan — bas ksheen
+hota gaya har pal, har ik shwaas ke saath,  
 टूटे काँच सा अस्तित्व मेरा, चुभता उर में, दिन रात, हर श्वास के साथ।  
-টূটে কাँচ্ সা অস্তিত्্ব মেরা, চভ্তা উর মেঁ, দিন্ রাৎ, হর্ শ্বাस् কে সাথ্। Toote kaanch sa astitva mera, chubhta ur mein, din raat, har shwaas ke saath.  
+টূটে কাँচ্ সা অস্তিত्্ব মেরা, চভ্তা উর মেঁ, দিন্ রাৎ, হর্ শ্বাस् কে সাথ্। Toote
+kaanch sa astitva mera, chubhta ur mein, din raat, har shwaas ke saath.  
 इस प्रभात में, अब भी अंधियारी चुप्पी छाई है धरती पर –  
-ইস্ প্রভাত্ মেঁ, অব্ ভী অন্ধিয়ারী চুপ্পী ছায়ী হৈ ধর্তী পর্ – Is prabhat mein, ab bhi andhiyari chuppi chhai hai dharti par –  
+ইস্ প্রভাত্ মেঁ, অব্ ভী অন্ধিয়ারী চুপ্পী ছায়ী হৈ ধর্তী পর্ – Is prabhat mein, ab
+bhi andhiyari chuppi chhai hai dharti par –  
 बस थका हुआ, नहीं सिहरन कोई, मन क्लांत है भीतर,  
-বস্ থকা হুয়া, নহীঁ সিহ্রন্ কোয়ী, মন্ ক্লান্त् হৈ ভীতর্, Bas thaka hua, nahin sihran koi, man klaant hai bheetar,  
+বস্ থকা হুয়া, নহীঁ সিহ্রন্ কোয়ী, মন্ ক্লান্त् হৈ ভীতর্, Bas thaka hua, nahin
+sihran koi, man klaant hai bheetar,  
 अनियंत्रित हृदय के कष्टों को अभ्यासवश मैं पोंछ रहा,  
-অনিয়ন্ত্রিত্ হৃদয় কে কষ্টোঁ কো অভ্যাসৱশ্ মঁয় পোঁছ্ রহা, Aniyantrit hriday ke kashton ko abhyaasvash main ponchh raha,  
+অনিয়ন্ত্রিত্ হৃদয় কে কষ্টোঁ কো অভ্যাসৱশ্ মঁয় পোঁছ্ রহা, Aniyantrit hriday ke
+kashton ko abhyaasvash main ponchh raha,  
 जितना बचा था साहस, बस उतना ही नोंच रहा,  
-জিৎনা বচা থা সাহস্, বস্ উৎনা হী নোঁচ্ রহা, Jitna bacha tha saahas, bas utna hi nonch raha,  
+জিৎনা বচা থা সাহস্, বস্ উৎনা হী নোঁচ্ রহা, Jitna bacha tha saahas, bas utna hi
+nonch raha,  
 मौन अँधेरे में बाँधे हैं कुछ थैले चुपचाप,  
-মৌন্ अँধেরে মেঁ বাঁধে হ্যাঁয় কুছ্ থৈলে চুপ্চাপ্, Maun andhere mein baandhe hain kuch thaile chupchaap,  
+মৌন্ अँধেরে মেঁ বাঁধে হ্যাঁয় কুছ্ থৈলে চুপ্চাপ্, Maun andhere mein baandhe hain
+kuch thaile chupchaap,  
 अल्प सामग्री— पुस्तक, वस्त्र, व्याधि का उपचार,  
-অল্प् সামগ্রী— পুস্তক্, বস্ত্র্, ব্যাধি কা উপ্চার্, Alp saamgri— pustak, vastra, vyadhi ka upchar,  
+অল্प् সামগ্রী— পুস্তক্, বস্ত্র্, ব্যাধি কা উপ্চার্, Alp saamgri— pustak, vastra,
+vyadhi ka upchar,  
 बाँधा है सब चुपके से, जैसे प्रस्तुत, मुक्ति की हल्की सी ज्योति तले।  
-বাঁধা হৈ সব্ চুপ্কে সে, জ্যসে প্রস্তুত্, মুক্তি কী হল্কী সী জ্যোতি তলে। Baandha hai sab chupke se, jaise prastut, mukti ki halki si jyoti tale.  
+বাঁধা হৈ সব্ চুপ্কে সে, জ্যসে প্রস্তুত্, মুক্তি কী হল্কী সী জ্যোতি তলে। Baandha
+hai sab chupke se, jaise prastut, mukti ki halki si jyoti tale.  
 नीहारिका\!  
 নীহারিকা\! Niharika\!  
 मेरा प्रेम,  
@@ -544,7 +615,8 @@ Phir bhi nikalna chaha tha, simat gayi woh chalne ki raah magar—
 আঁকড়ে ধরল যেন অতীতের ছায়া, ভাঙা শপথ।  
 Aa(n)kre dhorlo jeno otiter chhaya, bhanga shopoth.  
 جکڑ لیا یوں ماضی کے سایوں نے، بھولی وفا نے، ٹوٹی قسم نے تجھ کو مجھ کو۔  
-Jakar liya yun maazi ke saayon ne, bhooli wafa ne, tooti qasam ne tujhko-mujhko.  
+Jakar liya yun maazi ke saayon ne, bhooli wafa ne, tooti qasam ne
+tujhko-mujhko.  
 पकड़ लिया ज्यों अतीत की छाया ने, टूटी प्रतिज्ञाओं ने पकड़ कर।  
 Pakar liya jyon ateet ki chhaya ne, tooti pratigyaon ne pakar kar.
 
@@ -630,7 +702,8 @@ Wahaan — bas ksheen hota gaya har pal, har ik shwaas ke saath,
 চূর্ণ কাঁচের মতো অস্তিত্ব, নীরব হয়ে বিঁধে বুকে, প্রতিশ্বাসে  
 Churno ka(n)cher moto ostittwo, nirob hoye bi(n)dhe buke, protishwase  
 شیشۂ دل ٹوٹ کر چبھتا رہا سینے میں خاموشی سے، ہر اک امنگ کے سنگ۔  
-Sheesha-e-dil toot kar chubhta raha seene mein khamoshi se, har ik umang ke sang.  
+Sheesha-e-dil toot kar chubhta raha seene mein khamoshi se, har ik umang ke
+sang.  
 टूटे काँच सा अस्तित्व मेरा, चुभता उर में, दिन रात, हर श्वास के साथ।  
 Toote kaanch sa astitva mera, chubhta ur mein, din raat, har shwaas ke saath.
 
@@ -688,7 +761,8 @@ Alp saamgri— pustak, vastra, vyadhi ka upchar,
 বেঁধেছি নীরবে, যেন প্রস্তুত, মুক্তির ক্ষীণতম আলোয়।  
 Be(n)dhechhi nirobe, jeno prostut, muktir khinotom aaloy.  
 سب باندھ کے خاموش، جیسے تیار، رہائی کی کسی مدھم سی اک روشنی میں۔  
-Sab baandh ke khamosh, jaise tayyar, rihaai ki kisi maddham si ik raushni mein.  
+Sab baandh ke khamosh, jaise tayyar, rihaai ki kisi maddham si ik raushni
+mein.  
 बाँधा है सब चुपके से, जैसे प्रस्तुत, मुक्ति की हल्की सी ज्योति तले।  
 Baandha hai sab chupke se, jaise prastut, mukti ki halki si jyoti tale.
 
@@ -729,7 +803,8 @@ Nebula\!
 My only love, my distant star,  
 Today, I must finally say — across the bar  
 Of silence stretched between us, stark and clear —  
-Farewell, my love. Farewell, my hope, my fear.  
+Farewell, my love. Farewell, my hope, my fear.
+
 ---
 
 # পরশপাথর
@@ -743,7 +818,7 @@ Farewell, my love. Farewell, my hope, my fear.
 টানে তোমার দৃষ্টি?’
 
 আমার কন্ঠ শুষ্ক, অনার্দ্র, বলেছিল শুধু,  
-"মেঘমালা...",   
+"মেঘমালা...",  
 যেন সে সৌন্দর্য কেবল ঈশ্বরেরই গড়ন।
 
 অথচ তোমার চোখে,  
@@ -780,7 +855,7 @@ Farewell, my love. Farewell, my hope, my fear.
 # A Settlement
 
 Where am I?  
-Why am I here?   
+Why am I here?  
 Why today?
 
 I chose my path,  
@@ -992,7 +1067,7 @@ but me.
 
 ## Just this clutter, and this vast, elegant emptiness.
 
-##  V1
+## V1
 
 The key turns.  
 And silence pours into the hall, a greeting  
@@ -1046,31 +1121,31 @@ One (1) key, turning in lock.
 Silence (heavy).  
 Bright, curated cell (approx. 1500 sq ft).
 
-*Contents of Closet:*  
+_Contents of Closet:_  
 Twelve (12) cardboard boxes, sealed.  
 Contents: Thirties (entire decade).  
 Weight: Immeasurable.
 
-*Living Area:*  
+_Living Area:_  
 One (1) sofa, mid-century modern, good condition.  
 Three (3) ghosts (various sizes).  
 One (1) refrigerator, humming.  
 Zero (0) children.
 
-*Incoming Assets:*  
+_Incoming Assets:_  
 One (1) phone, glowing.  
 One hundred (100) flickering faces (approximate).  
 Sixteen (16) matches.  
 Sixteen (16) tiny paper cuts of hope.  
 One (1) cup left on counter (evidence of ghosted chat).
 
-*Biometrics & Atmosphere:*  
+_Biometrics & Atmosphere:_  
 Chest pressure: rising.  
 Heart rate: frantic ticking.  
 Biological hunger: blunt demand.  
 Emotional hunger: famine.
 
-*Summary:*  
+_Summary:_  
 The rooms are full.  
 The curator is missing.  
 Itemized list complete: Vast, elegant emptiness.
@@ -1083,7 +1158,7 @@ A flash of love.
 Then the impact.  
 Broken.
 
-I woke to   
+I woke to  
 your face in the dark.  
 And I was happy,  
 for a second.
@@ -1239,7 +1314,7 @@ I take in my wake up juice.
 Dark brown, with a touch of cream.
 
 And I whisper  
-Howdy world\! 
+Howdy world\!
 
 # An Erosion
 
@@ -1251,14 +1326,14 @@ At least I believed
 she loved.
 
 And things shattered.  
-I'm lost.   
+I'm lost.  
 She's helpless.
 
 I thought she's the strongest,  
 but I saw her decay,  
 and I saw her turning away.
 
-I craved   
+I craved  
 her attention,  
 her approval,  
 her love.
@@ -1275,10 +1350,10 @@ each other.
 It is easy to say  
 it was all her fault.  
 Easier to say, it was mine.  
-She said *it* was mine.
+She said _it_ was mine.
 
 It wasn’t the stars.  
-Something happened   
+Something happened  
 and then something didn't.
 
 It's just that.  
@@ -1296,7 +1371,7 @@ I know she suffered.
 I loved her.  
 And she suffered.  
 I failed to save her.  
-And she failed to save me. 
+And she failed to save me.
 
 We both decayed.  
 It is just so hard.
@@ -1311,14 +1386,14 @@ At least I believed
 she loved.
 
 And things shattered.  
-I'm lost.   
+I'm lost.  
 She's helpless.
 
 I thought she's the strongest,  
 but I saw her decay,  
 and I saw her turning away.
 
-I craved   
+I craved  
 her attention,  
 her approval,  
 her love.
@@ -1335,12 +1410,12 @@ each other.
 It is easy to say  
 it was all her fault.  
 Easier to say, it was mine.  
-She said *it* was mine.
+She said _it_ was mine.
 
 It was just a fault in our stars\!  
 No, it wasn't.
 
-It was just something happened   
+It was just something happened  
 and something didn't.
 
 It's just that.  
@@ -1358,7 +1433,7 @@ I know she suffered.
 I loved her.  
 And she suffered.  
 I failed to save her.  
-And she failed to save me. 
+And she failed to save me.
 
 We both decayed.  
 It is just so hard.
@@ -1598,15 +1673,15 @@ In the curly haired shop.
 
 # The Faithful Lie
 
-The person I chose to love,   
+The person I chose to love,  
 and have loved —  
 I can never be with her again.  
-I cannot be for her.   
+I cannot be for her.  
 She cannot be for me.  
 We loved, and have loved.
 
 I try to move on. But  
-the process is \-   
+the process is \-  
 (I don't know the word for it)
 
 I go on dates, I meet.  
@@ -1622,7 +1697,7 @@ The conversation continues.
 My eyes, back to her wavering hands.  
 Mind, at the dusty watercolor memory.
 
-An unrequited love.   
+An unrequited love.  
 Requited enough.
 
 I think of her.  
@@ -1630,17 +1705,17 @@ No longer with longing, maybe;
 not with respect, nor disdain.  
 But with concern.
 
-I haven't held someone   
+I haven't held someone  
 with such deep warmth since.
 
 I don't understand why I want someone.  
 I don't understand why I shouldn't.
 
-I juggle,   
+I juggle,  
 penny, party, pantry, paltry;  
 pleasantries.
 
-It's not fun.   
+It's not fun.  
 It's not fair.  
 But, I go on.
 
@@ -1648,10 +1723,10 @@ But, I go on.
 
 ### Other versions
 
-The person I chose to love,   
+The person I chose to love,  
 and have loved —  
 I can never be with her, again.  
-I cannot be for her.   
+I cannot be for her.  
 She cannot, for me.  
 We loved, have had loved.
 
@@ -1672,7 +1747,7 @@ Conversation continues.
 My eyes, back to her wavering hands.  
 Mind, at the dusty watercolor memory.
 
-An unrequited love.   
+An unrequited love.  
 Requited enough.
 
 I think of her.  
@@ -1680,17 +1755,17 @@ No longer with longing, maybe;
 not with respect, nor disdain.  
 But with concern.
 
-I haven't held someone   
+I haven't held someone  
 with such deep warmth since.
 
 I don't understand why I want someone.  
 I don't understand why I shouldn't.
 
-I juggle,   
+I juggle,  
 penny, party, pantry, paltry;  
 pleasantries.
 
-It's not fun.   
+It's not fun.  
 It's not fair.  
 But, I go on.
 
@@ -1726,7 +1801,7 @@ OTHER VERSIONS
 
 A slice of pale kale, three spears of broccoli rabe,  
 resting on a white stone plate, warm.  
-Served just right,   
+Served just right,  
 with a dash of orange sauce garnish,  
 aton an egg-feta-potato puree.
 
@@ -1755,7 +1830,7 @@ A fallen petal \-
 fiery red, vivid orange,  
 a bruise of brown at the edge.
 
-Presently absent   
+Presently absent  
 from the bouquet.
 
 It sways, exhales  
@@ -1785,7 +1860,7 @@ Beats gonna drop.
 I backflip.
 
 The air turns into hot grape syrup  
-and everyone gets slapped   
+and everyone gets slapped  
 with an ice cream sandwich.
 
 A purple lotus blossoms from the breast  
@@ -1799,8 +1874,7 @@ The crowd gawps.
 Everyone fucks.  
 Mushroom, hotdog, fudge.
 
-Well that's the dance floor.  
- 
+Well that's the dance floor.
 
 # ​A View from Above
 
@@ -1818,7 +1892,7 @@ Doing the things,
 not doing the things.  
 Avoiding, stagnating,  
 wasting, drifting.  
-Excavating.   
+Excavating.  
 Hysterically dancing,  
 sitting in solitude…  
 Cascading, waterfalling,  
@@ -1827,12 +1901,12 @@ Juggling.
 
 ​I see all that,  
 but I don't feel it.  
-Feeling   
-is something that's   
-been set aside. 
+Feeling  
+is something that's  
+been set aside.
 
-I see my body.   
-I look at it, but   
+I see my body.  
+I look at it, but  
 I don't enter.
 
 # A very good Bird
@@ -1862,7 +1936,7 @@ Outside,
 something happens.
 
 Green, blue, red, orangutan.  
-So many colors, but the peach. 
+So many colors, but the peach.
 
 Oh, and the balcony is now gone.  
 The skyline is there, but it is bare.  
@@ -1908,7 +1982,7 @@ but held, loved by his Vera.
 He took an unsteady step  
 onto the L at 8th and 14th —  
 a confident, tremoring step;  
-grappling the rails and   
+grappling the rails and  
 his phone.
 
 On his phone,  
@@ -2121,7 +2195,7 @@ Maybe.
 My gaze drifts back indoors.  
 My walls. The white ceiling. The light bulb  
 in the spherical lampshade.  
-The lampshade and the bicycle   
+The lampshade and the bicycle  
 both are round.  
 One a sphere, one a circle.  
 Both give us something.
@@ -2221,7 +2295,7 @@ and a water tribe near your
 unruly gas giant;  
 the intergalactic supercomputer that  
 suspends as cosmic dark energy,  
-and the seven dwarves   
+and the seven dwarves  
 of the London underground.
 
 What you fear,  
@@ -2349,10 +2423,10 @@ Presence pours pulpy poise.
 Burgundy bar brews bright banter;  
 Effervescence evades, even evenings.
 
-Enters   
+Enters  
 tall talk's trite tales.
 
-We stare startled   
+We stare startled  
 at the wicked wick.
 
 # Other Scripts
@@ -2363,8 +2437,8 @@ at the wicked wick.
 
 1\.  
 Memories  
-Past Days   
-Have beens   
+Past Days  
+Have beens  
 Could've beens  
 Haven't had beens
 
@@ -2372,14 +2446,14 @@ Beyond those, hope
 
 2\.  
 On a mission  
-To break traditions   
+To break traditions  
 So that  
 We can be;  
-Not to make new traditions   
+Not to make new traditions  
 Just to keep breathing.
 
 3\.  
-Fuck you   
+Fuck you  
 The day was hard  
 And I love you.
 
@@ -2405,7 +2479,7 @@ once and many times
 Sodium peach light.
 
 4\.  
-I'll visit the dark underground   
+I'll visit the dark underground  
 once I conquer the roaring sun
 
 \*\*The sieve poem (established spine):\*\*
@@ -2450,9 +2524,11 @@ we declare truce
 
 I pick what I prefer.
 
-pigeon, penguin, puffin (the full Paula bit — light, charming, might be a whole small poem)
+pigeon, penguin, puffin (the full Paula bit — light, charming, might be a whole
+small poem)
 
-I rode a bike and had goat cheese salad. / And craved peanut butter with my steak / and had those too.
+I rode a bike and had goat cheese salad. / And craved peanut butter with my
+steak / and had those too.
 
 \*\*Lines with potential but not there yet:\*\*
 
@@ -2481,13 +2557,13 @@ that's a poem.
 
 Sadh’s 3rd Book of Poems
 
-## 
+##
 
 # Semi-Structured Output
 
 ## An analysis of the surroundings
 
-# 
+#
 
 # The System
 
@@ -2560,7 +2636,7 @@ that Riri was evil.
 Sometimes,  
 nay oftentimes,  
 they tell us:  
-*what would everyone think\!*
+_what would everyone think\!_
 
 They never claim as their own  
 the opinions  
@@ -2570,14 +2646,16 @@ in the name of others.
 Every time—  
 every single time—  
 you tell me  
-*what would X think,* I know,  
+_what would X think,_ I know,  
 it's only you  
 who wants to shove  
 your vile constraints down my throat.
 
 # Tab 16
 
-I write, paint, code, and build agentic AI at Google DeepMind. I see Gemini as a bridge between the creative and the technical, with the potential to democratize access to complex knowledge. My goal is to ship the core technology that enables more diverse expressions for everyone.
+I write, paint, code, and build agentic AI at Google DeepMind. I see Gemini as a
+bridge between the creative and the technical, with the potential to democratize
+access to complex knowledge. My goal is to ship the core technology that enables
+more diverse expressions for everyone.
 
 # 📖 Life Untitled
-

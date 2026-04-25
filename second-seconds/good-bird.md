@@ -1,6 +1,6 @@
 # A very good Bird
-<by: Sadh /><date: Feb 21, 2026 />
 
+<by: Sadh /><date: Feb 21, 2026 />
 
 There’s a bird,  
 if you look through the double pane  
@@ -25,7 +25,7 @@ Outside,
 something happens.
 
 Green, blue, red, orangutan.  
-So many colors, but the peach. 
+So many colors, but the peach.
 
 Oh, and the balcony is now gone.  
 The skyline is there, but it is bare.  
@@ -35,4 +35,3 @@ Bird averts its stare.
 
 Evening looms.  
 Bird orders doordash for dinner.
-

@@ -1,4 +1,5 @@
 # Numbed Anguish
+
 <by: Sadh /><date: Oct 01, 2025 />
 
 Every waking hour  
@@ -36,4 +37,3 @@ I'll walk, and work, and be there.
 Just there. Not anywhere.  
 It is just those feelings—  
 they are piercingly vivid.
-

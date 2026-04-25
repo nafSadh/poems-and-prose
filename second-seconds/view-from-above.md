@@ -1,6 +1,6 @@
 # ​A View from Above
-<by: Sadh /><date: Feb 19, 2026 />
 
+<by: Sadh /><date: Feb 19, 2026 />
 
 I look at myself.  
 I see me walking,  
@@ -14,7 +14,7 @@ Doing the things,
 not doing the things.  
 Avoiding, stagnating,  
 wasting, drifting.  
-Excavating.   
+Excavating.  
 Hysterically dancing,  
 sitting in solitude…  
 Cascading, waterfalling,  
@@ -23,11 +23,10 @@ Juggling.
 
 ​I see all that,  
 but I don't feel it.  
-Feeling   
-is something that's   
-been set aside. 
+Feeling  
+is something that's  
+been set aside.
 
-I see my body.   
-I look at it, but   
+I see my body.  
+I look at it, but  
 I don't enter.
-

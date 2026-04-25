@@ -13,7 +13,7 @@ once and many times
 Sodium peach light.
 
 4\.  
-I'll visit the dark underground   
+I'll visit the dark underground  
 once I conquer the roaring sun
 
 \*\*The sieve poem (established spine):\*\*
@@ -58,9 +58,11 @@ we declare truce
 
 I pick what I prefer.
 
-pigeon, penguin, puffin (the full Paula bit — light, charming, might be a whole small poem)
+pigeon, penguin, puffin (the full Paula bit — light, charming, might be a whole
+small poem)
 
-I rode a bike and had goat cheese salad. / And craved peanut butter with my steak / and had those too.
+I rode a bike and had goat cheese salad. / And craved peanut butter with my
+steak / and had those too.
 
 \*\*Lines with potential but not there yet:\*\*
 
@@ -69,4 +71,3 @@ the brown bruise of a fuchsia
 the ornate craft of a pawned clock
 
 the floating hummingbird
-

@@ -1,6 +1,6 @@
 # A Monument
-<by: Sadh /><date: March 1, 2026 />
-<status: draft />
+
+<by: Sadh /><date: March 1, 2026 /> <status: draft />
 
 I have a box,  
 it holds the things;  
@@ -23,4 +23,3 @@ it is not filled with hope,
 it is filled with not hope,  
 it is filled with the past.  
 I keep it closed.
-

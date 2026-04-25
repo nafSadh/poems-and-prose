@@ -1,4 +1,5 @@
 # The System
+
 <date: Oct 09, 2025 />
 
 Ari was.  
@@ -60,4 +61,3 @@ so I can devour their souls."
 And so it was.  
 Ari convinced the world  
 that Riri was evil.
-

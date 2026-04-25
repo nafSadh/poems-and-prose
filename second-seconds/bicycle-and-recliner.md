@@ -1,4 +1,5 @@
 # A Bicycle and a Recliner
+
 <by: Sadh /><date: Feb 28, 2026 />
 
 My recliner holds my body,  
@@ -28,7 +29,7 @@ Maybe.
 My gaze drifts back indoors.  
 My walls. The white ceiling. The light bulb  
 in the spherical lampshade.  
-The lampshade and the bicycle   
+The lampshade and the bicycle  
 both are round.  
 One a sphere, one a circle.  
 Both give us something.
@@ -39,4 +40,3 @@ But nobody's stopping me
 from thinking about the bicycle,  
 and reaching for it.  
 Except... I like my recliner.
-

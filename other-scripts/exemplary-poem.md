@@ -1,4 +1,5 @@
 # Exemplary Poem
+
 <!-- Feb 17, 2026 -->
 
 Here's a word.  
@@ -11,4 +12,3 @@ capture my feelings.
 
 And  
 that's a poem.
-

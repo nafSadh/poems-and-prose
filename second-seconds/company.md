@@ -1,4 +1,5 @@
 # Company
+
 <by: Sadh /><date: March 30, 2026 />
 
 Borough's band, dappled drift.  
@@ -10,9 +11,8 @@ Presence pours pulpy poise.
 Burgundy bar brews bright banter;  
 Effervescence evades, even evenings.
 
-Enters   
+Enters  
 tall talk's trite tales.
 
-We stare startled   
+We stare startled  
 at the wicked wick.
-

@@ -1,4 +1,5 @@
 # L's Dancefloor
+
 <by: Sadh /><date: Feb 18, 2026 />
 
 Purple.  
@@ -15,7 +16,7 @@ Beats gonna drop.
 I backflip.
 
 The air turns into hot grape syrup  
-and everyone gets slapped   
+and everyone gets slapped  
 with an ice cream sandwich.
 
 A purple lotus blossoms from the breast  
@@ -29,6 +30,4 @@ The crowd gawps.
 Everyone fucks.  
 Mushroom, hotdog, fudge.
 
-Well that's the dance floor.  
- 
-
+Well that's the dance floor.

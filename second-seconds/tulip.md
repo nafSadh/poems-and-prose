@@ -1,11 +1,12 @@
 # The Tulip
+
 <by: Sadh /><date: Feb 17, 2026 />
 
 A fallen petal -  
 fiery red, vivid orange,  
 a bruise of brown at the edge.
 
-Presently absent   
+Presently absent  
 from the bouquet.
 
 It sways, exhales  
@@ -16,4 +17,3 @@ before it fades.
 
 Gone.  
 But the brown bruise.
-

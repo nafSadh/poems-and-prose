@@ -1,6 +1,6 @@
 # Worlds
-<by: Sadh /><date: March 01, 2026 />
-<note: Los Gatos, California />
+
+<by: Sadh /><date: March 01, 2026 /> <note: Los Gatos, California />
 
 What you see,  
 in this world that you experience in  
@@ -37,7 +37,7 @@ and a water tribe near your
 unruly gas giant;  
 the intergalactic supercomputer that  
 suspends as cosmic dark energy,  
-and the seven dwarves   
+and the seven dwarves  
 of the London underground.
 
 What you fear,  
@@ -81,4 +81,3 @@ and soft linen blankets.
 
 Everything is real.  
 Everything is lived.
-

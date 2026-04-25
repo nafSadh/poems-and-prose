@@ -1,4 +1,5 @@
 # Amber Ablution
+
 <by: Sadh /><date: Oct 04, 2025 />
 
 The morning sun spills  
@@ -24,5 +25,4 @@ I take in my wake up juice.
 Dark brown, with a touch of cream.
 
 And I whisper  
-Howdy world\! 
-
+Howdy world\!

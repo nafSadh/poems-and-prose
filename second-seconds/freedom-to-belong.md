@@ -1,4 +1,5 @@
 # Freedom to Belong
+
 <by: Sadh /><date: Oct 01, 2025 />
 
 The blues bleed into reds, the whites flash into greens,  
@@ -22,4 +23,3 @@ The world outside these walls disappears.
 There is only the music, only the movement.  
 Only this.  
 This freedom.
-

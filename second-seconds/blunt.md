@@ -1,4 +1,5 @@
 # Blunt
+
 <by: Sadh /><date: Feb 27, 2026 />
 
 I want to feel pain  
@@ -37,4 +38,3 @@ like when you are puzzled
 because that is what I am  
 confuzzled  
 with simultaneous overload and absence of feelings
-

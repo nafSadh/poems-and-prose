@@ -1,4 +1,5 @@
 # Confetti
+
 <by: Sadh /><date: Jan 13, 2026 />
 
 ​They call me grounded.  
@@ -70,35 +71,34 @@ still buffering,
 a boy-shaped space  
 where the light used to be.
 
-
 <!-- Previous versions:
 
-…  
-I want to scream until the veins in my neck  
-rewrite the atmosphere.  
-I want the golden aura.  
-I want to level the city with a single hand  
+…
+I want to scream until the veins in my neck
+rewrite the atmosphere.
+I want the golden aura.
+I want to level the city with a single hand
 just to prove I am not empty.
 
-But the physics of this life  
-don’t allow for explosions.  
-The fire hits the ceiling  
+But the physics of this life
+don’t allow for explosions.
+The fire hits the ceiling
 and crashes back down.
 
-It doesn’t fade.  
-It compresses.  
-​The heat cooks the boy into brick.  
-Magma cooling into obsidian.  
+It doesn’t fade.
+It compresses.
+​The heat cooks the boy into brick.
+Magma cooling into obsidian.
 …
 
-…  
+…
 just to prove I am not empty.
 
-Skin of my body chokes  
-holds. Flame backs down.  
+Skin of my body chokes
+holds. Flame backs down.
 Grounded.
 
-It doesn’t fade.  
+It doesn’t fade.
 …
 
 -->

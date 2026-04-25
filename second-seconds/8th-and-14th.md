@@ -1,4 +1,5 @@
 # 8th and 14th
+
 <by: Sadh /><date: Feb 26, 2026 />
 
 A creased face,  
@@ -8,7 +9,7 @@ but held, loved by his Vera.
 He took an unsteady step  
 onto the L at 8th and 14th —  
 a confident, tremoring step;  
-grappling the rails and   
+grappling the rails and  
 his phone.
 
 On his phone,  
@@ -20,4 +21,3 @@ Vera held the phone, when she was.
 
 The old man;  
 the door closes.
-
