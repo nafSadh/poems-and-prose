@@ -151,6 +151,7 @@ poems:
     date: "Feb 27, 2026"
     note: "shortest & sharpest"
     art: art-crescent-stars
+    wide: false
   - t: "just here"
     f: just-here.md
     lang: en
@@ -182,6 +183,7 @@ poems:
     date: "March 01, 2026"
     note: "presence, not ghost"
     art: art-cupped-hands
+    wide: false
   - t: "Worlds"
     f: worlds.md
     lang: en
@@ -223,7 +225,7 @@ poems:
     lang: en
     date: "April 17, 2026"
     note: "just the pronoun"
-    art: art-two-circles
+    art: art-detached-rings
   - t: "Saratoga Scene"
     f: saratoga-scene.md
     lang: en

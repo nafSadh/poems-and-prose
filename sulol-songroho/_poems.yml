@@ -12,207 +12,256 @@ icon: 🌿
 poems:
   - t: "সুলল সংগ্রহ ও কিছু কথা"
     f: sulol-songroho-o-kichhu-kotha.md
+    date: "অক্টোবর ১০, ১৯৯৮"
     lang: bn
     art: art-quill-pen
   - t: "ঘাসফুল"
     f: ghasphul.md
+    date: "মার্চ ২৫, ২০০৭"
     lang: bn
     art: art-kash-reed
   - t: "শব্দকল্প"
     f: shobdokolp.md
+    date: "জানুয়ারি ৯, ২০১০"
     lang: bn
     art: art-book-birds
   - t: "রইবি হৃদয়ে"
     f: roibi-hridoye.md
+    date: "এপ্রিল ১১, ২০১০"
     lang: bn
     art: art-friends-sunlit
   - t: "লিমেরিক ১"
     f: limerick-1.md
+    date: "মে ৯, ২০১১"
     lang: bn
     kind: limerick
     art: art-empty-plate
   - t: "লিমেরিক ২"
     f: limerick-2.md
+    date: "মে ১৯, ২০১১"
     lang: bn
     kind: limerick
     art: art-closed-eye
   - t: "লিমেরিক ৩"
     f: limerick-3.md
+    date: "মে ১৯, ২০১১"
     lang: bn
     kind: limerick
     art: art-sunrise
   - t: "রংধনু খেলা"
     f: rongdhonu-khela.md
+    date: "জুলাই ৭, ২০১১"
     lang: bn
     art: art-paintbrush
   - t: "লিমেরিক ৪"
     f: limerick-4.md
+    date: "আগস্ট ৩, ২০১১"
     lang: bn
     kind: limerick
     art: art-water-ripples
   - t: "লিমেরিক ৫"
     f: limerick-5.md
+    date: "আগস্ট ১৬, ২০১১"
     lang: bn
     kind: limerick
     art: art-comet-falling
   - t: "আলোড়ন তোলা আলো"
     f: aloron-tola-alo.md
+    date: "আগস্ট ১৬, ২০১১"
     lang: bn
     art: art-swing
   - t: "লিমেরিক ৬"
     f: limerick-6.md
+    date: "অক্টোবর ৩, ২০১১"
     lang: bn
     kind: limerick
     art: art-dhol-drum
   - t: "অন্ধকার বিকেল শেষে"
     f: aundhokar-bikel-shesse.md
+    date: "অক্টোবর ৩, ২০১১"
     lang: bn
     art: art-rain-cloud-path
   - t: "অনুভূতি জালে হওয়া"
     f: onubhooti-jale-hooya.md
+    date: "অক্টোবর ৮, ২০১১"
     lang: bn
     art: art-fountain-pen
   - t: "প্লাবিত নদীতে তৃষিত অবগাহন"
     f: plabito-nodeete-trissito-obogahon.md
+    date: "অক্টোবর ১৪, ২০১১"
     lang: bn
     art: art-roti-stars
   - t: "লিমেরিক ৭"
     f: limerick-7.md
+    date: "অক্টোবর ৭, ২০১১"
     lang: bn
     kind: limerick
     art: art-camel
   - t: "লিমেরিক ৮"
     f: limerick-8.md
+    date: "নভেম্বর ২৬, ২০১১"
     lang: bn
     kind: limerick
     art: art-ping-pong
   - t: "এমনি কবিতা ১"
     f: emni-kobita-1.md
+    date: "নভেম্বর ২৬, ২০১১"
     lang: bn
     art: art-open-window
   - t: "এমনি কবিতা ২"
     f: emni-kobita-2.md
+    date: "নভেম্বর ২৮, ২০১১"
     lang: bn
     art: art-heron-flying
   - t: "গতানুগতিক তুমি"
     f: gotanugotik-tumi.md
+    date: "জুলাই ২১, ২০১১"
     lang: bn
     art: art-butterfly
   - t: "মগজহীন দেহে বসবাস"
     f: mogojheen-dehe-bosobas.md
+    date: "ডিসেম্বর ৫, ২০১১"
     lang: bn
     art: art-candle-snuffed
   - t: "লিমেরিক ৯"
     f: limerick-9.md
+    date: "এপ্রিল ৬, ২০১২"
     lang: bn
     kind: limerick
     art: art-raindrop
   - t: "গন্ধকাব্যঃ ১ম পর্ব"
     f: gondhokabyo-1m-porbo.md
+    date: "এপ্রিল ৭, ২০১২"
     lang: bn
     art: art-fishing-rod
   - t: "অপলাপ ১"
     f: opolap-1.md
+    date: "আগস্ট ১৫, ২০১২"
     lang: bn
     art: art-fishing-hook-moon
   - t: "পাখিয়াল"
     f: pakhiyal.md
+    date: "সেপ্টেম্বর ১৮, ২০১২"
     lang: bn
     art: art-open-cage
   - t: "কখনো কাব্য"
     f: kokhono-kabyo.md
+    date: "সেপ্টেম্বর ১৯, ২০১২"
     lang: bn
     art: art-pen-writing
   - t: "এমনি কবিতা ৩"
     f: emni-kobita-3.md
+    date: "সেপ্টেম্বর ১৯, ২০১২"
     lang: bn
     art: art-raft-water
   - t: "এমনি কবিতা ৪"
     f: emni-kobita-4.md
+    date: "সেপ্টেম্বর ১৯, ২০১২"
     lang: bn
     art: art-wish-tree
   - t: "কবিতা"
     f: kobita.md
+    date: "আগস্ট ১৭, ২০১২"
     lang: bn
     art: art-stage-curtain
   - t: "অধরা ধরার সাধ"
     f: audhora-dhorar-sadh.md
+    date: "সেপ্টেম্বর ২, ২০১২"
     lang: bn
     art: art-golden-deer
   - t: "নীল গোলাপ"
     f: neel-golap.md
+    date: "সেপ্টেম্বর ২৫, ২০১২"
     lang: bn
     art: art-blue-rose
   - t: "'অমৃত পিয়াস' হলো যেভাবে"
     f: omrit-piyas-holo-jebhabe.md
+    date: "সেপ্টেম্বর ১৯, ২০১২"
     lang: bn
     art: art-eye-veil
   - t: "লিমেরিক ১০"
     f: limerick-10.md
+    date: "সেপ্টেম্বর ২১, ২০১২"
     lang: bn
     kind: limerick
     art: art-flower-garland
   - t: "পৌনঃপুনিক জীবনে"
     f: pownohpunik-jeebone.md
+    date: "সেপ্টেম্বর ২১, ২০১২"
     lang: bn
     art: art-teacup
   - t: "নীড় নিশ্চুপ"
     f: neer-nishchup.md
+    date: "সেপ্টেম্বর ২৮, ২০১২"
     lang: bn
     art: art-birds-nest
   - t: "নিদাঘক্লিষ্ট"
     f: nidaghklissto.md
+    date: "মার্চ ১৭, ২০১৩"
     lang: bn
     art: art-shade-tree
   - t: "যেই ভালোবাসার রং নাই"
     f: jei-bhalobasar-rong-nai.md
+    date: "এপ্রিল ১১, ২০১৩"
     lang: bn
     art: art-dry-vine
   - t: "বরফ চড়ুই"
     f: boroph-chorui.md
+    date: "ফেব্রুয়ারি ৪, ২০১৪"
     lang: bn
     art: art-snow-sparrow
   - t: "তোর ভাবনায়"
     f: tor-bhabonay.md
+    date: "মার্চ ২৩, ২০১৪"
     lang: bn
     art: art-telephone
   - t: "এমনি কবিতা ৫"
     f: emni-kobita-5.md
+    date: "জুলাই ২১, ২০১৪"
     lang: bn
     art: art-lamb
   - t: "নাতিসম্ভ্রান্ত কোলাহল"
     f: natisombhranto-kolahol.md
+    date: "মে ১৭, ২০১৮"
     lang: bn
     art: art-cuckoo
   - t: "ভালোবেসেছি তোকে"
     f: bhalobesechhi-toke.md
+    date: "মে ২৮, ২০১৩"
     lang: bn
     art: art-oil-lamp
   - t: "নির্লিপ্ত কবির কবিতা খোঁজা"
     f: nirlipt-kobir-kobita-khoja.md
+    date: "মার্চ ৯, ২০০৪"
     lang: bn
     art: art-crescent-stars
   - t: "গাংচিলের সময়"
     f: gangchiler-somoy.md
+    date: "মার্চ ৩০, ২০১৪"
     lang: bn
     art: art-seagull
   - t: "আজব নদী"
     f: ajob-nodee.md
+    date: "মার্চ ৩০, ২০১৪"
     lang: bn
     art: art-ghat-lotus
   - t: "নিদাঘপক্ষ শেষে"
     f: nidaghopokqho-shesse.md
+    date: "এপ্রিল ৬, ২০১২"
     lang: bn
     art: art-first-rain
   - t: "লাল পদ্ম পুকুর"
     f: lal-podmo-pukur.md
+    date: "এপ্রিল ৪, ২০১৪"
     lang: bn
     art: art-lotus
   - t: "বিদগ্ধ, উদ্ভ্রান্ত"
     f: bidogdho-udbhranto.md
+    date: "ফেব্রুয়ারি ৬, ২০১২"
     lang: bn
     art: art-catfish
   - t: "প্রত্যাশা"
     f: protyasha.md
+    date: "2003 (পরিমার্জিত 2004)"
     lang: bn
     art: art-flag-pole
