@@ -8,14 +8,14 @@ blurb: an analysis of the surroundings
 lang: en
 icon: ⚙
 
-poems:
-  - t: "The System"
-    f: the-system.md
+contents:
+  - poem: "The System"
+    id: the-system
     lang: en
     note: "also: every system"
     art: art-prison-bars
-  - t: "The Ventriloquist"
-    f: the-ventriloquist.md
+  - poem: "The Ventriloquist"
+    id: the-ventriloquist
     lang: en
     note: "who speaks? who hears?"
     art: art-puppet

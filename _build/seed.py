@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One-shot migration: emit src/<collection>/_poems.yml from
+"""One-shot migration: emit src/<collection>/_contents.yml from
 designs/finalists/data.js (metadata) + each <collection>/~index.md (curated order).
 
 Run once, verify output, delete this script.
@@ -181,17 +181,19 @@ def to_yaml(collection_id: str) -> str:
             else:
                 lines.append(f"{key}: {val}")
     lines.append("")
-    lines.append("poems:")
+    lines.append("contents:")
     if not entries:
         lines.append("  []")
     else:
         for title, filename, date in entries:
             bare = filename.rsplit("/", 1)[-1]
+            item_id = bare[:-3] if bare.endswith(".md") else bare
             lang = detect_lang(title, meta.get("lang", "en"))
             # Quote title safely for YAML
             t_quoted = '"' + title.replace('"', '\\"') + '"'
-            lines.append(f"  - t: {t_quoted}")
-            lines.append(f"    f: {filename}")
+            # Original seed only ran on poetry collections — every entry is a poem.
+            lines.append(f"  - poem: {t_quoted}")
+            lines.append(f"    id: {item_id}")
             lines.append(f"    lang: {lang}")
             if bare in POEM_KINDS:
                 k = POEM_KINDS[bare].get("kind")
@@ -209,11 +211,11 @@ def to_yaml(collection_id: str) -> str:
 
 def main() -> None:
     for cid in COLLECTION_META:
-        out_path = ROOT / cid / "_poems.yml"
+        out_path = ROOT / cid / "_contents.yml"
         yaml = to_yaml(cid)
         out_path.write_text(yaml, encoding="utf-8")
         entries = parse_index(ROOT / cid / "~index.md")
-        print(f"wrote {out_path.relative_to(REPO)} ({len(entries)} poems)")
+        print(f"wrote {out_path.relative_to(REPO)} ({len(entries)} entries)")
 
 
 if __name__ == "__main__":

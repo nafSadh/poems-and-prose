@@ -7,7 +7,7 @@ on:
     branches: [main]
     paths:
       - "**/*.md"
-      - "**/_poems.yml"
+      - "**/_contents.yml"
       - "_site.yml"
       - "_build/**"
       - ".github/workflows/deploy.yml"

@@ -51,8 +51,56 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.04;z
 .hero-text h1 em{font-style:italic;color:var(--azure)}
 .hero-text .sub{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(18px,2.3vw,23px);color:var(--ink-soft);margin-top:22px;max-width:440px;line-height:1.5;font-variation-settings:"opsz" 144,"SOFT" 100}
 .hero-art{display:flex;justify-content:center;position:relative}
-.hero-art::before{content:'';position:absolute;width:520px;height:520px;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle at center, rgba(255,220,150,.42) 0%, rgba(255,210,140,.22) 22%, rgba(250,200,130,.08) 45%, rgba(250,200,130,0) 70%);pointer-events:none;z-index:0;filter:blur(2px)}
+.hero-art::before{content:'';position:absolute;width:520px;height:520px;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle at center, rgba(255,220,150,.42) 0%, rgba(255,210,140,.22) 22%, rgba(250,200,130,.08) 45%, rgba(250,200,130,0) 70%);pointer-events:none;z-index:0;filter:blur(2px);animation:sun-halo 5.4s ease-in-out infinite}
 .hero-art svg{width:280px;height:280px;color:var(--azure);position:relative;z-index:1}
+/* Each ray scales from its INNER endpoint (the one nearest the sun) so the
+   inner end stays pinned at the sun's perimeter and the outer end extends
+   or retracts — no more sliding-in-and-out as a unit.
+
+   Type assignment alternates flare/drift going CLOCKWISE around the sun
+   (not by SVG ordering) so bursts and drifts are spatially balanced.
+   Delays use a bit-reversal pattern across 60s so adjacent rays are far
+   apart in phase — at any moment, no quadrant goes dark. */
+.hero-art svg .ray{transform-box:view-box;animation:ray-flare 60s ease-in-out infinite}
+.hero-art svg .ray:nth-of-type(3),
+.hero-art svg .ray:nth-of-type(4),
+.hero-art svg .ray:nth-of-type(9),
+.hero-art svg .ray:nth-of-type(10),
+.hero-art svg .ray:nth-of-type(11),
+.hero-art svg .ray:nth-of-type(12){animation-name:ray-drift}
+.hero-art svg .ray:nth-of-type(1){transform-origin:150px 56px;animation-delay:0s}
+.hero-art svg .ray:nth-of-type(2){transform-origin:150px 244px;animation-delay:-23s}
+.hero-art svg .ray:nth-of-type(3){transform-origin:56px 150px;animation-delay:-34s}
+.hero-art svg .ray:nth-of-type(4){transform-origin:244px 150px;animation-delay:-45s}
+.hero-art svg .ray:nth-of-type(5){transform-origin:82px 82px;animation-delay:-19s}
+.hero-art svg .ray:nth-of-type(6){transform-origin:218px 218px;animation-delay:-8s}
+.hero-art svg .ray:nth-of-type(7){transform-origin:218px 82px;animation-delay:-15s}
+.hero-art svg .ray:nth-of-type(8){transform-origin:82px 218px;animation-delay:-4s}
+.hero-art svg .ray:nth-of-type(9){transform-origin:96px 48px;animation-delay:-49s}
+.hero-art svg .ray:nth-of-type(10){transform-origin:204px 48px;animation-delay:-30s}
+.hero-art svg .ray:nth-of-type(11){transform-origin:96px 252px;animation-delay:-53s}
+.hero-art svg .ray:nth-of-type(12){transform-origin:204px 252px;animation-delay:-38s}
+/* Inner endpoint is pinned via transform-origin, so the ray grows OUTWARD
+   from the sun edge as scale rises and retracts toward the sun as scale
+   falls. Now safe to use a dramatic range. */
+@keyframes ray-flare{
+  0%,72%,100%{transform:scale(.4);opacity:.15}
+  3%{transform:scale(1.15);opacity:.6}
+  6%{transform:scale(1.45);opacity:1}
+  12%{transform:scale(1.05);opacity:.5}
+  22%{transform:scale(.65);opacity:.28}
+}
+@keyframes ray-drift{
+  0%,100%{transform:scale(.55);opacity:.2}
+  18%{transform:scale(1.1);opacity:.65}
+  36%{transform:scale(.75);opacity:.4}
+  58%{transform:scale(1.3);opacity:.88}
+  78%{transform:scale(.85);opacity:.45}
+}
+@keyframes sun-halo{
+  0%,100%{transform:translate(-50%,-50%) scale(.92);opacity:.7}
+  50%{transform:translate(-50%,-50%) scale(1.06);opacity:1}
+}
 
 .divider{position:relative;z-index:1;max-width:1020px;margin:0 auto;padding:0 36px;display:flex;align-items:center;gap:16px;color:var(--azure);opacity:.55}
 .divider .line{flex:1;height:1px;background:currentColor;opacity:.35}
@@ -328,6 +376,14 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.04;z
 }
 .stanza{margin-bottom:2em;overflow-wrap:anywhere}
 .stanza:last-child{margin-bottom:0}
+.prose-para{margin:0 0 1.4em;line-height:1.7;overflow-wrap:break-word}
+.prose-para:last-child{margin-bottom:0}
+.md-hr{margin:2.4em auto;border:none;width:60%;height:0;border-top:1px solid color-mix(in srgb,var(--azure),transparent 70%)}
+.body code{font-family:'Special Elite',monospace;font-size:.92em;background:color-mix(in srgb,var(--paper-cool),transparent 30%);padding:.05em .35em;border-radius:3px;color:var(--ink-soft)}
+.body s{color:var(--dim);text-decoration-color:color-mix(in srgb,var(--red-pen),transparent 40%)}
+/* Prose pages get a wider reading measure than poems (which are line-shaped). */
+.page-wrap.is-prose{max-width:780px}
+.page-wrap.is-prose .body{max-width:680px}
 .body em{font-style:italic;color:var(--ink-soft)}
 .body a{color:var(--azure);border-bottom:1px solid color-mix(in srgb,var(--azure),transparent 70%);transition:color .2s}
 .body a:hover{color:var(--azure-deep)}
@@ -624,4 +680,140 @@ body.poem-scrolled .view-read .page-wrap.is-narrow .poem-art{margin-right:64px}
 @media(prefers-reduced-motion:reduce){
   .mark svg{animation:none}
   .home-domain::before,.home-domain::after{animation:none}
+  .hero-art svg .ray,.hero-art::before{animation:none}
 }
+
+/* ─────────────────────────────────────────────
+   Dark theme — experimental, opt-in only.
+   Activated by the hidden `t` keybinding (handled in
+   base.html), which sets data-theme="dark" on <html>
+   and persists the choice in localStorage. No OS-pref
+   auto-switch: light is the canonical surface; dark is
+   a magic-trick alt for late-night reading.
+
+   Translates the warm-paper + azure light theme into a
+   literary night palette: deep blue-charcoal ground,
+   warm parchment ink (never pure white), lifted azure
+   for moonlight accent. "Evening reading lamp," not
+   "tech app dark mode."
+   ───────────────────────────────────────────── */
+:root[data-theme="dark"]{
+  --paper:#0f1219;
+  --paper-hi:#161a25;
+  --paper-cool:#0c0e15;
+  --glow-warm:rgba(232,178,110,.10);
+  --glow-cool:rgba(120,168,220,.07);
+  --ink:#e6e0cf;
+  --ink-soft:#b4ab95;
+  --dim:#8a8270;
+  --azure:#8fc0f0;
+  --azure-deep:#bcd6f0;
+  --azure-soft:#5b85b8;
+  --red-pen:#e08a6a;
+  --line:rgba(230,224,207,.10);
+  color-scheme:dark;
+}
+
+/* Ambient gradient — warm lamp at top, cool floor at bottom.
+   Banding on dark backgrounds is visible at low alphas, so:
+   - radial centers sit off-screen (-25% / 125%) so only the far,
+     smooth falloff washes into the viewport (no visible "spotlight")
+   - very wide ellipses (160% × 100%) give gentle, edge-free transitions
+   - `in oklab` interpolates perceptually so the alpha ramp banding
+     is smoothed across mid-tones
+   - no linear overlay — the original third stop introduced a visible
+     horizontal stripe near the top third of the page. */
+[data-theme="dark"] body::after{
+  background:
+    radial-gradient(ellipse 160% 100% at 50% -25% in oklab,
+      rgba(232,178,110,.06) 0%, transparent 80%),
+    radial-gradient(ellipse 140% 90% at 50% 125% in oklab,
+      rgba(120,168,220,.05) 0%, transparent 80%);
+}
+
+/* Star-dust grain — kept very faint on dark. Higher opacity reads
+   as visible texture on the body text rather than dither. */
+[data-theme="dark"] body::before{
+  opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.92 0 0 0 0 0.88 0 0 0 0 0.78 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:screen;
+}
+
+/* Hero — moon glow halo replaces the warm sun glow.
+   Tuned to read as ambient sky behind the sun rather than a backlit
+   disc: low center alpha (.10), heavy blur (60px), and screen blend
+   so the halo dissolves into the dark ground with no visible edge. */
+[data-theme="dark"] .hero-art::before{
+  background:radial-gradient(circle at center in oklab,
+    rgba(180,210,240,.10) 0%,
+    rgba(140,180,225,0) 100%);
+  filter:blur(60px);
+  mix-blend-mode:screen;
+}
+
+/* The italic accent on the hero/title-page h1 lifts to --azure-deep
+   so it reads as moonlight against the dark ground. */
+[data-theme="dark"] .hero-text h1 em,
+[data-theme="dark"] .title-page h1 em{color:var(--azure-deep)}
+
+/* Walking-pace book connector — soft vertical fade. */
+[data-theme="dark"] .book + .book::before{
+  background:linear-gradient(180deg,
+    color-mix(in srgb,var(--azure),transparent 75%) 0%,
+    color-mix(in srgb,var(--azure),transparent 95%) 100%);
+}
+
+/* No per-book-card glyph halo in dark mode. The azure-tinted SVG
+   already reads as a self-luminous mark against the dark; adding a
+   round halo behind each one creates a column of visible spotlights
+   down the page. The book glyph stands on its own. */
+
+/* Book index — ambient halo behind the title-page crest, same
+   pseudo + blur trick. Sized just slightly larger than the SVG so
+   the glow hugs the crest rather than blooming into a cone below
+   it; centered on the SVG (not the padded container) by anchoring
+   to the top edge + half the SVG height. */
+[data-theme="dark"] .title-art{position:relative;background:none}
+[data-theme="dark"] .title-art svg{position:relative}
+[data-theme="dark"] .title-art::before{
+  content:'';
+  position:absolute;
+  width:280px;height:280px;
+  left:50%;top:140px;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:radial-gradient(circle at center in oklab,
+    rgba(143,192,240,.12) 0%, transparent 65%);
+  filter:blur(28px);
+  mix-blend-mode:screen;
+  pointer-events:none;
+}
+
+/* Bar mark glyph — ambient azure halo, replacing the flat ink dot. */
+[data-theme="dark"] .bar .mark svg,
+[data-theme="dark"] .page-header .mark svg{
+  filter:drop-shadow(0 0 14px var(--azure)) drop-shadow(0 0 4px rgba(160,200,240,.6));
+}
+
+/* Poem-page h1 — soft text-shadow gives the moonlit depth. */
+[data-theme="dark"] .head-text h1{text-shadow:0 0 30px rgba(188,214,240,.12)}
+
+/* Ambient halo behind the poem-page art glyph. */
+[data-theme="dark"] .head-art{
+  background:radial-gradient(circle, rgba(143,192,240,.12) 0%, transparent 70%);
+  border-radius:50%;
+}
+
+/* Sticky reveal bar — dark glass instead of cream glass. */
+[data-theme="dark"] .view-read .bar{
+  background:rgba(15,18,25,.72);
+  border-bottom-color:color-mix(in srgb,var(--ink),transparent 92%);
+}
+
+/* Poem list dotted divider — parchment ink against the night. */
+[data-theme="dark"] .poem-row{border-bottom-color:rgba(230,224,207,.12)}
+/* In dark mode the brighter shade is --azure-deep; route it to the
+   larger title for hover lift and use --azure on the small roman. */
+[data-theme="dark"] .poem-row:hover{background:color-mix(in srgb,var(--azure),transparent 92%)}
+[data-theme="dark"] .poem-row:hover .p-title{color:var(--azure-deep)}
+[data-theme="dark"] .poem-row:hover .roman{color:var(--azure)}

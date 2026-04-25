@@ -8,18 +8,18 @@ blurb: stanzas for future poems
 lang: mixed
 icon: 🖋
 
-poems:
-  - t: "Shorts"
-    f: shorts.md
+contents:
+  - poem: "Shorts"
+    id: shorts
     lang: en
     note: "compressed, potent"
     art: art-paper-slips
-  - t: "Seeds/Blurbs"
-    f: seeds-blurbs.md
+  - poem: "Seeds/Blurbs"
+    id: seeds-blurbs
     lang: en
     art: art-seed-envelope
-  - t: "Exemplary Poem"
-    f: exemplary-poem.md
+  - poem: "Exemplary Poem"
+    id: exemplary-poem
     lang: en
     note: "what is exemplary?"
     art: art-page-lines

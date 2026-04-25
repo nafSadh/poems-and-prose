@@ -15,6 +15,32 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=Caveat:wght@400;600&family=Special+Elite&family=Noto+Serif+Bengali:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{STYLES_HREF}}">
+<script>
+/* Theme bootstrap + hidden toggle.
+   Light is the canonical surface. Dark is opt-in via the `t` keybinding
+   and persisted to localStorage; OS preference is intentionally ignored. */
+(function(){
+  try {
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.dataset.theme = 'dark';
+    }
+  } catch(e) {}
+  document.addEventListener('keydown', function(e){
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var t = e.target && e.target.tagName;
+    if (t === 'INPUT' || t === 'TEXTAREA' || (e.target && e.target.isContentEditable)) return;
+    if (e.key !== 't' && e.key !== 'T') return;
+    e.preventDefault();
+    var next = document.documentElement.dataset.theme === 'dark' ? '' : 'dark';
+    if (next) document.documentElement.dataset.theme = next;
+    else      delete document.documentElement.dataset.theme;
+    try {
+      if (next) localStorage.setItem('theme', next);
+      else      localStorage.removeItem('theme');
+    } catch(_) {}
+  });
+})();
+</script>
 </head>
 <body>
 {{SVG_DEFS}}

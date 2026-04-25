@@ -3,7 +3,7 @@
 
 Reads every `.md` file in each configured collection, extracts its
 `<date: ... />` (English) or `<তারিখ: ... />` (Bengali) tag if present, and:
-  1. Updates `_poems.yml` date field to match the md tag.
+  1. Updates `_contents.yml` date field to match the md tag.
   2. For `second-seconds` only: sorts entries chronologically and regenerates
      `second-seconds/~index.md` + master `src/~index.md` second-seconds section.
      Other collections keep their hand-curated yml order.
@@ -17,7 +17,7 @@ import re
 from pathlib import Path
 
 SRC = Path(__file__).resolve().parent.parent
-YML = SRC / "second-seconds" / "_poems.yml"
+YML = SRC / "second-seconds" / "_contents.yml"
 IDX = SRC / "second-seconds" / "~index.md"
 MASTER = SRC / "~index.md"
 MD_DIR = SRC / "second-seconds"
@@ -87,22 +87,29 @@ def md_dates(md_dir: Path) -> dict[str, str]:
     return out
 
 
+# Polymorphic content type-keys (mirrors CONTENT_TYPES in build.py).
+TYPE_KEY_RE = r"(?:poem|story|article|prose|essay)"
+
+
 def sync_yml(yml_path: Path, date_map: dict[str, str], sort: bool):
     """Update yml dates from md. Sort entries chronologically if `sort`.
-    Return list of (sort_key, filename, title, entry_text) — in sorted order
-    if `sort`, otherwise original yml order."""
+    Return list of (sort_key, fname_with_md, title, entry_text) — in sorted
+    order if `sort`, otherwise original yml order. `fname_with_md` is the
+    bare md filename (id + ".md") so date_map (keyed by md filename) lookups
+    still work."""
     text = yml_path.read_text(encoding="utf-8")
-    header, _, body = text.partition("\npoems:\n")
-    assert body, f"couldn't find 'poems:' section in {yml_path}"
+    header, _, body = text.partition("\ncontents:\n")
+    assert body, f"couldn't find 'contents:' section in {yml_path}"
 
-    raw = [e for e in re.split(r"(?m)(?=^  - t: )", body) if e.strip()]
+    raw = [e for e in re.split(rf"(?m)(?=^  - {TYPE_KEY_RE}: )", body) if e.strip()]
 
     fixed: list[tuple[tuple[int, int, int], str, str, str]] = []
     updates = 0
     for entry in raw:
-        fm = re.search(r"^    f:\s*(\S+)\s*$", entry, flags=re.M)
-        fname = fm.group(1) if fm else ""
-        tm = re.search(r'^  - t:\s*"?(.+?)"?\s*$', entry, flags=re.M)
+        im = re.search(r"^    id:\s*(\S+)\s*$", entry, flags=re.M)
+        item_id = im.group(1) if im else ""
+        fname = f"{item_id}.md" if item_id else ""
+        tm = re.search(rf'^  - {TYPE_KEY_RE}:\s*"?(.+?)"?\s*$', entry, flags=re.M)
         title = tm.group(1) if tm else ""
 
         # If md has a date, override yml.
@@ -118,9 +125,9 @@ def sync_yml(yml_path: Path, date_map: dict[str, str], sort: bool):
                         entry, count=1, flags=re.M,
                     )
                 else:
-                    # No existing date: insert one after the `f:` line.
+                    # No existing date: insert one after the `id:` line.
                     entry = re.sub(
-                        r'(^    f:\s*\S+\n)',
+                        r'(^    id:\s*\S+\n)',
                         lambda m_: f'{m_.group(1)}    date: "{new_date}"\n',
                         entry, count=1, flags=re.M,
                     )
@@ -133,7 +140,7 @@ def sync_yml(yml_path: Path, date_map: dict[str, str], sort: bool):
     if sort:
         fixed.sort(key=lambda x: (x[0], x[2].lower()))
 
-    out = header + "\npoems:\n" + "".join(e[3] for e in fixed)
+    out = header + "\ncontents:\n" + "".join(e[3] for e in fixed)
     if not out.endswith("\n"):
         out += "\n"
     yml_path.write_text(out, encoding="utf-8")
@@ -191,9 +198,9 @@ def main():
     for col in COLLECTIONS:
         cid = col["id"]
         md_dir = SRC / cid
-        yml_path = SRC / cid / "_poems.yml"
+        yml_path = SRC / cid / "_contents.yml"
         if not yml_path.exists():
-            print(f"[skip] {cid}: no _poems.yml")
+            print(f"[skip] {cid}: no _contents.yml")
             continue
         date_map = md_dates(md_dir)
         print(f"{cid}: found {len(date_map)} md files with date tags")

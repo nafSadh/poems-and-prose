@@ -11,7 +11,7 @@ site:
 
 # Collection order + per-collection glyph/illustration IDs (SVG symbols defined
 # in templates/svg-defs.html). To add a new collection, append to this list and
-# create <collection-id>/_poems.yml.
+# create <collection-id>/_contents.yml.
 collections:
   - id: sulol-songroho
     ill: ill-sulol

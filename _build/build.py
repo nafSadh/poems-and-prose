@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
 """Static-site generator for poems.nafsadh.com.
 
-Reads:  src/_site.yml, src/<collection>/_poems.yml, src/<collection>/*.md
-Writes: src/_site/**  (home, book, poem pages; all pre-rendered HTML)
+Reads:  src/_site.yml, src/<collection>/_contents.yml, src/<collection>/*.md
+Writes: src/_site/**  (home, book, content pages; all pre-rendered HTML)
 
-Each poem becomes its own page at /<collection>/<slug>/ for clean URLs.
+Each content item becomes its own page at /<collection>/<id>/ for clean URLs.
 The generated tree is what the GitHub Actions workflow uploads to Pages.
+
+Each entry in `contents:` uses a polymorphic type-key for its title:
+    - poem: "Title"      → rendered as a poem (stanzas, line-break preserved)
+    - story: "Title"     → rendered as prose
+    - article: "Title"   → rendered as prose
+The key name doubles as the type indicator; the value is the title.
 """
 
 from __future__ import annotations
@@ -72,18 +78,51 @@ def load_site_config() -> dict:
     return yaml.safe_load((SRC / "_site.yml").read_text(encoding="utf-8"))
 
 
+# Polymorphic content types. Each entry in `contents:` uses one of these as its
+# key, with the title as its value (e.g. `- poem: "Title"`, `- story: "Title"`).
+CONTENT_TYPES = ("poem", "story", "article", "prose", "essay")
+
+
+def item_type_and_title(p: dict) -> tuple[str, str]:
+    """Extract (type, title) from a content entry. The first matching type-key
+    wins; raises KeyError if none is present."""
+    for k in CONTENT_TYPES:
+        if k in p:
+            return k, p[k]
+    raise KeyError(f"content entry missing a type key (one of {CONTENT_TYPES}): {p!r}")
+
+
+# Display-word for the home card's "<n> <word>" meta. If a collection is
+# all-one-type, use that type; otherwise "pieces". `prose` stays singular.
+TYPE_PLURALS = {
+    "poem": ("poem", "poems"),
+    "story": ("story", "stories"),
+    "article": ("article", "articles"),
+    "essay": ("essay", "essays"),
+    "prose": ("prose", "prose"),
+}
+
+
+def count_word(pages: list[dict], cnt: int) -> str:
+    types = {item_type_and_title(p)[0] for p in pages}
+    if len(types) == 1:
+        sg, pl = TYPE_PLURALS[next(iter(types))]
+        return sg if cnt == 1 else pl
+    return "piece" if cnt == 1 else "pieces"
+
+
 def load_collections(site_cfg: dict) -> list[dict]:
     """Merge _site.yml collection entries (order + glyph IDs) with each
-    collection's _poems.yml (title, metadata, poems)."""
+    collection's _contents.yml (title, metadata, contents)."""
     result = []
     for entry in site_cfg["collections"]:
         cid = entry["id"]
-        yml_path = SRC / cid / "_poems.yml"
+        yml_path = SRC / cid / "_contents.yml"
         if not yml_path.exists():
-            print(f"  [skip] {cid}: no _poems.yml", file=sys.stderr)
+            print(f"  [skip] {cid}: no _contents.yml", file=sys.stderr)
             continue
         book = yaml.safe_load(yml_path.read_text(encoding="utf-8"))
-        book.setdefault("poems", [])
+        book.setdefault("contents", [])
         book["ill"] = entry.get("ill", "ill-life")
         book["mark"] = entry.get("mark", "mark-life")
         book["corner"] = entry.get("corner", "")
@@ -97,15 +136,55 @@ HEAD_RE = re.compile(r"^(#{1,3}\s+.+)$", re.M)
 STANZA_SPLIT_RE = re.compile(r"\n\s*\n")
 
 
-def render_body(text: str) -> str:
-    """Convert poem markdown body to stanza HTML.
+PROSE_TYPES = {"story", "article", "prose", "essay"}
+
+
+def inline_md(esc: str) -> str:
+    """Apply inline markdown contracts to an HTML-escaped string. Order matters:
+    code spans first (their contents are opaque and shouldn't be re-processed),
+    then **bold** / __bold__ before single-marker italics, then ~~strike~~,
+    then links. Underscore italics use word-boundary guards so `snake_case`
+    is left alone."""
+    # Code: `x` → <code>x</code>. Done first so emphasis markers inside code
+    # stay literal. Backslash-escape the contents to dodge later regex passes.
+    def _code_sub(m):
+        body = m.group(1).replace("\\", r"\\")
+        return f"<code>{body}</code>"
+    esc = re.sub(r"`([^`\n]+)`", _code_sub, esc)
+    # Links: [text](url) → <a href="url">text</a>
+    esc = re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", r'<a href="\2">\1</a>', esc)
+    # Bold (both markers) before italics so the leftovers are unambiguous.
+    esc = re.sub(r"\*\*([^*\n]+)\*\*", r"<strong>\1</strong>", esc)
+    esc = re.sub(r"(?<!\w)__([^_\n]+?)__(?!\w)", r"<strong>\1</strong>", esc)
+    # Italics: *x* and _x_. Underscore form needs word-boundary guards so
+    # identifiers like `snake_case` aren't mangled.
+    esc = re.sub(r"\*([^*\n]+)\*", r"<em>\1</em>", esc)
+    esc = re.sub(r"(?<!\w)_([^_\n]+?)_(?!\w)", r"<em>\1</em>", esc)
+    # Strikethrough: ~~x~~ → <s>x</s>
+    esc = re.sub(r"~~([^~\n]+)~~", r"<s>\1</s>", esc)
+    return esc
+
+
+def render_body(text: str, content_type: str = "poem") -> str:
+    """Convert markdown body to HTML.
     - `#`/`##` headings (after the first `#` title is stripped in parse_poem_md)
-      become sub-poem section titles — use this for diptychs / multi-part pieces.
+      become section titles — use this for diptychs / multi-part pieces.
     - `###` becomes a small uppercase variant label (for alt drafts etc.).
     - `> text` lines become <blockquote class="poem-quote">.
-    - Blank lines split stanzas into <div class="stanza">.
-    - Inside a stanza: `\\-` → —, `\\!` → !, double-space+newline → <br>, *x* → <em>x</em>.
+    - Blank lines split content into chunks.
+    - Per-chunk rendering depends on `content_type`:
+      * poem (default): <div class="stanza"> with line breaks preserved as <br>.
+      * prose/story/article/essay: <p class="prose-para"> with source line breaks
+        collapsed to spaces (browser handles wrapping).
+    - A standalone chunk of `---` / `***` / `___` becomes <hr class="md-hr">.
+    - Inline transforms (see `inline_md`): *x* / _x_ → <em>, **x** / __x__ →
+      <strong>, ~~x~~ → <s>, `x` → <code>, [text](url) → <a>, plus the
+      poem-specific escapes `\\-` → — and `\\!` → !.
+    - Hard line break (`<sp><sp>\\n`) becomes <br> in both prose and poems
+      (markdown convention). Poems additionally treat any newline as <br> for
+      stanza shape; prose collapses other newlines to spaces.
     """
+    is_prose = content_type in PROSE_TYPES
     parts = HEAD_RE.split(text)
     chunks: list[str] = []
     for part in parts:
@@ -126,29 +205,40 @@ def render_body(text: str) -> str:
                 s = stanza.strip()
                 if not s:
                     continue
+                # Horizontal rule: a chunk that is just `---`/`***`/`___` (3+ chars).
+                if re.fullmatch(r"(?:-{3,}|\*{3,}|_{3,})", s):
+                    chunks.append('<hr class="md-hr">')
+                    continue
                 # Blockquote: every non-empty line starts with `>`.
                 lines = s.split("\n")
                 if all(line.strip().startswith(">") for line in lines if line.strip()):
                     cleaned = "\n".join(
                         line.strip().lstrip(">").strip() for line in lines if line.strip()
                     )
-                    esc = html.escape(cleaned).replace("\n", "<br>")
-                    chunks.append(f'<blockquote class="poem-quote">{esc}</blockquote>')
+                    esc = html.escape(cleaned)
+                    esc = esc.replace("\n", " ") if is_prose else esc.replace("\n", "<br>")
+                    chunks.append(f'<blockquote class="poem-quote">{inline_md(esc)}</blockquote>')
                     continue
                 esc = html.escape(s)
                 # Restore the markdown-specific escapes AFTER HTML escaping so <>& stay safe.
                 esc = esc.replace("\\-", "—").replace("\\!", "!")
-                # Double-space + newline → <br> (poetry line break convention).
-                esc = esc.replace("  \n", "<br>").replace("\n", "<br>")
-                # Links: [text](url) → <a href="url">text</a>
-                esc = re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", r'<a href="\2">\1</a>', esc)
-                # Italics: *x* → <em>x</em> (won't match `**bold**` or unbalanced *)
-                esc = re.sub(r"\*([^*\n]+)\*", r"<em>\1</em>", esc)
-                chunks.append(f'<div class="stanza">{esc}</div>')
+                if is_prose:
+                    # Honor the markdown hard-break convention (two trailing spaces
+                    # before a newline) before collapsing the rest of the wrapping.
+                    esc = esc.replace("  \n", "<br>")
+                    esc = re.sub(r"\s*\n\s*", " ", esc)
+                else:
+                    # Poetry: double-space + newline → <br> (the markdown hard-break
+                    # convention); plain newline also breaks for stanza shape.
+                    esc = esc.replace("  \n", "<br>").replace("\n", "<br>")
+                esc = inline_md(esc)
+                tag = "p" if is_prose else "div"
+                cls = "prose-para" if is_prose else "stanza"
+                chunks.append(f'<{tag} class="{cls}">{esc}</{tag}>')
     return "\n".join(chunks)
 
 
-def parse_poem_md(path: Path, fallback_title: str) -> tuple[str, str, int, str]:
+def parse_poem_md(path: Path, fallback_title: str, content_type: str = "poem") -> tuple[str, str, int, str]:
     """Return (title, rendered_html_body, longest_line_chars, author). Strips
     YAML front matter and HTML comments first (so `<!-- … -->` notes in the .md
     never reach the page), then pulls the first `# Heading` line as the title
@@ -187,20 +277,15 @@ def parse_poem_md(path: Path, fallback_title: str) -> tuple[str, str, int, str]:
         n = sum(1 for c in s if unicodedata.category(c) not in ("Mn", "Mc"))
         if n > longest:
             longest = n
-    return title, render_body(text), longest, author
+    return title, render_body(text, content_type), longest, author
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
-def slug_of(filename: str) -> str:
-    """Strip `.md` extension. Keep Unicode chars; URLs handle them."""
-    return filename[:-3] if filename.endswith(".md") else filename
-
-
 def is_bengali(s: str) -> bool:
     return any("\u0980" <= c <= "\u09ff" for c in s)
 
 
-def poem_is_page(p: dict) -> bool:
+def content_is_page(p: dict) -> bool:
     """Skip preface entries (they're collection-level markers, not standalone pages)."""
     return p.get("kind") != "preface"
 
@@ -234,7 +319,7 @@ def build_home(templates: dict, site_cfg: dict, collections: list[dict]) -> str:
     site = site_cfg["site"]
     cards: list[str] = []
     for i, c in enumerate(collections):
-        pages = [p for p in c["poems"] if poem_is_page(p)]
+        pages = [p for p in c["contents"] if content_is_page(p)]
         cnt = len(pages)
         roman = ROMAN[i] if i < len(ROMAN) else str(i + 1)
         title_cls = "bn" if c.get("lang") == "bn" else ""
@@ -243,7 +328,7 @@ def build_home(templates: dict, site_cfg: dict, collections: list[dict]) -> str:
         blurb = c.get("blurb") or ""
         blurb_html = f'<p class="blurb">{html.escape(blurb)}.</p>' if blurb else ""
         count_str = str(cnt) if cnt else "—"
-        poem_word = "poem" if cnt == 1 else "poems"
+        poem_word = count_word(pages, cnt) if pages else "poems"
         card = f'''    <a class="book" href="/{c["id"]}/">
       <div class="glyph">
         <svg viewBox="0 0 140 140" aria-hidden="true"><use href="#{c["mark"]}"/></svg>
@@ -277,7 +362,7 @@ def build_book(templates: dict, site_cfg: dict, collections: list[dict], idx: in
     site = site_cfg["site"]
     c = collections[idx]
     total = len(collections)
-    pages = [p for p in c["poems"] if poem_is_page(p)]
+    pages = [p for p in c["contents"] if content_is_page(p)]
     cnt = len(pages)
 
     roman = ROMAN[idx] if idx < len(ROMAN) else str(idx + 1)
@@ -288,7 +373,7 @@ def build_book(templates: dict, site_cfg: dict, collections: list[dict], idx: in
     blurb = c.get("blurb") or ""
     blurb_html = f'"{html.escape(blurb)}."' if blurb else ""
 
-    # Poem list.
+    # Content list.
     poem_items: list[str] = []
     if not pages:
         poem_items.append('    <li class="book-empty">— this book is still being written —</li>')
@@ -298,11 +383,11 @@ def build_book(templates: dict, site_cfg: dict, collections: list[dict], idx: in
             t_cls = "p-title bn" if p.get("lang") == "bn" else "p-title"
             kind = p.get("kind") or ""
             kind_cls = f" kind-{kind}" if kind else ""
-            slug = slug_of(p["f"])
+            _, p_title = item_type_and_title(p)
             poem_items.append(f'''    <li class="poem-row{kind_cls}">
-      <a href="/{c["id"]}/{slug}/" style="display:contents">
+      <a href="/{c["id"]}/{p["id"]}/" style="display:contents">
         <span class="roman">{roman_small}.</span>
-        <span class="{t_cls}">{html.escape(p["t"])}</span>
+        <span class="{t_cls}">{html.escape(p_title)}</span>
         <span class="kind">{html.escape(kind)}</span>
       </a>
     </li>''')
@@ -366,26 +451,31 @@ def build_poem(templates: dict, site_cfg: dict, collections: list[dict],
     p = pages[p_idx]
     total_p = len(pages)
 
-    md_path = SRC / c["id"] / p["f"]
+    p_type, p_title = item_type_and_title(p)
+    md_path = SRC / c["id"] / f'{p["id"]}.md'
     if not md_path.exists():
         print(f"  [warn] missing markdown: {md_path.relative_to(SRC)}", file=sys.stderr)
-        body_html = '<div class="stanza">— poem text not available —</div>'
-        title = p["t"]
+        body_html = '<div class="stanza">— text not available —</div>'
+        title = p_title
         longest_line = 0
         author = ""
     else:
-        title, body_html, longest_line, author = parse_poem_md(md_path, p["t"])
+        title, body_html, longest_line, author = parse_poem_md(md_path, p_title, p_type)
 
     # Three-tier width based on longest-line graphemes. Drives where the side
     # art sits:
     #   wide   — line fills the column → push art into the gutter
     #   narrow — short lines → art comes further left, into body's right area
     #   default — sits between, art at page-wrap right edge (margin-note column)
-    # `wide:` / `narrow:` in _poems.yml override auto-detection. Wide wins if
+    # `wide:` / `narrow:` in _contents.yml override auto-detection. Wide wins if
     # both happen to be set. Bengali auto-wide is disabled (rendering width
     # varies too much for a clean threshold) — set `wide: true` per poem.
+    is_prose = p_type in PROSE_TYPES
     if "wide" in p:
         is_wide = bool(p["wide"])
+    elif is_prose:
+        # Prose flows naturally; wider column reads like a story page.
+        is_wide = True
     elif p.get("lang") == "bn":
         is_wide = False
     else:
@@ -401,6 +491,8 @@ def build_poem(templates: dict, site_cfg: dict, collections: list[dict],
         is_narrow = longest_line <= 30
 
     wide_class = " is-wide" if is_wide else (" is-narrow" if is_narrow else "")
+    if is_prose:
+        wide_class += " is-prose"
 
     roman = ROMAN[c_idx] if c_idx < len(ROMAN) else str(c_idx + 1)
     idx_str = f"{p_idx + 1:02d}"
@@ -447,20 +539,20 @@ def build_poem(templates: dict, site_cfg: dict, collections: list[dict],
     next_p = pages[p_idx + 1] if p_idx < total_p - 1 else None
     nav_parts: list[str] = []
     if prev_p:
-        prev_slug = slug_of(prev_p["f"])
+        _, prev_title = item_type_and_title(prev_p)
         prev_title_cls = " bn" if prev_p.get("lang") == "bn" else ""
-        nav_parts.append(f'''    <a class="pn-link prev" href="/{c["id"]}/{prev_slug}/">
+        nav_parts.append(f'''    <a class="pn-link prev" href="/{c["id"]}/{prev_p["id"]}/">
       <span class="pn-dir"><svg><use href="#arrow"/></svg><span>previous</span></span>
-      <span class="pn-title{prev_title_cls}">{html.escape(prev_p["t"])}</span>
+      <span class="pn-title{prev_title_cls}">{html.escape(prev_title)}</span>
     </a>''')
     else:
         nav_parts.append('    <span></span>')
     if next_p:
-        next_slug = slug_of(next_p["f"])
+        _, next_title = item_type_and_title(next_p)
         next_title_cls = " bn" if next_p.get("lang") == "bn" else ""
-        nav_parts.append(f'''    <a class="pn-link right" href="/{c["id"]}/{next_slug}/">
+        nav_parts.append(f'''    <a class="pn-link right" href="/{c["id"]}/{next_p["id"]}/">
       <span class="pn-dir"><span>next</span><svg><use href="#arrow"/></svg></span>
-      <span class="pn-title{next_title_cls}">{html.escape(next_p["t"])}</span>
+      <span class="pn-title{next_title_cls}">{html.escape(next_title)}</span>
     </a>''')
     else:
         nav_parts.append('    <span></span>')
@@ -491,7 +583,7 @@ def build_poem(templates: dict, site_cfg: dict, collections: list[dict],
 
     # First-stanza snippet for social meta description.
     first_stanza = ""
-    m = re.search(r'<div class="stanza">(.*?)</div>', body_html, re.S)
+    m = re.search(r'<(?:div class="stanza"|p class="prose-para")>(.*?)</(?:div|p)>', body_html, re.S)
     if m:
         first_stanza = re.sub(r"<[^>]+>", " ", m.group(1))
         first_stanza = re.sub(r"\s+", " ", first_stanza).strip()[:180]
@@ -500,7 +592,7 @@ def build_poem(templates: dict, site_cfg: dict, collections: list[dict],
         templates, site_cfg,
         title=f'{title} · {c.get("roman") or c["title"]} · {site["title"]}',
         desc=first_stanza or title,
-        canonical=canonical_for(site_cfg, f'/{c["id"]}/{slug_of(p["f"])}/'),
+        canonical=canonical_for(site_cfg, f'/{c["id"]}/{p["id"]}/'),
         og_type="article",
         content=poem_content,
         lang="bn" if p.get("lang") == "bn" else "en",
@@ -548,20 +640,19 @@ def main() -> None:
     # Home page.
     write(OUT / "index.html", build_home(templates, site_cfg, collections))
 
-    # Per-collection pages (book view + per-poem pages).
-    total_poems = 0
+    # Per-collection pages (book view + per-content pages).
+    total_pages = 0
     for ci, c in enumerate(collections):
         write(OUT / c["id"] / "index.html", build_book(templates, site_cfg, collections, ci))
-        pages = [p for p in c["poems"] if poem_is_page(p)]
+        pages = [p for p in c["contents"] if content_is_page(p)]
         for pi, p in enumerate(pages):
-            slug = slug_of(p["f"])
             page_html = build_poem(templates, site_cfg, collections, ci, pi, pages)
-            write(OUT / c["id"] / slug / "index.html", page_html)
-            total_poems += 1
+            write(OUT / c["id"] / p["id"] / "index.html", page_html)
+            total_pages += 1
 
     copy_static()
 
-    print(f"  poems: {total_poems}")
+    print(f"  pages: {total_pages}")
     print(f"  done.")
 
 
