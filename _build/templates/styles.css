@@ -565,17 +565,23 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.04;z
      art OUT into the right gutter via a negative right margin so it doesn't
      crowd the text. */
 .view-read .page-wrap{position:relative}
-/* Art floats with a negative right margin equal to its width — float's margin
-   box has zero inline width, so no text wraps and no vertical space is
-   reserved. Sticky keeps it pinned beside whatever stanza is in view. Left
-   edge stays put across scroll states (width and margin-right shrink in
-   lockstep). Default: art tucks against the right edge of page-wrap, in the
-   same column as the margin note. .is-wide: art pushed further right into
-   the gutter so longer body lines don't visually crowd it. */
+/* Art floats right with sticky positioning — pinned beside whatever stanza is
+   in view. Three width tiers (set on .page-wrap by build.py based on longest
+   line, overridable via wide:/narrow: in _poems.yml):
+     default — art's left edge at page-wrap content right (margin-note column);
+               zero inline reservation, no body wrap.
+     .is-wide — body lines nearly fill the column, so push art further into
+                the gutter to stay clear.
+     .is-narrow — short body lines leave room; art comes further left, into
+                  the body's right area (overlaps title vertically).
+   Left edge stays put across scroll states because width and margin-right
+   shrink in lockstep. */
 .view-read .poem-art{float:right;position:sticky;top:58px;width:160px;height:160px;margin:0 -64px 20px 40px;color:var(--azure);opacity:.85;pointer-events:none;transition:width .32s ease,height .32s ease,margin-right .32s ease}
 body.poem-scrolled .view-read .poem-art{width:128px;height:128px;margin-right:-32px}
 .view-read .page-wrap.is-wide .poem-art{margin-right:-200px}
 body.poem-scrolled .view-read .page-wrap.is-wide .poem-art{margin-right:-168px}
+.view-read .page-wrap.is-narrow .poem-art{margin-right:32px}
+body.poem-scrolled .view-read .page-wrap.is-narrow .poem-art{margin-right:64px}
 
 /* Narrow viewports (< ~900px where the 200px gutter disappears): collapse the
    art inline above the body. Not floated, not sticky, centered. */

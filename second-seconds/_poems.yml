@@ -97,6 +97,7 @@ poems:
     date: "Feb 11, 2026"
     note: "contradiction"
     art: art-glass-water
+    narrow: true
   - t: "Barramundi Rabe"
     f: barramundi-rabe.md
     lang: en

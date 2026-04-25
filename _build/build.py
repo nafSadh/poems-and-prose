@@ -364,17 +364,29 @@ def build_poem(templates: dict, site_cfg: dict, collections: list[dict],
     else:
         title, body_html, longest_line = parse_poem_md(md_path, p["t"])
 
-    # English/Latin lines render in monospace (~10.5px/char in body), so 540px
-    # body clears ~50 chars; ≥45 means the line nearly fills the column and we
-    # don't want art crowding the right edge — push it into the gutter instead.
-    # `wide:` in _poems.yml (true/false) overrides the auto-detection.
+    # Three-tier width based on longest line. Drives where the side art sits:
+    #   wide   — line fills the column → push art into the gutter
+    #   narrow — short lines → art comes further left, into body's right area
+    #   default — sits between, art at page-wrap right edge (margin-note column)
+    # `wide:` / `narrow:` in _poems.yml override auto-detection. Wide wins if
+    # both happen to be set.
     if "wide" in p:
         is_wide = bool(p["wide"])
     elif p.get("lang") == "bn":
         is_wide = longest_line >= 28
     else:
         is_wide = longest_line >= 45
-    wide_class = " is-wide" if is_wide else ""
+
+    if is_wide:
+        is_narrow = False
+    elif "narrow" in p:
+        is_narrow = bool(p["narrow"])
+    elif p.get("lang") == "bn":
+        is_narrow = longest_line <= 18
+    else:
+        is_narrow = longest_line <= 30
+
+    wide_class = " is-wide" if is_wide else (" is-narrow" if is_narrow else "")
 
     roman = ROMAN[c_idx] if c_idx < len(ROMAN) else str(c_idx + 1)
     idx_str = f"{p_idx + 1:02d}"
