@@ -1,5 +1,5 @@
 # Numbed Anguish
-<date: Oct 01, 2025 />
+<by: Sadh /><date: Oct 01, 2025 />
 
 Every waking hour  
 is either work or feeling.  

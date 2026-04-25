@@ -1,5 +1,5 @@
 # Cluttered with Emptiness
-<date: Sept 14, 2025 />
+<by: Sadh /><date: Sept 14, 2025 />
 
 Silence pours into the hall, a greeting  
 from this bright, curated cell.  

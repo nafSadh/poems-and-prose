@@ -1,5 +1,5 @@
 # Saratoga Scene
-<date: April 18, 2026 /><location: Saratoga, California />
+<by: Sadh /><date: April 18, 2026 /><location: Saratoga, California />
 > a diptych 
 
 ## In Sue's Gallery

@@ -1,5 +1,5 @@
 # An Erosion
-<date: Oct 21, 2025 />
+<by: Sadh /><date: Oct 21, 2025 />
 
 I loved her.  
 And she loved me.  

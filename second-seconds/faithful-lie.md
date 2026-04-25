@@ -1,5 +1,5 @@
 # The Faithful Lie
-<date: Feb 11, 2026 />
+<by: Sadh /><date: Feb 11, 2026 />
 
 The person I chose to love,   
 and have loved —  

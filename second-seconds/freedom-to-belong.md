@@ -1,5 +1,5 @@
 # Freedom to Belong
-<date: Oct 01, 2025 />
+<by: Sadh /><date: Oct 01, 2025 />
 
 The blues bleed into reds, the whites flash into greens,  
 and deep purples chase the orange glow  
