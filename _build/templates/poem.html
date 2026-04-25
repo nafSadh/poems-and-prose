@@ -1,0 +1,69 @@
+<div class="view view-read active">
+  <header class="page-header">
+    <div class="page-header-inner">
+      <a href="/" class="mark"><span class="mark-pre">poems</span><svg><use href="#bar-mark"/></svg><span class="mark-post">sadh</span></a>
+      <a href="/{{COLLECTION_ID}}/" class="folio page-folio">Book {{ROMAN}} · {{INDEX_STR}} / {{COUNT_STR}}</a>
+    </div>
+  </header>
+  <nav class="bar">
+    <div class="bar-inner">
+      <a href="/" class="mark"><span class="mark-pre">poems</span><svg><use href="#bar-mark"/></svg><span class="mark-post">sadh</span></a>
+      <span class="bar-poem-title {{TITLE_CLASS}}">{{POEM_TITLE}}</span>
+      <a href="/{{COLLECTION_ID}}/" class="folio">
+        <span class="folio-book {{FROM_CLASS}}">{{BOOK_TITLE_ONLY}}</span>
+      </a>
+    </div>
+  </nav>
+  <div class="page-wrap{{WIDE_CLASS}}">
+    <svg class="poem-art" aria-hidden="true"><use href="#{{TOP_ART}}"/></svg>
+    <div class="head-wrap">
+      <div class="head-text">
+        <div class="from"><a class="{{FROM_CLASS}}" href="/{{COLLECTION_ID}}/"><svg class="from-icon" aria-hidden="true"><use href="#ic-book"/></svg>{{BOOK_TITLE_ONLY}}</a></div>
+        <h1 class="{{TITLE_CLASS}}" id="poem-h1">{{POEM_TITLE}}</h1>
+        {{DATE_LINE}}
+      </div>
+    </div>
+    <div class="poem-col">
+      <article>
+        <div class="body{{BODY_LANG_CLASS}}">
+{{BODY_HTML}}
+        </div>
+        {{MOBILE_NOTE}}
+      </article>
+    </div>
+    <aside class="margin-col">{{MARGIN_NOTE}}</aside>
+    <div class="poem-nav">
+{{POEM_NAV}}
+    </div>
+    <div class="back-link"><a href="/{{COLLECTION_ID}}/">all poems in {{COLLECTION_ROMAN_OR_TITLE}}</a></div>
+  </div>
+  <script>
+  document.addEventListener('keydown', function(e){
+    if(e.metaKey||e.ctrlKey||e.altKey||e.shiftKey) return;
+    var t=e.target.tagName; if(t==='INPUT'||t==='TEXTAREA') return;
+    var sel = e.key==='ArrowLeft' ? 'a.pn-link.prev'
+            : e.key==='ArrowRight' ? 'a.pn-link.right' : null;
+    if(!sel) return;
+    var a=document.querySelector(sel);
+    if(a && a.getAttribute('href')){ e.preventDefault(); location.href=a.getAttribute('href'); }
+  });
+  (function(){
+    var h1 = document.getElementById('poem-h1');
+    var bar = document.querySelector('.bar');
+    if(!h1 || !bar || !('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        var scrolled = !e.isIntersecting;
+        bar.classList.toggle('scrolled', scrolled);
+        document.body.classList.toggle('poem-scrolled', scrolled);
+      });
+    });
+    io.observe(h1);
+  })();
+  </script>
+  <footer class="foot">
+    <span>{{DOMAIN}}</span>
+    <span class="sig">~ {{AUTHOR_LOWER}}</span>
+    <a href="mailto:{{EMAIL}}">write</a>
+  </footer>
+</div>

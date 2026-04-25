@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Static-site generator for poems.nafsadh.com.
 
-Reads:  public/_site.yml, public/<collection>/_poems.yml, public/<collection>/*.md
-Writes: public/_site/**  (home, book, poem pages; all pre-rendered HTML)
+Reads:  src/_site.yml, src/<collection>/_poems.yml, src/<collection>/*.md
+Writes: src/_site/**  (home, book, poem pages; all pre-rendered HTML)
 
 Each poem becomes its own page at /<collection>/<slug>/ for clean URLs.
 The generated tree is what the GitHub Actions workflow uploads to Pages.
@@ -23,9 +23,9 @@ except ImportError:
 
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
-PUBLIC = Path(__file__).resolve().parent.parent
-TEMPLATES = PUBLIC / "scripts" / "templates"
-OUT = PUBLIC / "_site"
+SRC = Path(__file__).resolve().parent.parent
+TEMPLATES = SRC / "_build" / "templates"
+OUT = SRC / "_site"
 
 ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"]
 P_ROMAN = [
@@ -38,9 +38,25 @@ P_ROMAN = [
 
 
 # ── Templates / substitution ──────────────────────────────────────────────────
+SVG_DIR = SRC / "_svg"
+
+
 def load_templates() -> dict[str, str]:
-    names = ["base.html", "home.html", "book.html", "poem.html", "svg-defs.html"]
-    return {n: (TEMPLATES / n).read_text(encoding="utf-8") for n in names}
+    names = ["base.html", "home.html", "book.html", "poem.html"]
+    out = {n: (TEMPLATES / n).read_text(encoding="utf-8") for n in names}
+    # SVG defs live under _svg/ (theme symbols + per-collection art).
+    defs = (SVG_DIR / "defs.html").read_text(encoding="utf-8")
+    extras: list[str] = []
+    for p in sorted(SVG_DIR.glob("art-*.html")):
+        extras.append(f"    <!-- from {p.name} -->\n    " + p.read_text(encoding="utf-8").strip())
+    if extras:
+        injected = "\n" + "\n".join(extras) + "\n  "
+        defs = defs.replace("</defs>", injected + "</defs>", 1)
+        # Also emit the merged defs so _svg/preview.html can pick them up.
+        # This file is a build artifact; safe to blow away.
+        (SVG_DIR / "_all-symbols.html").write_text(defs, encoding="utf-8")
+    out["svg-defs.html"] = defs
+    return out
 
 
 def subst(tpl: str, vars: dict[str, str]) -> str:
@@ -52,7 +68,7 @@ def subst(tpl: str, vars: dict[str, str]) -> str:
 
 # ── Config loading ────────────────────────────────────────────────────────────
 def load_site_config() -> dict:
-    return yaml.safe_load((PUBLIC / "_site.yml").read_text(encoding="utf-8"))
+    return yaml.safe_load((SRC / "_site.yml").read_text(encoding="utf-8"))
 
 
 def load_collections(site_cfg: dict) -> list[dict]:
@@ -61,7 +77,7 @@ def load_collections(site_cfg: dict) -> list[dict]:
     result = []
     for entry in site_cfg["collections"]:
         cid = entry["id"]
-        yml_path = PUBLIC / cid / "_poems.yml"
+        yml_path = SRC / cid / "_poems.yml"
         if not yml_path.exists():
             print(f"  [skip] {cid}: no _poems.yml", file=sys.stderr)
             continue
@@ -76,13 +92,16 @@ def load_collections(site_cfg: dict) -> list[dict]:
 
 
 # ── Markdown → stanza HTML (mirrors 410-rc.html renderBody) ───────────────────
-HEAD_RE = re.compile(r"^(#{2,3}\s+.+)$", re.M)
+HEAD_RE = re.compile(r"^(#{1,3}\s+.+)$", re.M)
 STANZA_SPLIT_RE = re.compile(r"\n\s*\n")
 
 
 def render_body(text: str) -> str:
     """Convert poem markdown body to stanza HTML.
-    - `##`/`###` headings become <hr class="variant-sep"> + <div class="variant-label">.
+    - `#`/`##` headings (after the first `#` title is stripped in parse_poem_md)
+      become sub-poem section titles — use this for diptychs / multi-part pieces.
+    - `###` becomes a small uppercase variant label (for alt drafts etc.).
+    - `> text` lines become <blockquote class="poem-quote">.
     - Blank lines split stanzas into <div class="stanza">.
     - Inside a stanza: `\\-` → —, `\\!` → !, double-space+newline → <br>, *x* → <em>x</em>.
     """
@@ -92,38 +111,72 @@ def render_body(text: str) -> str:
         part = part.strip()
         if not part:
             continue
-        if HEAD_RE.match(part):
-            label = re.sub(r"^#{2,3}\s+", "", part)
+        hm = HEAD_RE.match(part)
+        if hm:
+            level = len(re.match(r"^(#+)", part).group(1))
+            label = re.sub(r"^#{1,3}\s+", "", part)
             chunks.append('<hr class="variant-sep">')
-            chunks.append(f'<div class="variant-label">{html.escape(label)}</div>')
+            if level <= 2:
+                chunks.append(f'<h2 class="sub-poem-title">{html.escape(label)}</h2>')
+            else:
+                chunks.append(f'<div class="variant-label">{html.escape(label)}</div>')
         else:
             for stanza in STANZA_SPLIT_RE.split(part):
                 s = stanza.strip()
                 if not s:
+                    continue
+                # Blockquote: every non-empty line starts with `>`.
+                lines = s.split("\n")
+                if all(line.strip().startswith(">") for line in lines if line.strip()):
+                    cleaned = "\n".join(
+                        line.strip().lstrip(">").strip() for line in lines if line.strip()
+                    )
+                    esc = html.escape(cleaned).replace("\n", "<br>")
+                    chunks.append(f'<blockquote class="poem-quote">{esc}</blockquote>')
                     continue
                 esc = html.escape(s)
                 # Restore the markdown-specific escapes AFTER HTML escaping so <>& stay safe.
                 esc = esc.replace("\\-", "—").replace("\\!", "!")
                 # Double-space + newline → <br> (poetry line break convention).
                 esc = esc.replace("  \n", "<br>").replace("\n", "<br>")
+                # Links: [text](url) → <a href="url">text</a>
+                esc = re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", r'<a href="\2">\1</a>', esc)
                 # Italics: *x* → <em>x</em> (won't match `**bold**` or unbalanced *)
                 esc = re.sub(r"\*([^*\n]+)\*", r"<em>\1</em>", esc)
                 chunks.append(f'<div class="stanza">{esc}</div>')
     return "\n".join(chunks)
 
 
-def parse_poem_md(path: Path, fallback_title: str) -> tuple[str, str]:
-    """Return (title, rendered_html_body). Strips YAML front matter if present
-    and pulls the first `# Heading` line out as the title (falls back to yml title)."""
+def parse_poem_md(path: Path, fallback_title: str) -> tuple[str, str, int]:
+    """Return (title, rendered_html_body, longest_line_chars). Strips YAML front
+    matter and HTML comments first (so `<!-- … -->` notes in the .md never reach
+    the page), then pulls the first `# Heading` line as the title (falls back to
+    yml title). The longest-line count drives whether to push the side art into
+    the gutter (wide) vs. tuck it near the margin note (narrow)."""
     text = path.read_text(encoding="utf-8")
     # Strip YAML front matter.
     text = re.sub(r"^---[\s\S]*?---\s*", "", text)
+    # Strip HTML comments (supports multi-line blocks).
+    text = re.sub(r"<!--[\s\S]*?-->", "", text)
+    # Strip custom self-closing meta tags like `<date: March 31, 2026 />`, `<তারিখ: ফেব্রুয়ারি ৪, ২০১৪ />`, `<status: draft />`.
+    # Only matches tags with a colon + self-close — won't touch real HTML tags.
+    # Tag name allows ASCII letters/digits/hyphens and Bengali (U+0980–U+09FF).
+    text = re.sub(r"<[a-zA-Zঀ-৿][a-zA-Z0-9ঀ-৿-]*:[^<>]*?/>", "", text)
     title = fallback_title
     m = re.match(r"^#\s+(.+)$", text, re.M)
     if m:
         title = m.group(1).strip()
         text = re.sub(r"^#\s+.+$", "", text, count=1, flags=re.M).strip()
-    return title, render_body(text)
+    longest = 0
+    for raw_line in text.splitlines():
+        s = raw_line.strip()
+        if not s or s.startswith("#") or s.startswith(">"):
+            continue
+        # Trailing two-space hard-break is invisible — don't count it.
+        s = s.rstrip()
+        if len(s) > longest:
+            longest = len(s)
+    return title, render_body(text), longest
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -302,13 +355,26 @@ def build_poem(templates: dict, site_cfg: dict, collections: list[dict],
     p = pages[p_idx]
     total_p = len(pages)
 
-    md_path = PUBLIC / c["id"] / p["f"]
+    md_path = SRC / c["id"] / p["f"]
     if not md_path.exists():
-        print(f"  [warn] missing markdown: {md_path.relative_to(PUBLIC)}", file=sys.stderr)
+        print(f"  [warn] missing markdown: {md_path.relative_to(SRC)}", file=sys.stderr)
         body_html = '<div class="stanza">— poem text not available —</div>'
         title = p["t"]
+        longest_line = 0
     else:
-        title, body_html = parse_poem_md(md_path, p["t"])
+        title, body_html, longest_line = parse_poem_md(md_path, p["t"])
+
+    # English/Latin lines render in monospace (~10.5px/char in body), so 540px
+    # body clears ~50 chars; ≥45 means the line nearly fills the column and we
+    # don't want art crowding the right edge — push it into the gutter instead.
+    # `wide:` in _poems.yml (true/false) overrides the auto-detection.
+    if "wide" in p:
+        is_wide = bool(p["wide"])
+    elif p.get("lang") == "bn":
+        is_wide = longest_line >= 28
+    else:
+        is_wide = longest_line >= 45
+    wide_class = " is-wide" if is_wide else ""
 
     roman = ROMAN[c_idx] if c_idx < len(ROMAN) else str(c_idx + 1)
     idx_str = f"{p_idx + 1:02d}"
@@ -317,7 +383,6 @@ def build_poem(templates: dict, site_cfg: dict, collections: list[dict],
     title_cls = "bn" if p.get("lang") == "bn" else ""
     body_lang_cls = " bn" if p.get("lang") == "bn" else ""
     from_cls = "bn" if c.get("lang") == "bn" else ""
-    from_title_text = c["title"] + (f' — {c["subtitle"]}' if c.get("subtitle") else "")
 
     # Top-art resolution order: explicit `art:` on the poem → per-collection `pool`
     # rotation (deterministic by index) → fall back to the collection's single `ill`.
@@ -370,11 +435,13 @@ def build_poem(templates: dict, site_cfg: dict, collections: list[dict],
         "COUNT_STR": cnt_str,
         "FROM_CLASS": from_cls,
         "COLLECTION_ID": c["id"],
-        "FROM_TITLE": html.escape(from_title_text),
+        "BOOK_TITLE_ONLY": html.escape(c["title"]),
+        "MARK_ID": c["mark"],
         "TITLE_CLASS": title_cls,
         "POEM_TITLE": html.escape(title),
         "DATE_LINE": date_line,
         "TOP_ART": top_art,
+        "WIDE_CLASS": wide_class,
         "BODY_LANG_CLASS": body_lang_cls,
         "BODY_HTML": body_html,
         "MOBILE_NOTE": mobile_note,
@@ -415,13 +482,13 @@ def copy_static() -> None:
     (so /second-seconds/lull.md still resolves for anyone who wants the source)."""
     shutil.copy2(TEMPLATES / "styles.css", OUT / "styles.css")
     for name in ("CNAME", ".nojekyll"):
-        src = PUBLIC / name
+        src = SRC / name
         if src.exists():
             shutil.copy2(src, OUT / name)
     # Copy every .md file under collection dirs (not _site itself).
-    for md in PUBLIC.rglob("*.md"):
-        rel = md.relative_to(PUBLIC)
-        if rel.parts[0] in ("_site", "scripts"):
+    for md in SRC.rglob("*.md"):
+        rel = md.relative_to(SRC)
+        if rel.parts[0] in ("_site", "_build"):
             continue
         dst = OUT / rel
         dst.parent.mkdir(parents=True, exist_ok=True)
@@ -438,7 +505,7 @@ def main() -> None:
     collections = load_collections(site_cfg)
     templates = load_templates()
 
-    print(f"Building to {OUT.relative_to(PUBLIC.parent)}/")
+    print(f"Building to {OUT.relative_to(SRC.parent)}/")
     print(f"  site: {site_cfg['site']['domain']}")
     print(f"  collections: {len(collections)}")
 

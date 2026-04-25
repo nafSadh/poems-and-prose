@@ -9,7 +9,7 @@ on:
       - "**/*.md"
       - "**/_poems.yml"
       - "_site.yml"
-      - "scripts/**"
+      - "_build/**"
       - ".github/workflows/deploy.yml"
       - "CNAME"
       - ".nojekyll"
@@ -39,7 +39,7 @@ jobs:
       - run: pip install pyyaml
 
       - name: Build site
-        run: python3 scripts/build.py
+        run: python3 _build/build.py
 
       - uses: actions/configure-pages@v5
 

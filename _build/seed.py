@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One-shot migration: emit public/<collection>/_poems.yml from
+"""One-shot migration: emit src/<collection>/_poems.yml from
 designs/finalists/data.js (metadata) + each <collection>/~index.md (curated order).
 
 Run once, verify output, delete this script.
@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Any
 
 # Paths relative to this script.
-ROOT = Path(__file__).resolve().parent.parent          # public/
+ROOT = Path(__file__).resolve().parent.parent          # src/
 REPO = ROOT.parent                                      # ~/src/poems/
 DATA_JS = REPO / "designs" / "finalists" / "data.js"
 
