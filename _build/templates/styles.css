@@ -27,7 +27,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.04;z
 .view.active{display:block}
 
 /* ── Shared bar ── */
-.bar{position:relative;z-index:1;padding:20px 36px;display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);font-family:'Inter',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);font-weight:500}
+.bar{position:relative;z-index:1;padding:20px 36px;display:flex;justify-content:space-between;align-items:baseline;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);font-weight:500}
 .bar .mark{color:var(--ink);font-family:'Fraunces',serif;font-style:italic;font-size:22px;letter-spacing:0;text-transform:none;font-weight:400;display:flex;align-items:center;gap:9px;font-variation-settings:"opsz" 144}
 .bar .mark svg{width:22px;height:22px;color:var(--azure)}
 .bar a{color:var(--dim);transition:color .2s}
@@ -36,7 +36,15 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.04;z
 .bar .folio{font-family:'Fraunces',serif;font-style:italic;text-transform:none;letter-spacing:0;font-size:14px;color:var(--azure)}
 
 /* ── HOME ── */
-.hero{position:relative;z-index:1;max-width:1020px;margin:0 auto;padding:8vh 36px 4vh;display:grid;grid-template-columns:1fr 300px;gap:56px;align-items:center}
+.home-domain{display:flex;align-items:center;justify-content:center;gap:16px;padding:44px 36px 12px;font-family:'Fraunces',serif;font-style:italic;font-size:13px;letter-spacing:0;font-weight:400;color:color-mix(in srgb,var(--dim),transparent 50%);font-variation-settings:'opsz' 72}
+.home-domain::before,
+.home-domain::after{content:'';width:64px;height:1px;background:currentColor;opacity:.45;animation:flutter-line 2.6s ease-in-out infinite}
+.home-domain::after{animation-delay:-1.3s}
+@keyframes flutter-line{
+  0%,100%{transform:scaleX(.85);opacity:.3}
+  50%{transform:scaleX(1.12);opacity:.6}
+}
+.hero{position:relative;z-index:1;max-width:880px;margin:0 auto;padding:8vh 36px 4vh;display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:center}
 .hero-text .kicker{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--azure);font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:10px}
 .hero-text .kicker::before{content:'';width:28px;height:1px;background:currentColor}
 .hero-text h1{font-family:'Fraunces',serif;font-weight:400;font-style:italic;font-size:clamp(56px,10vw,120px);letter-spacing:-.04em;line-height:.9;color:var(--ink);font-variation-settings:"opsz" 144,"SOFT" 50}
@@ -584,18 +592,36 @@ body.poem-scrolled .view-read .page-wrap.is-wide .poem-art{margin-right:-168px}
 body.poem-scrolled .view-read .page-wrap.is-narrow .poem-art{margin-right:64px}
 
 /* Narrow viewports (< ~900px where the 200px gutter disappears): collapse the
-   art inline above the body. Not floated, not sticky, centered. */
+   art inline above the body. Not floated, not sticky, centered.
+   Also drop the title's absolute body-left-edge alignment — at this width the
+   `calc(50% - 278px)` clamps to 36px and slides under the mark. Switch to a
+   natural flex row: mark | title (flex:1, centered, ellipsized) | folio. */
 @media(max-width:900px){
   .view-read .poem-art,
   .view-read .page-wrap.is-wide .poem-art{float:none;position:static;display:block;width:100px;height:100px;margin:0 auto 12px}
   body.poem-scrolled .view-read .poem-art,
   body.poem-scrolled .view-read .page-wrap.is-wide .poem-art{width:100px;height:100px;margin:0 auto 12px}
+  .bar-poem-title{position:static;left:auto;right:auto;flex:1 1 0;min-width:0;text-align:center;margin:0 8px}
 }
 @media(max-width:480px){
   .view-read .poem-art{width:80px;height:80px}
   body.poem-scrolled .view-read .poem-art{width:80px;height:80px}
-  .view-read .bar-inner{padding:0 16px;gap:10px}
-  .view-read .bar .mark{font-size:18px}
-  .view-read .bar.scrolled .mark{font-size:14px}
-  .bar-poem-title{font-size:13px}
+  .view-read .bar-inner{padding:0 16px;gap:8px}
+  /* Drop the wordmark text everywhere — bar (home/book/poem) and page-header.
+     The bar-mark glyph stays as a leading dot. */
+  .mark .mark-pre,
+  .mark .mark-post{display:none}
+  .view-read .bar .mark svg{width:14px;height:14px}
+  .bar-poem-title{font-size:13px;margin:0 4px;text-align:left}
+}
+/* Slow heartbeat on the bar-mark glyph — applies everywhere a .mark appears
+   (page-header, bar, home, book index). transform:scale doesn't affect layout. */
+.mark svg{transform-origin:center;animation:bar-mark-pulse 2.4s ease-in-out infinite}
+@keyframes bar-mark-pulse{
+  0%,100%{opacity:.35;transform:scale(.7)}
+  50%{opacity:1;transform:scale(1.25)}
+}
+@media(prefers-reduced-motion:reduce){
+  .mark svg{animation:none}
+  .home-domain::before,.home-domain::after{animation:none}
 }

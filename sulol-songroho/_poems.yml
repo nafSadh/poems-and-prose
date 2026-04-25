@@ -11,10 +11,11 @@ icon: 🌿
 
 poems:
   - t: "সুলল সংগ্রহ ও কিছু কথা"
-    f: sulol-songroho-o-kichhu-kotha.md
+    f: intro.md
     date: "অক্টোবর ১০, ১৯৯৮"
     lang: bn
     art: art-quill-pen
+    wide: true
   - t: "ঘাসফুল"
     f: ghasphul.md
     date: "মার্চ ২৫, ২০০৭"

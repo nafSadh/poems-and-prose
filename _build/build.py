@@ -14,6 +14,7 @@ import html
 import re
 import shutil
 import sys
+import unicodedata
 from pathlib import Path
 
 try:
@@ -147,17 +148,22 @@ def render_body(text: str) -> str:
     return "\n".join(chunks)
 
 
-def parse_poem_md(path: Path, fallback_title: str) -> tuple[str, str, int]:
-    """Return (title, rendered_html_body, longest_line_chars). Strips YAML front
-    matter and HTML comments first (so `<!-- … -->` notes in the .md never reach
-    the page), then pulls the first `# Heading` line as the title (falls back to
-    yml title). The longest-line count drives whether to push the side art into
-    the gutter (wide) vs. tuck it near the margin note (narrow)."""
+def parse_poem_md(path: Path, fallback_title: str) -> tuple[str, str, int, str]:
+    """Return (title, rendered_html_body, longest_line_chars, author). Strips
+    YAML front matter and HTML comments first (so `<!-- … -->` notes in the .md
+    never reach the page), then pulls the first `# Heading` line as the title
+    (falls back to yml title). The longest-line count drives whether to push
+    the side art into the gutter (wide) vs. tuck it near the margin note
+    (narrow). The author is extracted from `<by: …/>` or `<স্বনামে: …/>` meta
+    tags before they're stripped from the body."""
     text = path.read_text(encoding="utf-8")
     # Strip YAML front matter.
     text = re.sub(r"^---[\s\S]*?---\s*", "", text)
     # Strip HTML comments (supports multi-line blocks).
     text = re.sub(r"<!--[\s\S]*?-->", "", text)
+    # Pull author from `<by: …/>` or `<স্বনামে: …/>` before tag-strip.
+    am = re.search(r"<(?:by|স্বনামে):\s*([^/<>]+?)\s*/>", text)
+    author = am.group(1).strip() if am else ""
     # Strip custom self-closing meta tags like `<date: March 31, 2026 />`, `<তারিখ: ফেব্রুয়ারি ৪, ২০১৪ />`, `<status: draft />`.
     # Only matches tags with a colon + self-close — won't touch real HTML tags.
     # Tag name allows ASCII letters/digits/hyphens and Bengali (U+0980–U+09FF).
@@ -167,6 +173,10 @@ def parse_poem_md(path: Path, fallback_title: str) -> tuple[str, str, int]:
     if m:
         title = m.group(1).strip()
         text = re.sub(r"^#\s+.+$", "", text, count=1, flags=re.M).strip()
+    # Count graphemes (base chars + spacing combining), not codepoints. Bengali
+    # uses combining vowel signs / halants that are separate codepoints but
+    # render as part of a single visible cluster — len() overcounts those.
+    # For Latin text grapheme count == len() so this is a no-op.
     longest = 0
     for raw_line in text.splitlines():
         s = raw_line.strip()
@@ -174,9 +184,10 @@ def parse_poem_md(path: Path, fallback_title: str) -> tuple[str, str, int]:
             continue
         # Trailing two-space hard-break is invisible — don't count it.
         s = s.rstrip()
-        if len(s) > longest:
-            longest = len(s)
-    return title, render_body(text), longest
+        n = sum(1 for c in s if unicodedata.category(c) not in ("Mn", "Mc"))
+        if n > longest:
+            longest = n
+    return title, render_body(text), longest, author
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -210,7 +221,7 @@ def wrap_page(templates: dict, site_cfg: dict, *, title: str, desc: str, canonic
         "OG_TYPE": og_type,
         "OG_TITLE": html.escape(title),
         "OG_DESCRIPTION": html.escape(desc),
-        "STYLES_HREF": "/styles.css",
+        "STYLES_HREF": f"/styles.css?v={int((TEMPLATES / 'styles.css').stat().st_mtime)}",
         "SVG_DEFS": templates["svg-defs.html"],
         "CONTENT": content,
     }
@@ -361,19 +372,22 @@ def build_poem(templates: dict, site_cfg: dict, collections: list[dict],
         body_html = '<div class="stanza">— poem text not available —</div>'
         title = p["t"]
         longest_line = 0
+        author = ""
     else:
-        title, body_html, longest_line = parse_poem_md(md_path, p["t"])
+        title, body_html, longest_line, author = parse_poem_md(md_path, p["t"])
 
-    # Three-tier width based on longest line. Drives where the side art sits:
+    # Three-tier width based on longest-line graphemes. Drives where the side
+    # art sits:
     #   wide   — line fills the column → push art into the gutter
     #   narrow — short lines → art comes further left, into body's right area
     #   default — sits between, art at page-wrap right edge (margin-note column)
     # `wide:` / `narrow:` in _poems.yml override auto-detection. Wide wins if
-    # both happen to be set.
+    # both happen to be set. Bengali auto-wide is disabled (rendering width
+    # varies too much for a clean threshold) — set `wide: true` per poem.
     if "wide" in p:
         is_wide = bool(p["wide"])
     elif p.get("lang") == "bn":
-        is_wide = longest_line >= 28
+        is_wide = False
     else:
         is_wide = longest_line >= 45
 
@@ -405,9 +419,19 @@ def build_poem(templates: dict, site_cfg: dict, collections: list[dict],
     else:
         top_art = c["ill"]
 
-    # Date line under title (only when date is present in yml).
+    # Byline under title: "AUTHOR · DATE" (either part may be empty).
+    # Date comes from yml (synced from md); author comes from md `<by:>`/`<স্বনামে:>` tag.
+    # Letter-spacing + uppercase tracking is for Latin caps; Bengali drops both
+    # (no casing, and tracking breaks up conjuncts).
     date = p.get("date") or ""
-    date_line = f'<div class="poem-date" style="font-family:\'Inter\',sans-serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dim);font-weight:500;margin-top:12px">{html.escape(date)}</div>' if date else ""
+    parts = [s for s in (author, date) if s]
+    if parts:
+        byline = " · ".join(html.escape(s) for s in parts)
+        bn = is_bengali(byline)
+        spacing = "letter-spacing:2.5px;text-transform:uppercase;" if not bn else "letter-spacing:1.5px;"
+        date_line = f'<div class="poem-date" style="font-family:\'Inter\',sans-serif;font-size:10px;{spacing}color:var(--dim);font-weight:500;margin-top:12px">{byline}</div>'
+    else:
+        date_line = ""
 
     # Margin note.
     note = p.get("note") or ""

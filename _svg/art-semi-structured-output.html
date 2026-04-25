@@ -1,3 +1,30 @@
+<!--
+  ╔══════════════════════════════════════════════════════════════════════════╗
+  ║ AGENT RULE — DO NOT DELETE OLD SVGs WHEN REDESIGNING.                    ║
+  ║                                                                          ║
+  ║ When replacing a <symbol>, wrap the previous version as an HTML comment  ║
+  ║ immediately above the new one:                                           ║
+  ║                                                                          ║
+  ║   <!~~ prev: <one-line note + git ref if recovered>                      ║
+  ║   <symbol id="art-foo" viewBox="0 0 80 80">                              ║
+  ║     ...old body, with inner <!~~...~~> markers stripped to plain text... ║
+  ║   </symbol>                                                              ║
+  ║   ~~>                                                                    ║
+  ║   <symbol id="art-foo" viewBox="0 0 80 80">                              ║
+  ║     ...new design...                                                     ║
+  ║   </symbol>                                                              ║
+  ║                                                                          ║
+  ║ Why: Sadh iterates per-poem art across many sessions. A redesign may be  ║
+  ║ the wrong direction; the previous version may turn out to be the keeper. ║
+  ║ Once the file is saved without the old block, git only helps if there    ║
+  ║ was an intermediate commit — and there usually isn't. See AGENT_README.  ║
+  ║                                                                          ║
+  ║ HTML comments cannot contain "──", so strip inner <!~~...~~> markers     ║
+  ║ (leave the comment text as plain prose) before wrapping. The commented   ║
+  ║ block does not render — both build.py and the browser ignore it.         ║
+  ╚══════════════════════════════════════════════════════════════════════════╝
+-->
+
 <symbol id="art-prison-bars" viewBox="0 0 80 80" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none">
   <!-- soft shaded cell behind bars -->
   <rect x="10" y="8" width="60" height="64" fill="currentColor" fill-opacity=".08" stroke="none"/>
