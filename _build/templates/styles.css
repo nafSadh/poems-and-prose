@@ -332,6 +332,10 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.04;z
   margin-bottom:clamp(18px,2vh,28px);
   font-variation-settings:"opsz" 144,"SOFT" 50;
   max-width:calc(100% - 80px);
+  /* Optical alignment: italic Fraunces glyphs have ~1px more left side-bearing
+     than the body's Special Elite, making the box-aligned title look inset.
+     Pull it left a hair so the glyph ink — not the box — aligns with prose. */
+  margin-left:-.02em;
 }
 .head-text h1::after{
   content:'';display:block;
@@ -381,9 +385,16 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.04;z
 .md-hr{margin:2.4em auto;border:none;width:60%;height:0;border-top:1px solid color-mix(in srgb,var(--azure),transparent 70%)}
 .body code{font-family:'Special Elite',monospace;font-size:.92em;background:color-mix(in srgb,var(--paper-cool),transparent 30%);padding:.05em .35em;border-radius:3px;color:var(--ink-soft)}
 .body s{color:var(--dim);text-decoration-color:color-mix(in srgb,var(--red-pen),transparent 40%)}
-/* Prose pages get a wider reading measure than poems (which are line-shaped). */
+/* Prose pages get a wider reading measure than poems (which are line-shaped),
+   and a textured letterpress face (IM Fell English) instead of typewriter. */
 .page-wrap.is-prose{max-width:780px}
-.page-wrap.is-prose .body{max-width:680px}
+.page-wrap.is-prose .body{
+  max-width:680px;
+  font-family:'IM Fell English',serif;
+  font-size:19px;
+  line-height:1.65;
+}
+.page-wrap.is-prose .prose-para{line-height:1.65}
 .body em{font-style:italic;color:var(--ink-soft)}
 .body a{color:var(--azure);border-bottom:1px solid color-mix(in srgb,var(--azure),transparent 70%);transition:color .2s}
 .body a:hover{color:var(--azure-deep)}
@@ -587,10 +598,16 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.04;z
    Flush to viewport edges (not centered in a 900px box) to match the live layout. */
 .view-read .page-header{padding:18px 0;position:relative;z-index:1}
 .view-read .page-header-inner{padding:0 36px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+/* Phone: match the book-page .bar's 22px rails so the brand-mark dot lands
+   in the same x position on both pages. Placed after the base rule above so
+   source-order wins (specificity is equal). */
+@media(max-width:760px){
+  .view-read .page-header-inner{padding:0 22px}
+}
 .view-read .page-header .mark{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:22px;letter-spacing:0;text-transform:none;color:var(--ink);font-variation-settings:'opsz' 144}
 /* Logo sits centered on the x-height of the lowercase letters — not the cap height — so it
    visually balances "poems" and "sadh" rather than floating above them. */
-.view-read .page-header .mark svg{width:14px;height:14px;color:var(--azure);display:inline-block;vertical-align:-.05em;margin:0 5px}
+.view-read .page-header .mark svg{width:22px;height:22px;color:var(--azure);display:inline-block;vertical-align:-.16em;margin:0 7px}
 .view-read .page-header .page-folio{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:14px;letter-spacing:0;text-transform:none;color:var(--azure);transition:color .2s ease}
 .view-read .page-header .page-folio:hover{color:var(--azure-deep)}
 
@@ -608,6 +625,9 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.04;z
    Body left x = (viewport_w - 620) / 2 + 32px = calc(50% - 278px).
    Falls back to 36px (bar's own padding) on narrow viewports. */
 .bar-poem-title{position:absolute;left:max(36px,calc(50% - 278px));right:max(36px,calc(50% - 278px));min-width:0;text-align:left;font-family:'Fraunces',serif;font-style:normal;font-weight:500;font-size:16px;color:var(--ink);letter-spacing:0;text-transform:capitalize;font-variation-settings:'opsz' 72,'SOFT' 50;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* Prose pages use a wider page-wrap (780px vs 620px), so the bar title's
+   left/right rails need to match the prose content rails (390 - 32 = 358px). */
+.bar.is-prose .bar-poem-title{left:max(36px,calc(50% - 358px));right:max(36px,calc(50% - 358px))}
 .bar-poem-title.bn{font-family:'Noto Serif Bengali',serif;font-style:normal;font-weight:500;text-transform:none}
 
 /* Right: folio — clickable link to the book. Shows book name (bar only visible on scroll). */
@@ -654,21 +674,36 @@ body.poem-scrolled .view-read .page-wrap.is-narrow .poem-art{margin-right:64px}
    natural flex row: mark | title (flex:1, centered, ellipsized) | folio. */
 @media(max-width:900px){
   .view-read .poem-art,
-  .view-read .page-wrap.is-wide .poem-art{float:none;position:static;display:block;width:100px;height:100px;margin:0 auto 12px}
+  .view-read .page-wrap.is-wide .poem-art{float:none;position:static;display:block;width:128px;height:128px;margin:0 auto 12px}
   body.poem-scrolled .view-read .poem-art,
-  body.poem-scrolled .view-read .page-wrap.is-wide .poem-art{width:100px;height:100px;margin:0 auto 12px}
+  body.poem-scrolled .view-read .page-wrap.is-wide .poem-art{width:128px;height:128px;margin:0 auto 12px}
   .bar-poem-title{position:static;left:auto;right:auto;flex:1 1 0;min-width:0;text-align:center;margin:0 8px}
+  /* Tone the body type down on phones — IM Fell English at 19px and
+     Special Elite at 17px both feel oversized in a narrow column. */
+  .body{font-size:15px;line-height:1.85}
+  .page-wrap.is-prose .body{font-size:17px;line-height:1.6}
+  .page-wrap.is-prose .prose-para{line-height:1.6}
 }
 @media(max-width:480px){
-  .view-read .poem-art{width:80px;height:80px}
-  body.poem-scrolled .view-read .poem-art{width:80px;height:80px}
+  .view-read .poem-art,
+  .view-read .page-wrap.is-wide .poem-art{width:116px;height:116px}
+  body.poem-scrolled .view-read .poem-art,
+  body.poem-scrolled .view-read .page-wrap.is-wide .poem-art{width:116px;height:116px}
   .view-read .bar-inner{padding:0 16px;gap:8px}
   /* Drop the wordmark text everywhere — bar (home/book/poem) and page-header.
      The bar-mark glyph stays as a leading dot. */
   .mark .mark-pre,
   .mark .mark-post{display:none}
   .view-read .bar .mark svg{width:14px;height:14px}
+  /* Wordmark text is hidden at this width — drop the SVG's left/right margin
+     so the bar-mark dot sits flush at the rail (matching the book-page bar
+     where the gap collapses with the hidden text). */
+  .view-read .page-header .mark svg{margin:0}
   .bar-poem-title{font-size:13px;margin:0 4px;text-align:left}
+  /* Further tighten body sizes on the smallest phones. */
+  .body{font-size:14.5px;line-height:1.8}
+  .page-wrap.is-prose .body{font-size:16px;line-height:1.55}
+  .page-wrap.is-prose .prose-para{line-height:1.55}
 }
 /* Slow heartbeat on the bar-mark glyph — applies everywhere a .mark appears
    (page-header, bar, home, book index). transform:scale doesn't affect layout. */
