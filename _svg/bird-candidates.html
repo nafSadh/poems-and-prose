@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>“A very good Bird” — candidates</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; background: #f4f3ee; color: #1a1208; margin: 0; padding: 32px; }
+  h1 { font-family: Georgia, serif; font-style: italic; font-weight: 400; margin: 0 0 8px; }
+  .lede { color: #8a7a56; margin: 0 0 24px; font-size: 14px; max-width: 720px; line-height: 1.5; }
+  .lede em { color: #3d2a16; font-style: italic; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+  .cell { background: #fafaf5; border: 1px solid rgba(26,18,8,.14); border-radius: 6px; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 14px; position: relative; }
+  .cell.rank-1 { border-color: #2a6bb8; box-shadow: 0 0 0 2px rgba(42,107,184,.08); }
+  .rank-badge { position: absolute; top: 10px; right: 12px; font-size: 11px; color: #8a7a56; letter-spacing: 1px; }
+  .cell.rank-1 .rank-badge { color: #2a6bb8; font-weight: 600; }
+  .cell svg.art { width: 180px; height: 180px; color: #2a6bb8; opacity: .9; background: #fdfcf6; border-radius: 4px; }
+  .name { font-family: Georgia, serif; font-size: 16px; font-style: italic; color: #1a1208; margin: 0; text-align: center; }
+  .id { font-size: 11px; color: #3d2a16; background: rgba(42,107,184,.06); padding: 3px 8px; border-radius: 3px; font-family: ui-monospace, Menlo, monospace; }
+  .current { font-size: 11px; color: #8a7a56; text-align: center; line-height: 1.4; }
+  .why { font-size: 12px; color: #3d2a16; line-height: 1.45; text-align: center; padding: 0 4px; }
+  .empty { color: #b8422a; padding: 40px; text-align: center; font-style: italic; }
+</style>
+</head>
+<body>
+<h1>“A very good Bird” — candidate art (re-use)</h1>
+<p class="lede">
+  Five existing per-poem arts that could carry “A very good Bird” without a fresh redesign.
+  Each is currently assigned to another poem; reuse means two poems share the art.
+  Ranked by emotional fit to the poem (lonely indoor being, comfort-as-defense, world fading outside the glass).
+</p>
+
+<div id="defs-slot" style="display:none"></div>
+<main id="grid" class="grid"></main>
+
+<script>
+const CANDIDATES = [
+  {
+    id: 'art-stacked-boxes',
+    rank: 1,
+    name: 'Cluttered with Emptiness',
+    current: "currently assigned to “Cluttered with Emptiness”",
+    why: "Apartment window at night with chair, glowing phone, picture frame, clock, and a faint dotted ghost where someone “should be.” The curated indoor cell, comfort objects, absent self — uncanny match for the bird’s poem."
+  },
+  {
+    id: 'art-heron-pond',
+    rank: 2,
+    name: 'পরশপাথর',
+    current: "currently assigned to “পরশপাথর”",
+    why: "Solitary bird contemplating still water. The averted-stare register, the alone-with-itself quality. Most literal “bird” match in the set."
+  },
+  {
+    id: 'art-window-mountains',
+    rank: 3,
+    name: 'View from My Couch',
+    current: "currently assigned to “View from My Couch” (the airy book/cushion scene)",
+    why: "Quiet indoor solitude, the inward view. The view that opens when you stop looking outside. Leans gentler than the poem, but the register is right."
+  },
+  {
+    id: 'art-cupped-hands',
+    rank: 4,
+    name: 'They are there',
+    current: "currently assigned to “They are there” (flock of birds in three registers)",
+    why: "Constellation of bird-marks drifting across the frame. Could read as the bird’s “dances alone” — but multiple birds dilutes the singular loneliness."
+  },
+  {
+    id: 'art-bird-eye-view',
+    rank: 5,
+    name: 'A View from Above',
+    current: "currently assigned to “A View from Above”",
+    why: "Porthole-window with a tiny figure inside. Window + observation register. Aerial perspective doesn’t match the staring-out-from-room feel — but worth seeing."
+  }
+];
+
+(async function(){
+  const slot = document.getElementById('defs-slot');
+  const grid = document.getElementById('grid');
+
+  async function tryFetch(url){
+    try { const r = await fetch(url); return r.ok ? await r.text() : null; }
+    catch { return null; }
+  }
+  // Prefer the merged build artifact; fall back to defs.html
+  const merged = await tryFetch('_all-symbols.html');
+  const base = merged ?? await tryFetch('defs.html');
+  if(!base){
+    grid.innerHTML = '<div class="empty">could not load SVG defs — serve via a web server, not file://</div>';
+    return;
+  }
+  slot.innerHTML = base;
+
+  for(const c of CANDIDATES){
+    const sym = slot.querySelector('symbol#' + c.id);
+    const vb = sym ? sym.getAttribute('viewBox') : '0 0 80 80';
+
+    const cell = document.createElement('div');
+    cell.className = 'cell rank-' + c.rank;
+    cell.innerHTML =
+      '<div class="rank-badge">#' + c.rank + '</div>' +
+      '<svg class="art" viewBox="' + vb + '">' +
+        (sym ? '<use href="#' + c.id + '"/>' : '<text x="40" y="42" text-anchor="middle" font-size="6" fill="#b8422a">missing: ' + c.id + '</text>') +
+      '</svg>' +
+      '<div class="name">' + c.name + '</div>' +
+      '<code class="id">' + c.id + '</code>' +
+      '<div class="current">' + c.current + '</div>' +
+      '<div class="why">' + c.why + '</div>';
+    grid.appendChild(cell);
+  }
+})();
+</script>
+</body>
+</html>
