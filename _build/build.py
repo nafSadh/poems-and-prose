@@ -655,14 +655,6 @@ def main() -> None:
     print(f"  pages: {total_pages}")
     print(f"  done.")
 
-    # Regenerate the rebrand preview mocks (pen-mock-*.html) so they survive
-    # the _site wipe at the top of this function.
-    try:
-        from mock import main as build_mocks
-        build_mocks()
-    except Exception as e:
-        print(f"  [mock] skipped: {e}")
-
 
 if __name__ == "__main__":
     main()
