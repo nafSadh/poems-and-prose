@@ -1,13 +1,13 @@
-# Site-wide config for the poems.nafsadh.com build.
+# Site-wide config for the pen.nafsadh.com build.
 # Edit this to change global text, domain, or collection order.
 # Collection ordering is implicit from `collections:` list order.
 
 site:
-  title: Poems by Sadh
+  title: Sadh's Poetry & Prose - pen.nafsadh.com
   author: Sadh
-  domain: poems.nafsadh.com
+  domain: pen.nafsadh.com
   epigraph: '"All poetry comes from silence"'
-  description: Sadh's poetry collections — Bengali and English, curated into books.
+  description: Sadh's writing — poems & prose.
 
 # Collection order + per-collection glyph/illustration IDs (SVG symbols defined
 # in templates/svg-defs.html). To add a new collection, append to this list and

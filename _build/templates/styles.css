@@ -47,9 +47,11 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.04;z
 .hero{position:relative;z-index:1;max-width:880px;margin:0 auto;padding:8vh 36px 4vh;display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:center}
 .hero-text .kicker{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--azure);font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:10px}
 .hero-text .kicker::before{content:'';width:28px;height:1px;background:currentColor}
+.hero-text .wordmark-block{display:inline-block}
 .hero-text h1{font-family:'Fraunces',serif;font-weight:400;font-style:italic;font-size:clamp(56px,10vw,120px);letter-spacing:-.04em;line-height:.9;color:var(--ink);font-variation-settings:"opsz" 144,"SOFT" 50}
 .hero-text h1 em{font-style:italic;color:var(--azure)}
-.hero-text .sub{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(18px,2.3vw,23px);color:var(--ink-soft);margin-top:22px;max-width:440px;line-height:1.5;font-variation-settings:"opsz" 144,"SOFT" 100}
+.hero-text h1 .hero-mark{width:.3em;height:.3em;color:var(--azure);display:inline-block;vertical-align:middle;margin:0 .04em}
+.hero-text .brand-caption{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--azure);font-weight:600;margin:18px 0 0;text-align:center}
 .hero-art{display:flex;justify-content:center;position:relative}
 .hero-art::before{content:'';position:absolute;width:520px;height:520px;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle at center, rgba(255,220,150,.42) 0%, rgba(255,210,140,.22) 22%, rgba(250,200,130,.08) 45%, rgba(250,200,130,0) 70%);pointer-events:none;z-index:0;filter:blur(2px);animation:sun-halo 5.4s ease-in-out infinite}
 .hero-art svg{width:280px;height:280px;color:var(--azure);position:relative;z-index:1}
@@ -112,27 +114,26 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.04;z
 /* ── Walking-pace collection rhythm (from 405) ── */
 .books{
   position:relative;z-index:1;
-  max-width:620px;
+  max-width:1080px;
   margin:0 auto;
-  padding:4vh 36px 2vh;
-  display:flex;flex-direction:column;
+  padding:6vh 36px 4vh;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8vh 56px;
 }
 .book{
   color:var(--ink);
   display:flex;flex-direction:column;
   align-items:center;text-align:center;
-  padding:12vh 0;
+  padding:0;
   transition:opacity .3s;
   position:relative;
 }
-.book:first-child{padding-top:6vh}
-.book:last-child{padding-bottom:6vh}
-.book + .book::before{
-  content:'';
-  position:absolute;top:0;left:50%;
-  width:1px;height:48px;
-  background:color-mix(in srgb,var(--azure),transparent 82%);
-  transform:translateX(-.5px);
+/* Lone trailing card (odd count in 2-col) — span both columns and center. */
+.book:nth-child(odd):last-child{grid-column:1 / -1;justify-self:center;width:50%}
+@media(max-width:760px){
+  .books{grid-template-columns:1fr;gap:8vh 0;max-width:620px}
+  .book:nth-child(odd):last-child{width:100%}
 }
 .book .glyph{
   display:flex;justify-content:center;
