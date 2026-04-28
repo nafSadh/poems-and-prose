@@ -50,6 +50,15 @@ contents:
         note: "contradiction"
         art: art-glass-water
         narrow: true
+      - poem: "A Settlement"
+        id: a-settlement
+        lang: en
+        date: "Aug 08, 2025"
+        note: "came in one sit"
+        art: art-winding-path
+
+  - section: echoing silence
+    entries:
       - poem: "Cluttered with Emptiness"
         id: cluttered-with-emptiness
         lang: en
@@ -62,27 +71,12 @@ contents:
         date: "Sept 14, 2025"
         note: "(auction notes!)"
         art: art-clipboard
-      - poem: "A Settlement"
-        id: a-settlement
-        lang: en
-        date: "Aug 08, 2025"
-        note: "came in one sit"
-        art: art-winding-path
-
-  - section: echoing silence
-    entries:
       - poem: "Numbed Anguish"
         id: numbed-anguish
         lang: en
         date: "Oct 01, 2025"
         note: "keep returning"
         art: art-clock
-      - poem: "View from My Couch"
-        id: view-from-my-couch
-        lang: en
-        date: "Oct 05, 2025"
-        note: "written on couch"
-        art: art-window-mountains
       - poem: "A View from Above"
         id: view-from-above
         lang: en
@@ -126,6 +120,13 @@ contents:
         date: "March 06, 2026"
         note: "the pause breathes"
         art: art-fork
+      - poem: "They are there"
+        id: they-are-there
+        lang: en
+        date: "March 01, 2026"
+        note: "presence, not ghost"
+        art: art-cupped-hands
+        wide: false
       - poem: "Wing"
         id: wing
         lang: en
@@ -135,12 +136,12 @@ contents:
 
   - section: solvent solitude
     entries:
-      - poem: "Amber Ablution"
-        id: amber-ablution
+      - poem: "The Ice-cream Boy"
+        id: ice-cream-boy
         lang: en
-        date: "Oct 04, 2025"
-        note: "love the light"
-        art: art-coffee-cup
+        date: "Jan 15, 2026"
+        note: "summer of '18?"
+        art: art-ice-cream-cone
       - poem: "A Bicycle and a Recliner"
         id: bicycle-and-recliner
         lang: en
@@ -159,19 +160,6 @@ contents:
         date: "Feb 26, 2026"
         note: "question mark earns"
         art: art-chai-cup
-      - poem: "The Ice-cream Boy"
-        id: ice-cream-boy
-        lang: en
-        date: "Jan 15, 2026"
-        note: "summer of '18?"
-        art: art-ice-cream-cone
-      - poem: "They are there"
-        id: they-are-there
-        lang: en
-        date: "March 01, 2026"
-        note: "presence, not ghost"
-        art: art-cupped-hands
-        wide: false
       - poem: "A very good Bird"
         id: good-bird
         lang: en
@@ -220,7 +208,7 @@ contents:
       - poem: "বিদায়, নীহারিকা"
         id: বিদায়-নীহারিকা
         lang: bn
-        date: "April–May 2025"
+        date: "April-May 2025"
         art: art-travel-bag
       - poem: "এক টুকরো গগনে গনগনে চাঁদ"
         id: এক-টুকরো-গগনে-গনগনে-চাঁদ
@@ -230,11 +218,23 @@ contents:
       - poem: "পরশপাথর"
         id: পরশপাথর
         lang: bn
-        date: "April–May 2025"
+        date: "April-May 2025"
         art: art-heron-pond
 
   - section: "addenda · other side of the conversation"
     entries:
+      - poem: "Amber Ablution"
+        id: amber-ablution
+        lang: en
+        date: "Oct 04, 2025"
+        note: "love the light"
+        art: art-coffee-cup
+      - poem: "View from My Couch"
+        id: view-from-my-couch
+        lang: en
+        date: "Oct 05, 2025"
+        note: "written on couch"
+        art: art-window-mountains
       - poem: "L's Dancefloor"
         id: ls-dancefloor
         lang: en
