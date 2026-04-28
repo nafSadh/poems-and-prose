@@ -42,6 +42,15 @@ P_ROMAN = [
     "xxxi", "xxxii", "xxxiii", "xxxiv", "xxxv", "xxxvi", "xxxvii", "xxxviii", "xxxix", "xl",
     "xli", "xlii", "xliii", "xliv", "xlv", "xlvi", "xlvii", "xlviii", "xlix", "l",
 ]
+BN_DIGITS = "০১২৩৪৫৬৭৮৯"
+
+
+def toc_label(n: int, lang: str) -> str:
+    """Small numeric label for a book-TOC row. Bengali collections get Bengali
+    digits; everything else gets lowercase roman (with overflow → arabic)."""
+    if lang == "bn":
+        return "".join(BN_DIGITS[int(d)] for d in str(n))
+    return P_ROMAN[n - 1] if n - 1 < len(P_ROMAN) else str(n)
 
 
 # ── Templates / substitution ──────────────────────────────────────────────────
@@ -113,7 +122,14 @@ def count_word(pages: list[dict], cnt: int) -> str:
 
 def load_collections(site_cfg: dict) -> list[dict]:
     """Merge _site.yml collection entries (order + glyph IDs) with each
-    collection's _contents.yml (title, metadata, contents)."""
+    collection's _contents.yml (title, metadata, contents).
+
+    `contents:` accepts two shapes:
+      - flat list of poem dicts (legacy)
+      - list of `{section: name, poems: [...]}` dicts. Flattened to a single
+        `contents` list with `_section` stamped on each poem so build_book can
+        regroup and render section headers in the TOC.
+    """
     result = []
     for entry in site_cfg["collections"]:
         cid = entry["id"]
@@ -122,7 +138,17 @@ def load_collections(site_cfg: dict) -> list[dict]:
             print(f"  [skip] {cid}: no _contents.yml", file=sys.stderr)
             continue
         book = yaml.safe_load(yml_path.read_text(encoding="utf-8"))
-        book.setdefault("contents", [])
+        raw = book.get("contents") or []
+        if raw and isinstance(raw[0], dict) and "section" in raw[0] and "entries" in raw[0]:
+            flat: list[dict] = []
+            for sec in raw:
+                sec_name = sec["section"]
+                for p in sec.get("entries") or []:
+                    p["_section"] = sec_name
+                    flat.append(p)
+            book["contents"] = flat
+        else:
+            book["contents"] = raw
         book["ill"] = entry.get("ill", "ill-life")
         book["mark"] = entry.get("mark", "mark-life")
         book["corner"] = entry.get("corner", "")
@@ -209,6 +235,13 @@ def render_body(text: str, content_type: str = "poem") -> str:
                 if re.fullmatch(r"(?:-{3,}|\*{3,}|_{3,})", s):
                     chunks.append('<hr class="md-hr">')
                     continue
+                # Section-date marker: a stanza that is just a `<date:>` /
+                # `<তারিখ:>` tag becomes a small dim caption (typically tucked
+                # under a section heading in multi-part pieces).
+                dm = re.fullmatch(r"<(?:date|তারিখ):\s*([^<>/]+?)\s*/>", s)
+                if dm:
+                    chunks.append(f'<div class="section-date">{html.escape(dm.group(1).strip())}</div>')
+                    continue
                 # Blockquote: every non-empty line starts with `>`.
                 lines = s.split("\n")
                 if all(line.strip().startswith(">") for line in lines if line.strip()):
@@ -254,10 +287,20 @@ def parse_poem_md(path: Path, fallback_title: str, content_type: str = "poem") -
     # Pull author from `<by: …/>` or `<স্বনামে: …/>` before tag-strip.
     am = re.search(r"<(?:by|স্বনামে):\s*([^/<>]+?)\s*/>", text)
     author = am.group(1).strip() if am else ""
-    # Strip custom self-closing meta tags like `<date: March 31, 2026 />`, `<তারিখ: ফেব্রুয়ারি ৪, ২০১৪ />`, `<status: draft />`.
-    # Only matches tags with a colon + self-close — won't touch real HTML tags.
-    # Tag name allows ASCII letters/digits/hyphens and Bengali (U+0980–U+09FF).
-    text = re.sub(r"<[a-zA-Zঀ-৿][a-zA-Z0-9ঀ-৿-]*:[^<>]*?/>", "", text)
+    # Strip the file's metadata line — the first line that contains only one or
+    # more <*:> tags (typically right after the title). The tag name allows
+    # ASCII letters/digits/hyphens and Bengali (U+0980–U+09FF).
+    text = re.sub(
+        r"^[ \t]*(?:<[a-zA-Zঀ-৿][a-zA-Z0-9ঀ-৿-]*:[^<>]*?/>[ \t]*)+\n?",
+        "", text, count=1, flags=re.M,
+    )
+    # Strip remaining non-date custom tags (status, by, etc.). Date tags
+    # (<date:> / <তারিখ:>) that survive flow into render_body and become tight
+    # section-date captions for multi-part pieces.
+    text = re.sub(
+        r"<(?!(?:date|তারিখ):)[a-zA-Zঀ-৿][a-zA-Z0-9ঀ-৿-]*:[^<>]*?/>",
+        "", text,
+    )
     title = fallback_title
     m = re.match(r"^#\s+(.+)$", text, re.M)
     if m:
@@ -294,6 +337,24 @@ def canonical_for(site_cfg: dict, path: str) -> str:
     """Build a canonical https://<domain>/<path> URL."""
     domain = site_cfg["site"]["domain"]
     return f"https://{domain}{path}"
+
+
+def build_footer(site: dict, lang: str) -> str:
+    """Render the site footer. Byline name swaps by page language; everything
+    else (legal name, copyright, links) stays constant."""
+    byline = site.get("byline_bn" if lang == "bn" else "byline_en", site["author"])
+    return f'''<footer class="foot">
+    <svg class="foot-swash" aria-hidden="true"><use href="#swash-sm"/></svg>
+    <p class="foot-imprint">
+      poems &amp; prose by <span class="name">{html.escape(site["legal_name"])}</span>, writing as {html.escape(byline)}.<br>
+      © {site["copyright_year"]}, all rights reserved <span class="dot">·</span> {html.escape(site["domain"])}
+    </p>
+    <p class="foot-links">
+      <a href="{html.escape(site["home_url"])}">{html.escape(site["home_label"])}</a>
+      <span class="dot">·</span>
+      <a href="{html.escape(site["instagram_url"])}" rel="me">{html.escape(site["instagram_label"])}</a>
+    </p>
+  </footer>'''
 
 
 def wrap_page(templates: dict, site_cfg: dict, *, title: str, desc: str, canonical: str,
@@ -344,8 +405,8 @@ def build_home(templates: dict, site_cfg: dict, collections: list[dict]) -> str:
         "AUTHOR": html.escape(site["author"].lower()),
         "AUTHOR_LOWER": html.escape(site["author"].lower()),
         "DOMAIN": html.escape(site["domain"]),
-        "EMAIL": "nafsadh@gmail.com",
         "BOOK_CARDS": "\n".join(cards),
+        "FOOTER": build_footer(site, "en"),
     })
     return wrap_page(
         templates, site_cfg,
@@ -373,44 +434,78 @@ def build_book(templates: dict, site_cfg: dict, collections: list[dict], idx: in
     blurb = c.get("blurb") or ""
     blurb_html = f'"{html.escape(blurb)}."' if blurb else ""
 
-    # Content list.
+    # Content list. When entries carry `_section`, group consecutive entries by
+    # section and emit a header row before each new section. The literal "intro"
+    # section is suppressed (it's always a single preface piece — no header,
+    # and the entry doesn't get a number). Numbering is global across sections
+    # (skipping intro), formatted in Bengali digits for bn collections.
     poem_items: list[str] = []
     if not pages:
         poem_items.append('    <li class="book-empty">— this book is still being written —</li>')
     else:
-        for pi, p in enumerate(pages):
-            roman_small = P_ROMAN[pi] if pi < len(P_ROMAN) else str(pi + 1)
+        c_lang = c.get("lang", "en")
+        current_section: object = object()  # sentinel — never matches first p
+        counter = 0
+        for p in pages:
+            sec = p.get("_section")
+            if sec != current_section:
+                current_section = sec
+                if sec and sec != "intro":
+                    sec_cls = "section-header"
+                    if is_bengali(sec):
+                        sec_cls += " bn"
+                    poem_items.append(
+                        f'    <li class="{sec_cls}"><span></span><span class="sec-name">{html.escape(sec)}</span></li>'
+                    )
+            if sec == "intro":
+                num_html = ""
+            else:
+                counter += 1
+                num_html = f'{toc_label(counter, c_lang)}.'
             t_cls = "p-title bn" if p.get("lang") == "bn" else "p-title"
             kind = p.get("kind") or ""
             kind_cls = f" kind-{kind}" if kind else ""
             _, p_title = item_type_and_title(p)
             poem_items.append(f'''    <li class="poem-row{kind_cls}">
       <a href="/{c["id"]}/{p["id"]}/" style="display:contents">
-        <span class="roman">{roman_small}.</span>
+        <span class="roman">{num_html}</span>
         <span class="{t_cls}">{html.escape(p_title)}</span>
         <span class="kind">{html.escape(kind)}</span>
       </a>
     </li>''')
 
-    # Book siblings (prev / next book across the whole site).
-    prev_link = '    <span></span>'
-    next_link = '    <span></span>'
+    # Book siblings (prev / next book across the whole site). Same N2 pattern as
+    # the poem-nav: compact "‹ <prev>   <next> ›" with "↑ all books" up-link.
+    # Missing sides collapse — no dead-end arrows on the first or last book.
+    bs_links: list[str] = []
     if idx > 0:
         pc = collections[idx - 1]
         pnm = pc.get("roman") or pc["title"]
         pnm_cls = " bn" if pc.get("lang") == "bn" and not pc.get("roman") else ""
-        prev_link = f'''    <a class="prev" href="/{pc["id"]}/">
-      <svg><use href="#arrow"/></svg>
-      <span class="text-block"><span class="lbl">previous book</span><span class="nm{pnm_cls}">{html.escape(pnm)}</span></span>
-    </a>'''
+        bs_links.append(f'''      <a class="bs-link prev" href="/{pc["id"]}/">
+        <span class="bs-glyph" aria-hidden="true">‹</span>
+        <span class="bs-title{pnm_cls}">{html.escape(pnm)}</span>
+      </a>''')
     if idx < total - 1:
         nc = collections[idx + 1]
         nnm = nc.get("roman") or nc["title"]
         nnm_cls = " bn" if nc.get("lang") == "bn" and not nc.get("roman") else ""
-        next_link = f'''    <a class="next" href="/{nc["id"]}/">
-      <span class="text-block"><span class="lbl">next book</span><span class="nm{nnm_cls}">{html.escape(nnm)}</span></span>
-      <svg><use href="#arrow"/></svg>
-    </a>'''
+        bs_links.append(f'''      <a class="bs-link next" href="/{nc["id"]}/">
+        <span class="bs-title{nnm_cls}">{html.escape(nnm)}</span>
+        <span class="bs-glyph" aria-hidden="true">›</span>
+      </a>''')
+    if idx > 0 and idx < total - 1:
+        bs_row_cls = "both"
+    elif idx < total - 1:
+        bs_row_cls = "first"
+    else:
+        bs_row_cls = "last"
+    book_sibling_html = f'''<nav class="book-sibling">
+    <div class="bs-row {bs_row_cls}">
+{chr(10).join(bs_links)}
+    </div>
+    <div class="bs-up">↑ <a href="/">all books</a></div>
+  </nav>'''
 
     lang_label = c.get("lang", "en").upper()
 
@@ -425,11 +520,10 @@ def build_book(templates: dict, site_cfg: dict, collections: list[dict], idx: in
         "COUNT": str(cnt) if cnt else "—",
         "LANG_LABEL": html.escape(lang_label),
         "POEM_LIST": "\n".join(poem_items),
-        "PREV_LINK": prev_link,
-        "NEXT_LINK": next_link,
+        "BOOK_SIBLING": book_sibling_html,
         "DOMAIN": html.escape(site["domain"]),
         "AUTHOR_LOWER": html.escape(site["author"].lower()),
-        "EMAIL": "nafsadh@gmail.com",
+        "FOOTER": build_footer(site, "bn" if c.get("lang") == "bn" else "en"),
     })
 
     page_title = c.get("roman") or c["title"]
@@ -534,28 +628,40 @@ def build_poem(templates: dict, site_cfg: dict, collections: list[dict],
         margin_note = ""
         mobile_note = ""
 
-    # Prev / next poem within this book.
+    # Prev / next poem within this book. Renders as a compact "‹ <prev>  <next> ›"
+    # row with an "in <book>" up-link below. Missing sides collapse entirely (no
+    # dead-end arrow): a row of class `both`, `first` (next-only), or `last`
+    # (prev-only) re-flows the grid accordingly.
     prev_p = pages[p_idx - 1] if p_idx > 0 else None
     next_p = pages[p_idx + 1] if p_idx < total_p - 1 else None
-    nav_parts: list[str] = []
+    pn_links: list[str] = []
     if prev_p:
         _, prev_title = item_type_and_title(prev_p)
         prev_title_cls = " bn" if prev_p.get("lang") == "bn" else ""
-        nav_parts.append(f'''    <a class="pn-link prev" href="/{c["id"]}/{prev_p["id"]}/">
-      <span class="pn-dir"><svg><use href="#arrow"/></svg><span>previous</span></span>
-      <span class="pn-title{prev_title_cls}">{html.escape(prev_title)}</span>
-    </a>''')
-    else:
-        nav_parts.append('    <span></span>')
+        pn_links.append(f'''      <a class="pn-link prev" href="/{c["id"]}/{prev_p["id"]}/">
+        <span class="pn-glyph" aria-hidden="true">‹</span>
+        <span class="pn-title{prev_title_cls}">{html.escape(prev_title)}</span>
+      </a>''')
     if next_p:
         _, next_title = item_type_and_title(next_p)
         next_title_cls = " bn" if next_p.get("lang") == "bn" else ""
-        nav_parts.append(f'''    <a class="pn-link right" href="/{c["id"]}/{next_p["id"]}/">
-      <span class="pn-dir"><span>next</span><svg><use href="#arrow"/></svg></span>
-      <span class="pn-title{next_title_cls}">{html.escape(next_title)}</span>
-    </a>''')
+        pn_links.append(f'''      <a class="pn-link next" href="/{c["id"]}/{next_p["id"]}/">
+        <span class="pn-title{next_title_cls}">{html.escape(next_title)}</span>
+        <span class="pn-glyph" aria-hidden="true">›</span>
+      </a>''')
+    if prev_p and next_p:
+        pn_row_cls = "both"
+    elif next_p:
+        pn_row_cls = "first"
     else:
-        nav_parts.append('    <span></span>')
+        pn_row_cls = "last"
+    book_label_cls = ' class="bn"' if c.get("lang") == "bn" else ''
+    poem_nav_html = f'''<nav class="poem-nav">
+    <div class="pn-row {pn_row_cls}">
+{chr(10).join(pn_links)}
+    </div>
+    <div class="pn-up">in <a href="/{c["id"]}/"><span{book_label_cls}>{html.escape(c["title"])}</span></a></div>
+  </nav>'''
 
     poem_content = subst(templates["poem.html"], {
         "ROMAN": roman,
@@ -574,11 +680,10 @@ def build_poem(templates: dict, site_cfg: dict, collections: list[dict],
         "BODY_HTML": body_html,
         "MOBILE_NOTE": mobile_note,
         "MARGIN_NOTE": margin_note,
-        "POEM_NAV": "\n".join(nav_parts),
-        "COLLECTION_ROMAN_OR_TITLE": html.escape(c.get("roman") or c["title"]),
+        "POEM_NAV": poem_nav_html,
         "DOMAIN": html.escape(site["domain"]),
         "AUTHOR_LOWER": html.escape(site["author"].lower()),
-        "EMAIL": "nafsadh@gmail.com",
+        "FOOTER": build_footer(site, "bn" if p.get("lang") == "bn" else "en"),
     })
 
     # First-stanza snippet for social meta description.

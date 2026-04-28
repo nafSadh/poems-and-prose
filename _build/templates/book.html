@@ -1,7 +1,7 @@
 <div class="view view-book active">
   <nav class="bar">
     <a href="/" class="mark"><span class="mark-pre">pen</span><svg><use href="#bar-mark"/></svg><span class="mark-post">sadh</span></a>
-    <span class="crumb"><a href="/">← all books</a> <span>Book {{ROMAN}}</span></span>
+    <span class="crumb"><a href="/">‹ all books</a><span class="sep">·</span><span class="here">Book {{ROMAN}}</span></span>
   </nav>
   <section class="title-page">
     <div class="title-art"><svg width="260" height="260"><use href="#{{ILL_ID}}"/></svg></div>
@@ -22,16 +22,8 @@
   <ol class="poem-list">
 {{POEM_LIST}}
   </ol>
-  <nav class="book-sibling">
-{{PREV_LINK}}
-    <span class="up"><a href="/">all books</a></span>
-{{NEXT_LINK}}
-  </nav>
-  <footer class="foot">
-    <span>{{DOMAIN}}</span>
-    <span class="sig">~ {{AUTHOR_LOWER}}</span>
-    <a href="mailto:{{EMAIL}}">write</a>
-  </footer>
+  {{BOOK_SIBLING}}
+  {{FOOTER}}
   <script>
   document.addEventListener('keydown', function(e){
     if(e.metaKey||e.ctrlKey||e.altKey||e.shiftKey) return;

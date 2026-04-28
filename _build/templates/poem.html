@@ -32,17 +32,14 @@
       </article>
     </div>
     <aside class="margin-col">{{MARGIN_NOTE}}</aside>
-    <div class="poem-nav">
-{{POEM_NAV}}
-    </div>
-    <div class="back-link"><a href="/{{COLLECTION_ID}}/">all poems in {{COLLECTION_ROMAN_OR_TITLE}}</a></div>
+    {{POEM_NAV}}
   </div>
   <script>
   document.addEventListener('keydown', function(e){
     if(e.metaKey||e.ctrlKey||e.altKey||e.shiftKey) return;
     var t=e.target.tagName; if(t==='INPUT'||t==='TEXTAREA') return;
     var sel = e.key==='ArrowLeft' ? 'a.pn-link.prev'
-            : e.key==='ArrowRight' ? 'a.pn-link.right' : null;
+            : e.key==='ArrowRight' ? 'a.pn-link.next' : null;
     if(!sel) return;
     var a=document.querySelector(sel);
     if(a && a.getAttribute('href')){ e.preventDefault(); location.href=a.getAttribute('href'); }
@@ -61,9 +58,5 @@
     io.observe(h1);
   })();
   </script>
-  <footer class="foot">
-    <span>{{DOMAIN}}</span>
-    <span class="sig">~ {{AUTHOR_LOWER}}</span>
-    <a href="mailto:{{EMAIL}}">write</a>
-  </footer>
+  {{FOOTER}}
 </div>

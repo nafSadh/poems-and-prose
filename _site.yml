@@ -8,6 +8,16 @@ site:
   domain: pen.nafsadh.com
   epigraph: '"All poetry comes from silence"'
   description: Sadh's writing — poems & prose.
+  # Footer / imprint. legal_name carries the copyright; byline names appear
+  # as "writing as …" and switch by page language.
+  legal_name: Sadh MNM Khan
+  copyright_year: 2026
+  byline_en: Sadh
+  byline_bn: প্রকৃষ্টপুত্র সাধ
+  home_url: https://nafsadh.com
+  home_label: nafSadh.com
+  instagram_url: https://instagram.com/nafsadh
+  instagram_label: "@nafSadh"
 
 # Collection order + per-collection glyph/illustration IDs (SVG symbols defined
 # in templates/svg-defs.html). To add a new collection, append to this list and

@@ -1,14 +1,10 @@
 #!/usr/bin/env bash
-# Build the site and serve _site/ on http://localhost:$PORT.
+# Build the site, serve _site/ on http://localhost:$PORT, and rebuild on
+# any source file change (.md / .yml / .html / .css / .py under src/).
 # Usage: ./run.sh [port]   (default 8000)
-# Re-run after editing .md, _poems.yml, templates, or styles — no auto-reload.
+# Hard-refresh the browser after edits — http.server doesn't push reloads.
 set -euo pipefail
 
 PORT="${1:-8000}"
 cd "$(dirname "$0")"
-
-echo "→ building…"
-python3 _build/build.py
-
-echo "→ serving http://localhost:$PORT/"
-exec python3 -m http.server "$PORT" -d _site
+exec python3 _build/serve.py "$PORT"
