@@ -167,6 +167,7 @@ contents:
         lang: en
         date: "April 28, 2026"
         art: art-distant-yard
+        narrow: true
       - poem: "Staircase"
         id: staircase
         lang: en

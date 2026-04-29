@@ -1,11 +1,11 @@
-# Site-wide config for the pen.nafsadh.com build.
+# Site-wide config for the sadh.ink build.
 # Edit this to change global text, domain, or collection order.
 # Collection ordering is implicit from `collections:` list order.
 
 site:
-  title: Sadh's Poetry & Prose - pen.nafsadh.com
+  title: Sadh's Poetry & Prose - sadh.ink
   author: Sadh
-  domain: pen.nafsadh.com
+  domain: sadh.ink
   epigraph: '"All poetry comes from silence"'
   description: Sadh's writing — poems & prose.
   # Footer / imprint. legal_name carries the copyright; byline names appear

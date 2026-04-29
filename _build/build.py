@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Static-site generator for poems.nafsadh.com.
+"""Static-site generator for sadh.ink.
 
 Reads:  src/_site.yml, src/<collection>/_contents.yml, src/<collection>/*.md
 Writes: src/_site/**  (home, book, content pages; all pre-rendered HTML)
