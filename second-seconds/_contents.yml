@@ -16,45 +16,38 @@ contents:
         id: 8th-and-14th
         lang: en
         date: "Feb 26, 2026"
-        note: "two dates, one"
         art: art-phone-portrait
       - poem: "Shattered Sweetheart"
         id: shattered-sweetheart
         lang: en
         date: "Sept 16, 2025"
-        note: "the hard one"
         art: art-broken-heart
       - poem: "A Monument (draft)"
         id: a-monument
         lang: en
         kind: draft
         date: "March 1, 2026"
-        note: "still drafting"
         art: art-box-sealed
       - poem: "An Erosion"
         id: erosion
         lang: en
         date: "Oct 21, 2025"
-        note: "slow & right"
         art: art-orbiting-bodies
       - poem: "She"
         id: she
         lang: en
         date: "April 17, 2026"
-        note: "just the pronoun"
         art: art-detached-rings
       - poem: "The Faithful Lie"
         id: faithful-lie
         lang: en
         date: "Feb 11, 2026"
-        note: "contradiction"
         art: art-glass-water
         narrow: true
       - poem: "A Settlement"
         id: a-settlement
         lang: en
         date: "Aug 08, 2025"
-        note: "came in one sit"
         art: art-winding-path
 
   - section: echoing silence
@@ -63,75 +56,63 @@ contents:
         id: cluttered-with-emptiness
         lang: en
         date: "Sept 14, 2025"
-        note: "yes, exactly this"
         art: art-stacked-boxes
       - poem: "Inventory of Lot 3B"
         id: inventory-of-lot-3b
         lang: en
         date: "Sept 14, 2025"
-        note: "(auction notes!)"
         art: art-clipboard
       - poem: "Numbed Anguish"
         id: numbed-anguish
         lang: en
         date: "Oct 01, 2025"
-        note: "keep returning"
         art: art-clock
       - poem: "A View from Above"
         id: view-from-above
         lang: en
         date: "Feb 19, 2026"
-        note: "altitude = clarity"
         art: art-bird-eye-view
       - poem: "just here"
         id: just-here
         lang: en
         date: "Feb 27, 2026"
-        note: "just here. period."
         art: ta-bird
       - poem: "Blunt"
         id: blunt
         lang: en
         date: "Feb 27, 2026"
-        note: "shortest & sharpest"
         art: art-crescent-stars
         wide: false
       - poem: "shadow's edge"
         id: shadows-edge
         lang: en
         date: "March 31, 2026"
-        note: "liminal — exact"
         art: art-bicycle-tracks
       - poem: "Confetti"
         id: confetti
         lang: en
         date: "Jan 13, 2026"
-        note: "like rain, like"
         art: art-confetti
       - poem: "Stable"
         id: stable
         lang: en
         date: "Apr 13, 2026"
-        note: "a verb not a noun"
         art: art-horse
       - poem: "Lull"
         id: lull
         lang: en
         date: "March 06, 2026"
-        note: "the pause breathes"
         art: art-fork
       - poem: "They are there"
         id: they-are-there
         lang: en
         date: "March 01, 2026"
-        note: "presence, not ghost"
         art: art-cupped-hands
         wide: false
       - poem: "Wing"
         id: wing
         lang: en
         date: "March 21, 2026"
-        note: "one word, whole sky"
         art: art-wing
 
   - section: solvent solitude
@@ -140,67 +121,66 @@ contents:
         id: ice-cream-boy
         lang: en
         date: "Jan 15, 2026"
-        note: "summer of '18?"
         art: art-ice-cream-cone
       - poem: "A Bicycle and a Recliner"
         id: bicycle-and-recliner
         lang: en
         date: "Feb 28, 2026"
-        note: "still life, moving"
         art: art-woven-mountains
       - poem: "Lavender Miles"
         id: lavender-miles
         lang: en
         date: "Feb 28, 2026"
-        note: "colour as distance"
         art: "sc-seconds-lavender"
       - poem: "a walk?"
         id: a-walk
         lang: en
         date: "Feb 26, 2026"
-        note: "question mark earns"
         art: art-chai-cup
       - poem: "A very good Bird"
         id: good-bird
         lang: en
         date: "Feb 21, 2026"
-        note: "this bird! yes"
         art: art-bird-cube
       - poem: "The Tulip"
         id: tulip
         lang: en
         date: "Feb 17, 2026"
-        note: "delicate force"
         art: art-fallen-petal
       - poem: "Barramundi Rabe"
         id: barramundi-rabe
         lang: en
         date: "Feb 17, 2026"
-        note: "unexpected joy"
         art: art-fish-plate
       - poem: "Saratoga Scene"
         id: saratoga-scene
         lang: en
         date: "April 18, 2026"
-        note: "place becomes poem"
         art: art-cappuccino
       - poem: "Company"
         id: company
         lang: en
         date: "March 30, 2026"
-        note: "who is with you?"
         art: art-candle
+      - poem: "Barefoot"
+        id: barefoot
+        lang: en
+        date: "April 28, 2026"
+        art: art-distant-yard
+      - poem: "Staircase"
+        id: staircase
+        lang: en
+        date: "April 28, 2026"
+        art: art-staircase-elevator
       - poem: "Freedom to Belong"
         id: freedom-to-belong
         lang: en
         date: "Oct 01, 2025"
-        note: "question or stat"
         art: art-strobe-lights
       - poem: "Worlds"
         id: worlds
         lang: en
         date: "March 01, 2026"
-        note: "plural, always"
         art: art-brain-sparkling
 
   - section: "addenda · prelude to the conversation"
@@ -227,23 +207,19 @@ contents:
         id: amber-ablution
         lang: en
         date: "Oct 04, 2025"
-        note: "love the light"
         art: art-coffee-cup
       - poem: "View from My Couch"
         id: view-from-my-couch
         lang: en
         date: "Oct 05, 2025"
-        note: "written on couch"
         art: art-window-mountains
       - poem: "L's Dancefloor"
         id: ls-dancefloor
         lang: en
         date: "Feb 18, 2026"
-        note: "heard the music"
         art: art-headphones
       - poem: "Shrimp Wonton"
         id: shrimp-wonton
         lang: en
         date: "Feb 22, 2026"
-        note: "thursday night"
         art: art-wonton-bowl

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Barefoot &amp; Staircase — v4</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; background: #f4f3ee; color: #1a1208; margin: 0; padding: 32px; }
+  h1 { font-family: Georgia, serif; font-style: italic; font-weight: 400; margin: 0 0 8px; font-size: 24px; }
+  h2 { font-family: Georgia, serif; font-style: italic; font-weight: 400; margin: 28px 0 10px; font-size: 18px; color: #3d2a16; }
+  p  { color: #8a7a56; margin: 0 0 20px; font-size: 14px; line-height: 1.5; }
+  .row { display: flex; gap: 18px; flex-wrap: wrap; }
+  .cell { background: #fafaf5; border: 1px solid rgba(26,18,8,.14); border-radius: 4px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1; min-width: 200px; }
+  .cell.old { background: #f4f0e6; opacity: .55; }
+  .cell svg { width: 180px; height: 180px; color: #2a6bb8; opacity: .85; }
+  .cell svg.small { width: 100px; height: 100px; }
+  .cell .label { font-family: Georgia, serif; font-style: italic; color: #3d2a16; font-size: 14px; }
+  .cell .note { font-size: 11px; color: #8a7a56; text-align: center; line-height: 1.3; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; background: rgba(42,107,184,.12); color: #2a6bb8; }
+  .tag.old { background: rgba(184,66,42,.12); color: #b8422a; }
+</style>
+</head>
+<body>
+<h1>v4 — perspective + anatomy</h1>
+<p>Foot in side profile (heel/arch/toes visible). Elevator alone.</p>
+
+<h2>Barefoot — v9 (lessons applied: asymmetric arch, toe-gradient, triple-stack, hatching, roughness)</h2>
+<div class="row">
+  <div class="cell">
+    <span class="tag">v9</span>
+    <svg viewBox="0 0 80 80">
+      <defs>
+        <filter id="roughness-v9" x="-5%" y="-5%" width="110%" height="110%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="2" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.4" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+      </defs>
+
+      <!-- earth patch (faint) -->
+      <ellipse cx="40" cy="42" rx="34" ry="36" fill="currentColor" fill-opacity=".04"/>
+
+      <!-- grass blades -->
+      <path d="M6 52 Q6 46 8 42" stroke="currentColor" stroke-width=".7" fill="none" opacity=".5" stroke-linecap="round"/>
+      <path d="M9 64 Q9 58 11 54" stroke="currentColor" stroke-width=".6" fill="none" opacity=".4" stroke-linecap="round"/>
+      <path d="M72 52 Q72 46 74 42" stroke="currentColor" stroke-width=".7" fill="none" opacity=".5" stroke-linecap="round"/>
+      <path d="M68 66 Q68 60 70 56" stroke="currentColor" stroke-width=".6" fill="none" opacity=".4" stroke-linecap="round"/>
+
+      <!-- THE FOOTPRINT (right foot, top-down, asymmetric arch on LEFT) -->
+      <g filter="url(#roughness-v9)" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- SOLE: triple-stacked outlines for hand-drawn pencil quality -->
+        <!-- Layer 1: main outline -->
+        <path d="M 30 24
+                 Q 23 28 21 36
+                 Q 22 42 27 46
+                 Q 28 54 30 60
+                 Q 32 66 36 68
+                 Q 40 70 44 68
+                 Q 48 64 50 60
+                 Q 51 54 51 47
+                 Q 52 40 52 32
+                 Q 51 25 47 22
+                 Q 38 20 30 24 Z"
+              fill="currentColor" fill-opacity=".18" stroke-width="1.4"/>
+        <!-- Layer 2: slightly offset -->
+        <path d="M 31 25
+                 Q 24 29 22 36
+                 Q 23 43 28 47
+                 Q 29 54 31 60
+                 Q 33 65 36 67
+                 Q 40 69 44 67
+                 Q 47 63 49 60
+                 Q 50 54 50 47
+                 Q 51 41 51 32
+                 Q 50 26 46 23
+                 Q 38 21 31 25 Z"
+              stroke-width=".7" opacity=".55"/>
+        <!-- Layer 3: lightest, more offset -->
+        <path d="M 29 23
+                 Q 22 28 20 36
+                 Q 21 43 26 46
+                 Q 27 53 29 60
+                 Q 31 66 35 68
+                 Q 40 70 45 68
+                 Q 49 64 51 60
+                 Q 52 53 52 46
+                 Q 53 40 53 32
+                 Q 52 25 47 21
+                 Q 38 19 29 23 Z"
+              stroke-width=".5" opacity=".35"/>
+
+        <!-- 5 TOES with strong size gradient: big toe biggest, pinky smallest -->
+        <!-- Big toe (left, biggest, ~2x pinky) -->
+        <ellipse cx="26.5" cy="14" rx="3.6" ry="4.4" fill="currentColor" fill-opacity=".25" stroke-width="1.3"/>
+        <ellipse cx="27" cy="14.5" rx="3" ry="3.8" stroke-width=".55" opacity=".5"/>
+        <!-- 2nd toe -->
+        <ellipse cx="34.5" cy="10.5" rx="2.6" ry="3.3" fill="currentColor" fill-opacity=".25" stroke-width="1.15"/>
+        <!-- 3rd toe -->
+        <ellipse cx="41" cy="10.5" rx="2.2" ry="2.9" fill="currentColor" fill-opacity=".25" stroke-width="1.05"/>
+        <!-- 4th toe -->
+        <ellipse cx="46.5" cy="12.6" rx="1.9" ry="2.4" fill="currentColor" fill-opacity=".25" stroke-width=".95"/>
+        <!-- Pinky (smallest) -->
+        <ellipse cx="51" cy="15.8" rx="1.5" ry="2" fill="currentColor" fill-opacity=".25" stroke-width=".85"/>
+
+        <!-- Hatching inside sole for shading -->
+        <g stroke-width=".55" opacity=".4">
+          <path d="M 31 32 L 44 28"/>
+          <path d="M 31 38 L 47 33"/>
+          <path d="M 33 46 L 47 41"/>
+          <path d="M 35 54 L 47 49"/>
+          <path d="M 36 60 L 46 56"/>
+          <path d="M 38 65 L 44 63"/>
+        </g>
+      </g>
+    </svg>
+    <div class="label">v9 — Gemini-inspired</div>
+    <div class="note">Asymmetric arch (left pinches, right straight), strong toe gradient (big toe ~2× pinky), triple-stacked outlines, hatching, roughness filter for pencil texture.</div>
+  </div>
+</div>
+
+<h2>Barefoot — Gemini's draft (reference)</h2>
+<div class="row">
+  <div class="cell">
+    <span class="tag">gemini</span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" style="width:180px;height:270px">
+      <defs>
+        <filter id="roughness-gemini" x="-5%" y="-5%" width="110%" height="110%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </defs>
+      <g filter="url(#roughness-gemini)" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 90,270 C 130,265 150,200 145,120 C 142,80 75,70 45,95 C 25,115 80,180 75,230 C 72,255 80,270 90,270 Z" stroke-width="2.5" />
+        <path d="M 88,268 C 125,263 145,198 140,118 C 138,82 78,72 48,97 C 30,115 75,178 72,228 C 70,253 78,268 88,268 Z" stroke-width="1.5" opacity="0.6"/>
+        <path d="M 92,272 C 135,267 153,202 148,122 C 145,78 72,68 42,93 C 20,115 85,182 78,232 C 74,257 82,272 92,272 Z" stroke-width="1" opacity="0.4"/>
+        <path d="M 40,65 C 30,45 35,20 50,15 C 65,10 75,30 65,55 C 55,75 45,75 40,65 Z" stroke-width="2.5" />
+        <path d="M 42,63 C 32,43 37,22 52,17 C 67,12 73,32 63,53 C 57,68 47,73 42,63 Z" stroke-width="1" opacity="0.6"/>
+        <path d="M 75,55 C 75,35 85,25 95,25 C 105,25 105,45 95,60 C 85,70 80,65 75,55 Z" stroke-width="2" />
+        <path d="M 77,53 C 77,33 87,27 97,27 C 107,27 103,47 93,58" stroke-width="1" opacity="0.6"/>
+        <path d="M 105,65 C 110,45 120,40 125,45 C 130,50 125,65 115,75 C 110,80 105,75 105,65 Z" stroke-width="2" />
+        <path d="M 107,63 C 112,47 118,43 122,48 C 127,53 123,63 115,70" stroke-width="1" opacity="0.6"/>
+        <path d="M 125,80 C 130,65 140,60 145,65 C 150,70 145,85 135,90 C 130,95 125,85 125,80 Z" stroke-width="2" />
+        <path d="M 127,78 C 132,67 138,63 142,67 C 147,72 143,82 135,86" stroke-width="1" opacity="0.6"/>
+        <path d="M 145,100 C 155,90 160,95 160,105 C 160,115 155,120 150,115 C 145,110 145,105 145,100 Z" stroke-width="2" />
+        <path d="M 147,102 C 153,95 157,98 157,105 C 157,112 153,115 149,112" stroke-width="1" opacity="0.6"/>
+        <g stroke-width="1.2" opacity="0.5">
+          <path d="M 80,260 L 100,250 M 82,255 L 105,245 M 78,250 L 110,235 M 78,240 L 115,225" />
+          <path d="M 45,120 L 65,110 M 50,135 L 75,120 M 55,150 L 80,135 M 65,165 L 85,150 M 70,175 L 88,162" />
+          <path d="M 65,85 L 85,75 M 70,95 L 95,80 M 80,105 L 110,90 M 120,110 L 135,100 M 55,105 L 75,95" />
+          <path d="M 35,50 L 45,45 M 85,280 L 105,275 M 155,125 L 145,145" stroke-width="1" stroke-dasharray="2 4" />
+        </g>
+      </g>
+    </svg>
+    <div class="label">Gemini — pencil-sketch foot</div>
+    <div class="note">Side view of a single foot: heel at base, ankle/arch curving up, big toe down to pinky toe receding. Roughness filter for hand-drawn texture. viewBox 200×300 (portrait).</div>
+  </div>
+</div>
+
+<h2>Barefoot — v8 (my latest, two-piece footprints)</h2>
+<div class="row">
+  <div class="cell">
+    <span class="tag">v8</span>
+    <svg viewBox="0 0 80 80">
+      <!-- earth patch (looser, fainter) -->
+      <ellipse cx="40" cy="56" rx="32" ry="14" fill="currentColor" fill-opacity=".07"/>
+      <path d="M8 50 Q24 46 40 46 Q56 46 72 50" stroke="currentColor" stroke-width=".55" fill="none" opacity=".35" stroke-dasharray="2 2" stroke-linecap="round"/>
+      <path d="M8 66 Q24 70 40 70 Q56 70 72 66" stroke="currentColor" stroke-width=".55" fill="none" opacity=".35" stroke-dasharray="2 2" stroke-linecap="round"/>
+      <!-- grass blades -->
+      <path d="M12 64 Q12 58 14 54" stroke="currentColor" stroke-width=".7" fill="none" opacity=".5" stroke-linecap="round"/>
+      <path d="M16 68 Q16 64 14 60" stroke="currentColor" stroke-width=".6" fill="none" opacity=".4" stroke-linecap="round"/>
+      <path d="M68 64 Q68 58 70 54" stroke="currentColor" stroke-width=".7" fill="none" opacity=".5" stroke-linecap="round"/>
+      <path d="M64 68 Q66 64 64 60" stroke="currentColor" stroke-width=".6" fill="none" opacity=".4" stroke-linecap="round"/>
+
+      <!-- FOOTPRINT 1: left foot, lower-left -->
+      <g transform="translate(22 60) rotate(-15)">
+        <!-- heel pad -->
+        <ellipse cx="0" cy="6" rx="2.6" ry="3" fill="currentColor" fill-opacity=".5" stroke="currentColor" stroke-width=".75" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- ball pad -->
+        <ellipse cx="0" cy="-3" rx="3.8" ry="3" fill="currentColor" fill-opacity=".5" stroke="currentColor" stroke-width=".75" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- 5 toe pads above ball — left foot, big toe at RIGHT -->
+        <ellipse cx="2.8" cy="-8" rx="1.4" ry="1.8" fill="currentColor" fill-opacity=".55" stroke="currentColor" stroke-width=".55"/>
+        <ellipse cx=".7" cy="-9" rx="1.15" ry="1.5" fill="currentColor" fill-opacity=".55" stroke="currentColor" stroke-width=".5"/>
+        <ellipse cx="-1.1" cy="-9" rx=".95" ry="1.35" fill="currentColor" fill-opacity=".55" stroke="currentColor" stroke-width=".45"/>
+        <ellipse cx="-2.5" cy="-8.4" rx=".8" ry="1.15" fill="currentColor" fill-opacity=".55" stroke="currentColor" stroke-width=".4"/>
+        <ellipse cx="-3.6" cy="-7.4" rx=".65" ry=".95" fill="currentColor" fill-opacity=".55"/>
+      </g>
+
+      <!-- FOOTPRINT 2: right foot, upper-right -->
+      <g transform="translate(52 44) rotate(15)" opacity=".88">
+        <!-- heel pad -->
+        <ellipse cx="0" cy="6" rx="2.6" ry="3" fill="currentColor" fill-opacity=".5" stroke="currentColor" stroke-width=".75" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- ball pad -->
+        <ellipse cx="0" cy="-3" rx="3.8" ry="3" fill="currentColor" fill-opacity=".5" stroke="currentColor" stroke-width=".75" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- toes — right foot, big toe at LEFT -->
+        <ellipse cx="-2.8" cy="-8" rx="1.4" ry="1.8" fill="currentColor" fill-opacity=".55" stroke="currentColor" stroke-width=".55"/>
+        <ellipse cx="-.7" cy="-9" rx="1.15" ry="1.5" fill="currentColor" fill-opacity=".55" stroke="currentColor" stroke-width=".5"/>
+        <ellipse cx="1.1" cy="-9" rx=".95" ry="1.35" fill="currentColor" fill-opacity=".55" stroke="currentColor" stroke-width=".45"/>
+        <ellipse cx="2.5" cy="-8.4" rx=".8" ry="1.15" fill="currentColor" fill-opacity=".55" stroke="currentColor" stroke-width=".4"/>
+        <ellipse cx="3.6" cy="-7.4" rx=".65" ry=".95" fill="currentColor" fill-opacity=".55"/>
+      </g>
+    </svg>
+    <div class="label">two-piece footprints</div>
+    <div class="note">Heel pad + ball pad (no arch connection) + 5 distinct toes above each. Like real prints in soft earth.</div>
+  </div>
+</div>
+
+<h2>Barefoot — v7 (single-piece outline, for comparison)</h2>
+<div class="row">
+  <div class="cell">
+    <span class="tag">v7</span>
+    <svg viewBox="0 0 80 80">
+      <!-- earth patch -->
+      <path d="M6 50 Q14 40 30 38 Q48 36 64 42 Q74 48 72 60 Q62 70 44 72 Q24 72 12 66 Q4 60 6 50 Z"
+            fill="currentColor" fill-opacity=".1"
+            stroke="currentColor" stroke-width=".7" opacity=".55"
+            stroke-dasharray="2 2" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- grass tufts -->
+      <path d="M10 56 Q10 50 12 46" stroke="currentColor" stroke-width=".7" fill="none" opacity=".5" stroke-linecap="round"/>
+      <path d="M68 58 Q68 52 70 48" stroke="currentColor" stroke-width=".7" fill="none" opacity=".5" stroke-linecap="round"/>
+      <path d="M16 70 Q16 65 14 62" stroke="currentColor" stroke-width=".6" fill="none" opacity=".4" stroke-linecap="round"/>
+      <path d="M62 72 Q64 68 62 64" stroke="currentColor" stroke-width=".6" fill="none" opacity=".4" stroke-linecap="round"/>
+
+      <!-- FOOTPRINT 1: right foot, lower-left, full -->
+      <g transform="translate(20 62) rotate(-22)">
+        <!-- sole: wider ball top, narrow arch, rounded heel -->
+        <path d="M-4 -7
+                 Q-5 -3 -4 0
+                 Q-3 2 -1.6 3
+                 L-1.6 5
+                 Q-2.5 7.5 -3 9
+                 Q-1.5 10.5 0 10.5
+                 Q1.5 10.5 3 9
+                 Q2.5 7.5 1.6 5
+                 L1.6 3
+                 Q3 2 4 0
+                 Q5 -3 4 -7
+                 Q0 -9 -4 -7 Z"
+              fill="currentColor" fill-opacity=".5"
+              stroke="currentColor" stroke-width=".9"
+              stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- 5 toe pads (bigger, distinct) -->
+        <ellipse cx="-3.2" cy="-9.2" rx="1.5" ry="1.9" fill="currentColor" fill-opacity=".55" stroke="currentColor" stroke-width=".5"/>
+        <ellipse cx="-1.1" cy="-10.2" rx="1.2" ry="1.6" fill="currentColor" fill-opacity=".55" stroke="currentColor" stroke-width=".45"/>
+        <ellipse cx="1" cy="-10.3" rx="1" ry="1.4" fill="currentColor" fill-opacity=".55" stroke="currentColor" stroke-width=".4"/>
+        <ellipse cx="2.7" cy="-9.7" rx=".85" ry="1.2" fill="currentColor" fill-opacity=".55"/>
+        <ellipse cx="3.9" cy="-8.7" rx=".7" ry="1" fill="currentColor" fill-opacity=".55"/>
+      </g>
+
+      <!-- FOOTPRINT 2: left foot, middle, full -->
+      <g transform="translate(40 50) rotate(22)" opacity=".9">
+        <path d="M-4 -7
+                 Q-5 -3 -4 0
+                 Q-3 2 -1.6 3
+                 L-1.6 5
+                 Q-2.5 7.5 -3 9
+                 Q-1.5 10.5 0 10.5
+                 Q1.5 10.5 3 9
+                 Q2.5 7.5 1.6 5
+                 L1.6 3
+                 Q3 2 4 0
+                 Q5 -3 4 -7
+                 Q0 -9 -4 -7 Z"
+              fill="currentColor" fill-opacity=".5"
+              stroke="currentColor" stroke-width=".9"
+              stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- toes mirrored (left foot — big toe at right) -->
+        <ellipse cx="3.2" cy="-9.2" rx="1.5" ry="1.9" fill="currentColor" fill-opacity=".55" stroke="currentColor" stroke-width=".5"/>
+        <ellipse cx="1.1" cy="-10.2" rx="1.2" ry="1.6" fill="currentColor" fill-opacity=".55" stroke="currentColor" stroke-width=".45"/>
+        <ellipse cx="-1" cy="-10.3" rx="1" ry="1.4" fill="currentColor" fill-opacity=".55" stroke="currentColor" stroke-width=".4"/>
+        <ellipse cx="-2.7" cy="-9.7" rx=".85" ry="1.2" fill="currentColor" fill-opacity=".55"/>
+        <ellipse cx="-3.9" cy="-8.7" rx=".7" ry="1" fill="currentColor" fill-opacity=".55"/>
+      </g>
+
+      <!-- FOOTPRINT 3: right foot far, smaller, lighter -->
+      <g transform="translate(60 38) rotate(-22) scale(.75)" opacity=".7">
+        <path d="M-4 -7
+                 Q-5 -3 -4 0
+                 Q-3 2 -1.6 3
+                 L-1.6 5
+                 Q-2.5 7.5 -3 9
+                 Q-1.5 10.5 0 10.5
+                 Q1.5 10.5 3 9
+                 Q2.5 7.5 1.6 5
+                 L1.6 3
+                 Q3 2 4 0
+                 Q5 -3 4 -7
+                 Q0 -9 -4 -7 Z"
+              fill="currentColor" fill-opacity=".4"
+              stroke="currentColor" stroke-width=".9"
+              stroke-linecap="round" stroke-linejoin="round"/>
+        <ellipse cx="-3.2" cy="-9.2" rx="1.5" ry="1.9" fill="currentColor" fill-opacity=".5"/>
+        <ellipse cx="-1.1" cy="-10.2" rx="1.2" ry="1.6" fill="currentColor" fill-opacity=".5"/>
+        <ellipse cx="1" cy="-10.3" rx="1" ry="1.4" fill="currentColor" fill-opacity=".5"/>
+        <ellipse cx="2.7" cy="-9.7" rx=".85" ry="1.2" fill="currentColor" fill-opacity=".5"/>
+        <ellipse cx="3.9" cy="-8.7" rx=".7" ry="1" fill="currentColor" fill-opacity=".5"/>
+      </g>
+    </svg>
+    <div class="label">v7: footprints with proper anatomy</div>
+    <div class="note">Wider ball, pinched arch, round heel. Bigger more distinct toes.</div>
+  </div>
+</div>
+
+<h2>Barefoot — v6 (previous, for comparison)</h2>
+<div class="row">
+  <div class="cell">
+    <span class="tag">v6</span>
+    <svg viewBox="0 0 80 80">
+      <!-- earth patch (loose, dashed edge) -->
+      <path d="M6 50 Q14 40 30 38 Q48 36 64 42 Q74 48 72 60 Q62 70 44 72 Q24 72 12 66 Q4 60 6 50 Z"
+            fill="currentColor" fill-opacity=".1"
+            stroke="currentColor" stroke-width=".7" opacity=".55"
+            stroke-dasharray="2 2" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- grass tufts at edges -->
+      <path d="M10 56 Q10 50 12 46" stroke="currentColor" stroke-width=".7" fill="none" opacity=".5" stroke-linecap="round"/>
+      <path d="M68 58 Q68 52 70 48" stroke="currentColor" stroke-width=".7" fill="none" opacity=".5" stroke-linecap="round"/>
+      <path d="M16 70 Q16 65 14 62" stroke="currentColor" stroke-width=".6" fill="none" opacity=".4" stroke-linecap="round"/>
+      <path d="M62 72 Q64 68 62 64" stroke="currentColor" stroke-width=".6" fill="none" opacity=".4" stroke-linecap="round"/>
+
+      <!-- FOOTPRINT 1 (right foot, lower-left, walking forward) -->
+      <g transform="translate(20 64) rotate(-20)">
+        <!-- sole as peanut shape: wider ball top, narrower arch, wider heel bottom -->
+        <path d="M-3 -10
+                 Q-4 -7 -3.5 -3
+                 Q-3 0 -3 4
+                 Q-2 6 0 6
+                 Q2 6 3 4
+                 Q3 0 3.5 -3
+                 Q4 -7 3 -10
+                 Q0 -11 -3 -10 Z"
+              fill="currentColor" fill-opacity=".4"
+              stroke="currentColor" stroke-width=".8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- 5 toe pads above ball, big toe at left (this is right foot inside view) -->
+        <ellipse cx="-2.6" cy="-12.8" rx="1.3" ry="1.7" fill="currentColor" fill-opacity=".5" stroke="currentColor" stroke-width=".5"/>
+        <ellipse cx="-.5" cy="-13.6" rx="1" ry="1.4" fill="currentColor" fill-opacity=".5" stroke="currentColor" stroke-width=".45"/>
+        <ellipse cx="1.2" cy="-13.5" rx=".85" ry="1.2" fill="currentColor" fill-opacity=".5" stroke="currentColor" stroke-width=".4"/>
+        <ellipse cx="2.5" cy="-13" rx=".7" ry="1" fill="currentColor" fill-opacity=".5"/>
+        <ellipse cx="3.4" cy="-12" rx=".55" ry=".8" fill="currentColor" fill-opacity=".5"/>
+      </g>
+
+      <!-- FOOTPRINT 2 (left foot, middle, slightly fainter) -->
+      <g transform="translate(40 50) rotate(20)" opacity=".85">
+        <path d="M-3 -10
+                 Q-4 -7 -3.5 -3
+                 Q-3 0 -3 4
+                 Q-2 6 0 6
+                 Q2 6 3 4
+                 Q3 0 3.5 -3
+                 Q4 -7 3 -10
+                 Q0 -11 -3 -10 Z"
+              fill="currentColor" fill-opacity=".4"
+              stroke="currentColor" stroke-width=".8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- toes mirrored (left foot — big toe at right) -->
+        <ellipse cx="2.6" cy="-12.8" rx="1.3" ry="1.7" fill="currentColor" fill-opacity=".5" stroke="currentColor" stroke-width=".5"/>
+        <ellipse cx=".5" cy="-13.6" rx="1" ry="1.4" fill="currentColor" fill-opacity=".5" stroke="currentColor" stroke-width=".45"/>
+        <ellipse cx="-1.2" cy="-13.5" rx=".85" ry="1.2" fill="currentColor" fill-opacity=".5" stroke="currentColor" stroke-width=".4"/>
+        <ellipse cx="-2.5" cy="-13" rx=".7" ry="1" fill="currentColor" fill-opacity=".5"/>
+        <ellipse cx="-3.4" cy="-12" rx=".55" ry=".8" fill="currentColor" fill-opacity=".5"/>
+      </g>
+
+      <!-- FOOTPRINT 3 (right foot again, upper-right, smallest, lightest — walking off into distance) -->
+      <g transform="translate(60 38) rotate(-20) scale(.78)" opacity=".7">
+        <path d="M-3 -10
+                 Q-4 -7 -3.5 -3
+                 Q-3 0 -3 4
+                 Q-2 6 0 6
+                 Q2 6 3 4
+                 Q3 0 3.5 -3
+                 Q4 -7 3 -10
+                 Q0 -11 -3 -10 Z"
+              fill="currentColor" fill-opacity=".35"
+              stroke="currentColor" stroke-width=".8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+        <ellipse cx="-2.6" cy="-12.8" rx="1.3" ry="1.7" fill="currentColor" fill-opacity=".45"/>
+        <ellipse cx="-.5" cy="-13.6" rx="1" ry="1.4" fill="currentColor" fill-opacity=".45"/>
+        <ellipse cx="1.2" cy="-13.5" rx=".85" ry="1.2" fill="currentColor" fill-opacity=".45"/>
+        <ellipse cx="2.5" cy="-13" rx=".7" ry="1" fill="currentColor" fill-opacity=".45"/>
+        <ellipse cx="3.4" cy="-12" rx=".55" ry=".8" fill="currentColor" fill-opacity=".45"/>
+      </g>
+    </svg>
+    <div class="label">three footprints walking through</div>
+    <div class="note">Right-left-right footprints walking diagonally through an earthen yard. Furthest one smaller + fainter (perspective). Each: peanut sole + 5 toe pads.</div>
+  </div>
+  <div class="cell old">
+    <span class="tag old">v3 (top-down)</span>
+    <svg viewBox="0 0 80 80">
+      <ellipse cx="40" cy="62" rx="26" ry="7" fill="currentColor" fill-opacity=".1"/>
+      <path d="M40 30 Q33 30 32 38 Q31 46 32 52 Q34 60 40 62 Q46 60 48 52 Q49 46 48 38 Q47 30 40 30 Z" fill="currentColor" fill-opacity=".42" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+      <ellipse cx="34" cy="26" rx="1.7" ry="2.4" fill="currentColor" fill-opacity=".5" stroke="currentColor" stroke-width=".7"/>
+      <ellipse cx="37.6" cy="24.4" rx="1.4" ry="2" fill="currentColor" fill-opacity=".5" stroke="currentColor" stroke-width=".65"/>
+      <ellipse cx="40.6" cy="24" rx="1.2" ry="1.8" fill="currentColor" fill-opacity=".5" stroke="currentColor" stroke-width=".6"/>
+      <ellipse cx="43.4" cy="24.6" rx="1" ry="1.6" fill="currentColor" fill-opacity=".5" stroke="currentColor" stroke-width=".6"/>
+      <ellipse cx="45.8" cy="26.2" rx=".85" ry="1.3" fill="currentColor" fill-opacity=".5" stroke="currentColor" stroke-width=".55"/>
+      <path d="M20 60 Q19 54 21 50" stroke="currentColor" stroke-width=".9" fill="none" opacity=".55" stroke-linecap="round"/>
+      <path d="M24 62 Q23 56 24 52" stroke="currentColor" stroke-width=".8" fill="none" opacity=".5" stroke-linecap="round"/>
+      <path d="M28 64 Q28 58 30 54" stroke="currentColor" stroke-width=".7" fill="none" opacity=".45" stroke-linecap="round"/>
+      <path d="M52 64 Q53 58 52 54" stroke="currentColor" stroke-width=".7" fill="none" opacity=".45" stroke-linecap="round"/>
+      <path d="M56 62 Q57 56 56 52" stroke="currentColor" stroke-width=".8" fill="none" opacity=".5" stroke-linecap="round"/>
+      <path d="M60 60 Q60 54 62 50" stroke="currentColor" stroke-width=".9" fill="none" opacity=".55" stroke-linecap="round"/>
+    </svg>
+    <div class="note">v3, flat top-down — for comparison</div>
+  </div>
+</div>
+
+<h2>Staircase — v5 (3/4 view, actual staircase)</h2>
+<div class="row">
+  <div class="cell">
+    <span class="tag">v5</span>
+    <svg viewBox="0 0 80 80">
+      <!-- floor line -->
+      <line x1="4" y1="68" x2="76" y2="68" stroke="currentColor" stroke-width=".9" opacity=".55" stroke-linecap="round"/>
+      <!-- ground shadow under base of stairs -->
+      <ellipse cx="40" cy="70" rx="32" ry="1.4" fill="currentColor" fill-opacity=".1"/>
+
+      <!-- Front silhouette of staircase (the zigzag riser-tread profile) -->
+      <path d="M14 68 L14 60 L24 60 L24 52 L34 52 L34 44 L44 44 L44 36 L54 36 L54 28 L64 28 L64 68 Z"
+            fill="currentColor" fill-opacity=".15"
+            stroke="currentColor" stroke-width="1.4"
+            stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- Treads in 3/4 perspective: top surface of each step receding to upper-right (so you're looking from the front-left) -->
+      <g fill="currentColor" fill-opacity=".28" stroke="currentColor" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 60 L24 60 L30 56 L20 56 Z"/>
+        <path d="M24 52 L34 52 L40 48 L30 48 Z"/>
+        <path d="M34 44 L44 44 L50 40 L40 40 Z"/>
+        <path d="M44 36 L54 36 L60 32 L50 32 Z"/>
+        <path d="M54 28 L64 28 L70 24 L60 24 Z"/>
+      </g>
+
+      <!-- Back edge of staircase (visible side of receding treads) -->
+      <path d="M20 56 L20 48 L30 48 L30 40 L40 40 L40 32 L50 32 L50 24 L70 24"
+            stroke="currentColor" stroke-width=".9" fill="none" opacity=".55"
+            stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- Handrail: diagonal gliding above the back edges of treads -->
+      <path d="M22 50 L32 42 L42 34 L52 26 L62 18"
+            stroke="currentColor" stroke-width="1.1" fill="none"
+            stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- 2 banister posts (suggest rail support without clutter) -->
+      <line x1="22" y1="56" x2="22" y2="50" stroke="currentColor" stroke-width=".7" opacity=".55" stroke-linecap="round"/>
+      <line x1="52" y1="32" x2="52" y2="26" stroke="currentColor" stroke-width=".7" opacity=".55" stroke-linecap="round"/>
+
+      <!-- Top landing line continuing offstage -->
+      <line x1="62" y1="18" x2="76" y2="18" stroke="currentColor" stroke-width=".8" opacity=".4" stroke-linecap="round"/>
+    </svg>
+    <div class="label">staircase, 3/4 perspective</div>
+    <div class="note">Front zigzag silhouette + receding tread parallelograms + handrail glide + a couple of banister posts + landing line at top. Adorable, not flat.</div>
+  </div>
+  <div class="cell old">
+    <span class="tag old">v4 (elevator)</span>
+    <svg viewBox="0 0 80 80">
+      <line x1="6" y1="72" x2="74" y2="72" stroke="currentColor" stroke-width=".9" opacity=".55" stroke-linecap="round"/>
+      <rect x="32" y="13" width="8" height="5.5" rx=".5" fill="currentColor" fill-opacity=".22" stroke="currentColor" stroke-width=".8" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="36" y="17.2" font-size="4" fill="currentColor" text-anchor="middle" font-family="Georgia, serif" opacity=".85">12</text>
+      <path d="M44 14 L51 14 L47.5 19.5 Z" fill="currentColor" stroke="currentColor" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="22" y1="22" x2="58" y2="22" stroke="currentColor" stroke-width="1" opacity=".55" stroke-linecap="round"/>
+      <rect x="24" y="24" width="32" height="48" fill="currentColor" fill-opacity=".15" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="40" y1="24" x2="40" y2="72" stroke="currentColor" stroke-width="1.3" opacity=".75" stroke-linecap="round"/>
+      <line x1="32" y1="28" x2="32" y2="68" stroke="currentColor" stroke-width=".5" opacity=".3" stroke-linecap="round"/>
+      <line x1="48" y1="28" x2="48" y2="68" stroke="currentColor" stroke-width=".5" opacity=".3" stroke-linecap="round"/>
+      <ellipse cx="40" cy="74" rx="18" ry="1.6" fill="currentColor" fill-opacity=".18"/>
+    </svg>
+    <div class="note">v4 elevator, scrapped — staircase should be staircase</div>
+  </div>
+  <div class="cell old">
+    <span class="tag old">v1 (triptych)</span>
+    <svg viewBox="0 0 80 80">
+      <line x1="2" y1="72" x2="78" y2="72" stroke="currentColor" stroke-width=".9" opacity=".55" stroke-linecap="round"/>
+      <g opacity=".7">
+        <path d="M4 72 L4 68 L8 68 L8 64 L12 64 L12 60 L16 60 L16 56 L20 56 L20 52 L24 52 L24 72 Z" fill="currentColor" fill-opacity=".15" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <rect x="26" y="13" width="7" height="5" fill="currentColor" fill-opacity=".22" stroke="currentColor" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="29.5" y="17" font-size="3.8" fill="currentColor" text-anchor="middle" font-family="Georgia, serif" opacity=".8">12</text>
+      <path d="M37 14 L43 14 L40 19 Z" fill="currentColor" stroke="currentColor" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="28" y="22" width="24" height="50" fill="currentColor" fill-opacity=".15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="40" y1="22" x2="40" y2="72" stroke="currentColor" stroke-width="1.2" opacity=".75" stroke-linecap="round"/>
+      <line x1="28" y1="26" x2="52" y2="26" stroke="currentColor" stroke-width=".7" opacity=".5" stroke-linecap="round"/>
+      <ellipse cx="40" cy="74" rx="14" ry="1.5" fill="currentColor" fill-opacity=".18"/>
+      <g opacity=".55" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="58" y1="72" x2="68" y2="38" stroke="currentColor" stroke-width="1.2"/>
+        <line x1="64" y1="72" x2="74" y2="38" stroke="currentColor" stroke-width="1.2"/>
+        <line x1="60.4" y1="64" x2="66.4" y2="64" stroke="currentColor" stroke-width=".9"/>
+        <line x1="62.7" y1="56" x2="68.7" y2="56" stroke="currentColor" stroke-width=".9"/>
+        <line x1="65" y1="48" x2="71" y2="48" stroke="currentColor" stroke-width=".9"/>
+        <line x1="67.4" y1="40" x2="73.4" y2="40" stroke="currentColor" stroke-width=".9"/>
+      </g>
+    </svg>
+    <div class="note">v1 triptych — for comparison</div>
+  </div>
+</div>
+</body>
+</html>
