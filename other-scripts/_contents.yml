@@ -11,15 +11,12 @@ icon: 🖋
 contents:
   - poem: "Shorts"
     id: shorts
-    lang: en
     note: "compressed, potent"
     art: art-paper-slips
   - poem: "Seeds/Blurbs"
     id: seeds-blurbs
-    lang: en
     art: art-seed-envelope
   - poem: "Exemplary Poem"
     id: exemplary-poem
-    lang: en
     note: "what is exemplary?"
     art: art-page-lines

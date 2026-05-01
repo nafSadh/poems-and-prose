@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
-"""Sync collection dates from markdown (source of truth) into yml + indexes.
+"""Sort second-seconds by date and regenerate index files.
 
-Reads every `.md` file in each configured collection, extracts its
-`<date: ... />` (English) or `<তারিখ: ... />` (Bengali) tag if present, and:
-  1. Updates `_contents.yml` date field to match the md tag.
-  2. For `second-seconds` only: sorts entries chronologically and regenerates
-     `second-seconds/~index.md` + master `src/~index.md` second-seconds section.
-     Other collections keep their hand-curated yml order.
+Dates live in each `.md` as `<date: ... />` (English) or `<তারিখ: ... />`
+(Bengali). For `second-seconds` only, this script reorders the entries in
+`_contents.yml` chronologically by md date and rewrites
+`second-seconds/~index.md` and the master `src/~index.md` second-seconds
+section to match.
 
-Run whenever you update dates in any .md files:
+`_contents.yml` no longer carries `date:` lines — the .md is the single source
+of truth for dates.
+
+Run whenever you update dates in any second-seconds .md files:
     cd src && python3 _build/sync-dates.py && python3 _build/build.py
 """
 
@@ -22,11 +24,10 @@ IDX = SRC / "second-seconds" / "~index.md"
 MASTER = SRC / "~index.md"
 MD_DIR = SRC / "second-seconds"
 
-# Collections that get their yml dates synced from md. `sort`=True also reorders
-# entries chronologically; False preserves the hand-curated order.
+# Collections that get sorted by md date. Only second-seconds today; others
+# keep their hand-curated yml order, so they don't appear here.
 COLLECTIONS = [
     {"id": "second-seconds", "sort": True},
-    {"id": "sulol-songroho", "sort": False},
 ]
 
 MONTH = {
@@ -91,65 +92,78 @@ def md_dates(md_dir: Path) -> dict[str, str]:
 TYPE_KEY_RE = r"(?:poem|story|article|prose|essay)"
 
 
-def sync_yml(yml_path: Path, date_map: dict[str, str], sort: bool):
-    """Update yml dates from md. Sort entries chronologically if `sort`.
-    Return list of (sort_key, fname_with_md, title, entry_text) — in sorted
-    order if `sort`, otherwise original yml order. `fname_with_md` is the
-    bare md filename (id + ".md") so date_map (keyed by md filename) lookups
-    still work."""
+def sort_yml(yml_path: Path, date_map: dict[str, str], sort: bool):
+    """Walk yml entries and (optionally) reorder them by md date. Return list
+    of (sort_key, fname_with_md, title, entry_text) — in sorted order if
+    `sort`, else original yml order. `fname_with_md` is the bare md filename
+    (id + ".md") so date_map lookups still work.
+
+    Supports both flat (`  - poem: …`) and sectioned (`      - poem: …` under
+    `  - section:` / `    entries:`) layouts. For sectioned manifests the
+    sort happens INSIDE each section; section order itself is preserved."""
     text = yml_path.read_text(encoding="utf-8")
     header, _, body = text.partition("\ncontents:\n")
     assert body, f"couldn't find 'contents:' section in {yml_path}"
 
-    raw = [e for e in re.split(rf"(?m)(?=^  - {TYPE_KEY_RE}: )", body) if e.strip()]
+    # Split body into flat entries OR section blocks. A section block starts
+    # at `^  - section: ` and runs until the next section or EOF.
+    section_re = re.compile(r"(?m)(?=^  - section: )")
+    flat_entry_re = re.compile(rf"(?m)(?=^  - {TYPE_KEY_RE}: )")
 
     fixed: list[tuple[tuple[int, int, int], str, str, str]] = []
-    updates = 0
-    for entry in raw:
-        im = re.search(r"^    id:\s*(\S+)\s*$", entry, flags=re.M)
-        item_id = im.group(1) if im else ""
-        fname = f"{item_id}.md" if item_id else ""
-        tm = re.search(rf'^  - {TYPE_KEY_RE}:\s*"?(.+?)"?\s*$', entry, flags=re.M)
-        title = tm.group(1) if tm else ""
 
-        # If md has a date, override yml.
-        if fname in date_map:
-            new_date = date_map[fname]
-            dm_old = re.search(r'^    date:\s*"([^"]+)"', entry, flags=re.M)
-            old_date = dm_old.group(1) if dm_old else None
-            if old_date != new_date:
-                if old_date:
-                    entry = re.sub(
-                        r'^(    date:\s*)"[^"]*"',
-                        lambda m_: f'{m_.group(1)}"{new_date}"',
-                        entry, count=1, flags=re.M,
-                    )
-                else:
-                    # No existing date: insert one after the `id:` line.
-                    entry = re.sub(
-                        r'(^    id:\s*\S+\n)',
-                        lambda m_: f'{m_.group(1)}    date: "{new_date}"\n',
-                        entry, count=1, flags=re.M,
-                    )
-                updates += 1
-
-        dm = re.search(r'^    date:\s*"([^"]+)"', entry, flags=re.M)
-        date_str = dm.group(1) if dm else ""
-        fixed.append((parse_date(date_str), fname, title, entry))
+    if section_re.search(body):
+        # Sectioned: split into sections, sort entries within each.
+        sections = [s for s in section_re.split(body) if s.strip()]
+        rebuilt: list[str] = []
+        for sec in sections:
+            # Header is everything up to the first nested entry; entries are
+            # 6-space indented and prefixed with a type-key.
+            entry_re = re.compile(rf"(?m)(?=^      - {TYPE_KEY_RE}: )")
+            parts = entry_re.split(sec)
+            sec_header = parts[0]
+            sec_entries = [e for e in parts[1:] if e.strip()]
+            sec_fixed: list[tuple[tuple[int, int, int], str, str, str]] = []
+            for entry in sec_entries:
+                im = re.search(r"^        id:\s*(\S+)\s*$", entry, flags=re.M)
+                item_id = im.group(1) if im else ""
+                fname = f"{item_id}.md" if item_id else ""
+                tm = re.search(rf'^      - {TYPE_KEY_RE}:\s*"?(.+?)"?\s*$', entry, flags=re.M)
+                title = tm.group(1) if tm else ""
+                date_str = date_map.get(fname, "")
+                sec_fixed.append((parse_date(date_str), fname, title, entry))
+            if sort:
+                sec_fixed.sort(key=lambda x: (x[0], x[2].lower()))
+            fixed.extend(sec_fixed)
+            rebuilt.append(sec_header + "".join(e[3] for e in sec_fixed))
+        new_body = "".join(rebuilt)
+    else:
+        # Flat layout.
+        raw = [e for e in flat_entry_re.split(body) if e.strip()]
+        for entry in raw:
+            im = re.search(r"^    id:\s*(\S+)\s*$", entry, flags=re.M)
+            item_id = im.group(1) if im else ""
+            fname = f"{item_id}.md" if item_id else ""
+            tm = re.search(rf'^  - {TYPE_KEY_RE}:\s*"?(.+?)"?\s*$', entry, flags=re.M)
+            title = tm.group(1) if tm else ""
+            date_str = date_map.get(fname, "")
+            fixed.append((parse_date(date_str), fname, title, entry))
+        if sort:
+            fixed.sort(key=lambda x: (x[0], x[2].lower()))
+        new_body = "".join(e[3] for e in fixed)
 
     if sort:
-        fixed.sort(key=lambda x: (x[0], x[2].lower()))
-
-    out = header + "\ncontents:\n" + "".join(e[3] for e in fixed)
-    if not out.endswith("\n"):
-        out += "\n"
-    yml_path.write_text(out, encoding="utf-8")
-    verb = "reordered" if sort else "in original order"
-    print(f"  {yml_path.parent.name}/yml: {updates} dates updated, {len(fixed)} entries ({verb})")
+        out = header + "\ncontents:\n" + new_body
+        if not out.endswith("\n"):
+            out += "\n"
+        yml_path.write_text(out, encoding="utf-8")
+        print(f"  {yml_path.parent.name}/yml: {len(fixed)} entries reordered by md date")
+    else:
+        print(f"  {yml_path.parent.name}/yml: {len(fixed)} entries (order preserved)")
     return fixed
 
 
-def write_idx(sorted_entries):
+def write_idx(sorted_entries, date_map: dict[str, str]):
     header = (
         "# Second Seconds - A Conversation with Self\n"
         "\n"
@@ -157,16 +171,15 @@ def write_idx(sorted_entries):
         "\n"
     )
     lines: list[str] = []
-    for i, (_, fname, title, entry) in enumerate(sorted_entries, start=1):
-        dm = re.search(r'^    date:\s*"([^"]+)"', entry, flags=re.M)
-        date_str = dm.group(1) if dm else ""
+    for i, (_, fname, title, _entry) in enumerate(sorted_entries, start=1):
+        date_str = date_map.get(fname, "")
         suffix = f" ~ {date_str}" if date_str else ""
         lines.append(f"{i}. [{title}]({fname}){suffix}\n")
     IDX.write_text(header + "".join(lines), encoding="utf-8")
     print(f"  second-seconds/~index.md: rewritten")
 
 
-def write_master(sorted_entries):
+def write_master(sorted_entries, date_map: dict[str, str]):
     text = MASTER.read_text(encoding="utf-8")
     hdr_re = re.compile(
         r"(?m)^(## \[Second Seconds[^\]]*\]\(second-seconds/~index\.md\)\s*\n)"
@@ -181,10 +194,9 @@ def write_master(sorted_entries):
 
     has_dates = bool(re.search(r"~\s+[A-Za-z]", text[start:end]))
     parts = ["\n"]
-    for i, (_, fname, title, entry) in enumerate(sorted_entries, start=1):
+    for i, (_, fname, title, _entry) in enumerate(sorted_entries, start=1):
         if has_dates:
-            dm = re.search(r'^    date:\s*"([^"]+)"', entry, flags=re.M)
-            date_str = dm.group(1) if dm else ""
+            date_str = date_map.get(fname, "")
             parts.append(f"{i}. [{title}](second-seconds/{fname}) ~ {date_str}\n" if date_str else f"{i}. [{title}](second-seconds/{fname})\n")
         else:
             parts.append(f"{i}. [{title}](second-seconds/{fname})\n")
@@ -204,11 +216,11 @@ def main():
             continue
         date_map = md_dates(md_dir)
         print(f"{cid}: found {len(date_map)} md files with date tags")
-        entries = sync_yml(yml_path, date_map, sort=col["sort"])
+        entries = sort_yml(yml_path, date_map, sort=col["sort"])
         # Index regen is second-seconds-specific for now.
         if cid == "second-seconds":
-            write_idx(entries)
-            write_master(entries)
+            write_idx(entries, date_map)
+            write_master(entries, date_map)
 
 
 if __name__ == "__main__":

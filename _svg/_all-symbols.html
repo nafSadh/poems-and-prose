@@ -3975,6 +3975,171 @@ prev v3 contents (do not use):
   <!-- Top landing line continuing offstage -->
   <line x1="62" y1="18" x2="76" y2="18" stroke="currentColor" stroke-width=".8" opacity=".4" stroke-linecap="round"/>
 </symbol>
+
+<!-- prev: art-back-to-back v3 — both figures facing right, one slightly in front of other, back figure's hand on front figure's shoulder. Tried to illustrate the resolution line ("fore you, for you") but missed the poem's pervasive sense of DISTANCE — "I wasn't there fore you" is the repeating ache.
+v3 contents: back figure at x≈26-42 with reaching hand to x=53; front figure at x≈42-59. Both facing right, overlapping, hand-on-shoulder.
+-->
+<symbol id="art-back-to-back" viewBox="0 0 80 80">
+  <!-- Fore. v4 — DISTANCE. Two small figures pulled to the far edges of the frame, separated by a long empty middle. Both facing the same direction, the back one's outstretched arm reaching across the gap toward the other (the "for" trying to span the "wasn't fore"). The empty space IS the meaning. -->
+
+  <!-- ground line, very faint, runs the whole width -->
+  <line x1="6" y1="62" x2="74" y2="62" stroke="currentColor" stroke-width=".5" opacity=".3" stroke-linecap="round"/>
+
+  <!-- BACK FIGURE (the speaker), far LEFT. Small. Profile facing RIGHT (toward the other), arm outstretched. -->
+  <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <!-- head: small, nose on the right -->
+    <path d="M9 38 Q9 35 11 33.5 Q14 33 16 35 Q17 36.5 16 38 Q17 39 16 40 Q14 41.5 11 41 Q9 40 9 38 Z" fill="currentColor" fill-opacity=".22" stroke-width="1"/>
+    <!-- body: small profile silhouette, narrowing toward feet -->
+    <path d="M11 42 Q10 48 10 56 Q10 60 11 62 L16 62 Q17 60 17 56 Q17 50 16 44 Q15.5 42 14 42 Z" fill="currentColor" fill-opacity=".18" stroke-width="1"/>
+    <!-- a very small short arm at side (NOT reaching) — the "for" is internal, not gestured -->
+    <path d="M16 44 Q17 50 16 56" stroke-width=".7" opacity=".55" fill="none"/>
+  </g>
+
+  <!-- FRONT FIGURE (the other), far RIGHT. Same scale. Profile facing RIGHT (away — looking ahead, not back at the speaker). -->
+  <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <!-- head: nose on the right -->
+    <path d="M64 38 Q64 35 66 33.5 Q69 33 71 35 Q72 36.5 71 38 Q72 39 71 40 Q69 41.5 66 41 Q64 40 64 38 Z" fill="currentColor" fill-opacity=".22" stroke-width="1"/>
+    <!-- body -->
+    <path d="M66 42 Q65 48 65 56 Q65 60 66 62 L71 62 Q72 60 72 56 Q72 50 71 44 Q70.5 42 69 42 Z" fill="currentColor" fill-opacity=".18" stroke-width="1"/>
+    <!-- arm hanging at the side -->
+    <path d="M71 44 Q72 50 71 56" stroke-width=".7" opacity=".55" fill="none"/>
+  </g>
+
+  <!-- the GAP — a single quiet dashed thread spanning the whole distance between the two figures at chest height. The invisible "for" that holds across distance. -->
+  <path d="M18 47 Q40 48 62 47" stroke="currentColor" stroke-width=".5" fill="none" opacity=".4" stroke-dasharray="1.5 2.4" stroke-linecap="round"/>
+</symbol>
+
+<!-- prev: art-b2b-far-stick-f v1 — stick figures from straight <line> primitives + perfect circle heads. Geometric, schematic, looked machine-drawn. Replaced with hand-drawn paths.
+  <symbol id="art-b2b-far-stick-f" viewBox="0 0 80 80">
+    <line x1="6" y1="62" x2="74" y2="62" stroke="currentColor" stroke-width=".5" opacity=".3" stroke-linecap="round"/>
+    <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <circle cx="12" cy="34" r="2.6" stroke-width="1.1" fill="currentColor" fill-opacity=".15"/>
+      <line x1="12" y1="36.6" x2="12" y2="52" stroke-width="1.1"/>
+      <line x1="12" y1="42" x2="8" y2="48" stroke-width="1"/>
+      <line x1="12" y1="42" x2="16" y2="48" stroke-width="1"/>
+      <line x1="12" y1="52" x2="9" y2="62" stroke-width="1.05"/>
+      <line x1="12" y1="52" x2="15" y2="62" stroke-width="1.05"/>
+    </g>
+    <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <circle cx="68" cy="34" r="2.6" stroke-width="1.1" fill="currentColor" fill-opacity=".15"/>
+      <line x1="68" y1="36.6" x2="68" y2="52" stroke-width="1.1"/>
+      <line x1="68" y1="42" x2="64" y2="48" stroke-width="1"/>
+      <line x1="68" y1="42" x2="72" y2="48" stroke-width="1"/>
+      <line x1="68" y1="52" x2="65" y2="62" stroke-width="1.05"/>
+      <line x1="68" y1="52" x2="71" y2="62" stroke-width="1.05"/>
+    </g>
+    <path d="M16 44 Q40 45 64 44" stroke="currentColor" stroke-width=".5" fill="none" opacity=".4" stroke-dasharray="1.5 2.4" stroke-linecap="round"/>
+  </symbol>
+-->
+<!-- prev: art-b2b-far-stick-f v2 — Bezier curves but too perfect/symmetric, didn't really read as hand-drawn. Replaced with broken-contour version: heads don't fully close, limbs overshoot joints, left and right figures have different idiosyncrasies.
+  <symbol id="art-b2b-far-stick-f" viewBox="0 0 80 80">
+    <path d="M6 62.2 Q14 61.6 22 62 T38 62.3 Q46 61.7 54 62.1 T74 61.8" stroke="currentColor" stroke-width=".55" fill="none" opacity=".35" stroke-linecap="round"/>
+    <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M12 31.2 Q14.7 31.5 14.7 34.1 Q14.5 36.7 11.9 36.8 Q9.4 36.7 9.4 34.1 Q9.5 31.4 12 31.2 Z" stroke-width="1.05" fill="currentColor" fill-opacity=".12"/>
+      <path d="M12.1 36.9 Q11.6 41 12.2 45 Q12.6 48.6 11.9 52" stroke-width="1.1"/>
+      <path d="M12 42.2 Q10 44.6 8.2 47.9" stroke-width=".95"/>
+      <path d="M12.1 42 Q14.4 44.7 16.2 48.1" stroke-width=".95"/>
+      <path d="M11.9 52 Q10.6 56.4 9.1 61.9" stroke-width="1"/>
+      <path d="M12 52 Q13.4 56.6 15.1 62" stroke-width="1"/>
+    </g>
+    <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M68 31.3 Q70.6 31.4 70.6 34 Q70.6 36.7 68 36.9 Q65.4 36.7 65.4 34.1 Q65.4 31.5 68 31.3 Z" stroke-width="1.05" fill="currentColor" fill-opacity=".12"/>
+      <path d="M68 36.9 Q68.5 40.8 67.9 44.6 Q67.5 48.4 68.1 52" stroke-width="1.1"/>
+      <path d="M68 42.1 Q66 44.4 64.1 48" stroke-width=".95"/>
+      <path d="M68.1 42 Q70.2 44.7 72 47.9" stroke-width=".95"/>
+      <path d="M68 52 Q66.6 56.4 65 61.9" stroke-width="1"/>
+      <path d="M68.1 52 Q69.6 56.5 71.2 62" stroke-width="1"/>
+    </g>
+    <path d="M16.5 44 Q28 45.4 40 45.6 Q52 45.4 63.5 44.1" stroke="currentColor" stroke-width=".5" fill="none" opacity=".42" stroke-dasharray="1.4 2.5" stroke-linecap="round"/>
+  </symbol>
+-->
+<!-- prev: art-b2b-far-stick-f v3 — open contours and overshoots, but each stroke drawn ONCE. Read as careful, not doodly. Replaced with double-stroke sketchy version (heads scribbled twice, body retraced, etc.).
+  <symbol id="art-b2b-far-stick-f" viewBox="0 0 80 80">
+    <path d="M7 62.4 Q15 61.7 24 62.2 Q31 62.5 38 62" stroke="currentColor" stroke-width=".55" fill="none" opacity=".35" stroke-linecap="round"/>
+    <path d="M40 62.1 Q49 61.6 58 62.2 Q66 62.4 73 61.8" stroke="currentColor" stroke-width=".55" fill="none" opacity=".35" stroke-linecap="round"/>
+    <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M14.6 33.5 Q14.9 36.6 12.4 37.2 Q9.6 37 9.4 34.2 Q9.4 31.6 12 31 Q13.8 31 14.4 32.4" stroke-width="1.05"/>
+      <path d="M11.7 37.4 Q12.4 41.6 11.6 45.7 Q12.5 49.4 12.1 52.6" stroke-width="1.1"/>
+      <path d="M16.6 47.8 Q13.4 44.6 11.2 42.6" stroke-width=".95"/>
+      <path d="M11.4 42.4 Q9.6 44.5 7.7 48.2" stroke-width=".95"/>
+      <path d="M12.4 51.6 Q14 56.4 15.6 62.2" stroke-width="1"/>
+      <path d="M11.7 51.8 Q10.2 56.6 8.6 61.9" stroke-width="1"/>
+    </g>
+    <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M65.6 32.4 Q66.6 31 68.4 31.1 Q70.7 31.4 70.8 34 Q70.7 36.7 68.2 37.2 Q65.6 37 65.4 34.4" stroke-width="1.05"/>
+      <path d="M68.4 37.3 Q67.6 41 68.6 45 Q67.7 48.8 68.3 52.5" stroke-width="1.1"/>
+      <path d="M63.6 47.9 Q66.2 45 68 42.6" stroke-width=".95"/>
+      <path d="M68.4 42.5 Q70.4 44.8 72.3 48" stroke-width=".95"/>
+      <path d="M68.6 51.7 Q66.8 56.5 65 62.2" stroke-width="1"/>
+      <path d="M68.2 51.9 Q69.8 56.4 71.5 62" stroke-width="1"/>
+    </g>
+    <path d="M16.8 44 Q28 46 40 46.4 Q52 46 63.4 44.2" stroke="currentColor" stroke-width=".5" fill="none" opacity=".42" stroke-dasharray="1.4 2.5" stroke-linecap="round"/>
+  </symbol>
+-->
+<!-- prev: art-b2b-far-stick-f v4 — double-stroke doodle attempt, read as smudgy/fuzzy not confident. Replaced with single-stroke sharpie style + SVG turbulence filter for real organic wobble.
+  v4 deleted in body, see git history if needed.
+-->
+<!-- prev: art-b2b-far-stick-f v5 — sharpie doodle with turbulence, but figures were two identical generic stickmen, no character. Replaced with v6: same sharpie register, but the LEFT figure (speaker, "I") slightly slumped + head bowed toward the gap, RIGHT figure (you) standing upright + head turned away. Different postures carry the poem's asymmetry.
+  <symbol id="art-b2b-far-stick-f" viewBox="0 0 80 80">
+    <defs><filter id="b2b-jitter" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="1.4"/></filter></defs>
+    <g stroke="currentColor" fill="none" stroke-linecap="round" filter="url(#b2b-jitter)"><path d="M5 64 Q15 63.4 25 63.9" stroke-width=".9" opacity=".55"/><path d="M55 63.9 Q65 63.4 75 64" stroke-width=".9" opacity=".55"/></g>
+    <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#b2b-jitter)">
+      <circle cx="15" cy="28" r="5" stroke-width="1.7"/><path d="M15 33 L15 50" stroke-width="1.7"/><path d="M15 38 L9 46" stroke-width="1.5"/><path d="M15 38 L21 46" stroke-width="1.5"/><path d="M15 50 L10 62" stroke-width="1.6"/><path d="M15 50 L20 62" stroke-width="1.6"/>
+    </g>
+    <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#b2b-jitter)">
+      <circle cx="65" cy="28" r="5" stroke-width="1.7"/><path d="M65 33 L65 50" stroke-width="1.7"/><path d="M65 38 L59 46" stroke-width="1.5"/><path d="M65 38 L71 46" stroke-width="1.5"/><path d="M65 50 L60 62" stroke-width="1.6"/><path d="M65 50 L70 62" stroke-width="1.6"/>
+    </g>
+    <path d="M21 40 Q40 41 59 40" stroke="currentColor" stroke-width=".7" fill="none" opacity=".55" stroke-dasharray="1.6 2.6" stroke-linecap="round" filter="url(#b2b-jitter)"/>
+  </symbol>
+-->
+<symbol id="art-b2b-far-stick-f" viewBox="0 0 80 80">
+  <!-- Fore. — sharpie doodle v6. Same medium as v5 (bold strokes + turbulence jitter), but the two figures now have DIFFERENT postures so they read as two people, not two clones. LEFT (speaker, "I"): slightly slumped — shoulders rolled forward, head bowed toward the gap, one hand in pocket. RIGHT (you): standing tall, head turned away from the gap (looking out of frame), arms relaxed. -->
+  <defs>
+    <filter id="b2b-jitter" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="5"/>
+      <feDisplacementMap in="SourceGraphic" scale="1.1"/>
+    </filter>
+  </defs>
+
+  <!-- ground: short napkin scribbles under each figure, jittered -->
+  <g stroke="currentColor" fill="none" stroke-linecap="round" filter="url(#b2b-jitter)">
+    <path d="M4 64 Q14 63.4 26 64" stroke-width=".6" opacity=".5"/>
+    <path d="M53 64 Q65 63.4 76 64" stroke-width=".6" opacity=".5"/>
+  </g>
+
+  <!-- ============ LEFT figure — speaker, slumped, head bowed toward the gap ============ -->
+  <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#b2b-jitter)">
+    <!-- HEAD: tilted slightly forward (bowed), as ellipse not perfect circle, off-axis -->
+    <ellipse cx="16" cy="29" rx="4.6" ry="5" stroke-width="1.05" transform="rotate(8 16 29)"/>
+    <!-- NECK + BODY: forward slump — shoulders curve down, body leans toward the gap -->
+    <path d="M15.4 34 Q16.2 38 17 44 Q17.6 47.5 17.2 51" stroke-width="1.1"/>
+    <!-- LEFT arm: hangs at side -->
+    <path d="M16.2 39 Q14.4 43 12.6 47.4" stroke-width=".95"/>
+    <!-- RIGHT arm: tucked toward body — hand-in-pocket vibe (shorter, ends at hip) -->
+    <path d="M17.4 39.4 Q19 41.8 19.4 44.6" stroke-width=".95"/>
+    <!-- LEGS: planted -->
+    <path d="M17 51 Q15 56 13.4 62" stroke-width="1"/>
+    <path d="M17.4 51 Q19 56 20.6 62" stroke-width="1"/>
+  </g>
+
+  <!-- ============ RIGHT figure — "you", upright, head turned away from the gap ============ -->
+  <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#b2b-jitter)">
+    <!-- HEAD: upright, very slight turn AWAY from gap (clockwise) -->
+    <ellipse cx="64" cy="28" rx="4.7" ry="5" stroke-width="1.05" transform="rotate(-6 64 28)"/>
+    <!-- BODY: straight, vertical, no slump -->
+    <path d="M64 33 L64.2 51" stroke-width="1.1"/>
+    <!-- LEFT arm (toward gap): hanging straight, NOT reaching -->
+    <path d="M64 38.6 Q62.4 42.4 60.8 47" stroke-width=".95"/>
+    <!-- RIGHT arm (away from gap): hanging straight, slightly out -->
+    <path d="M64.2 38.6 Q66.4 42.6 68 47.4" stroke-width=".95"/>
+    <!-- LEGS: planted, slightly wider stance than left figure -->
+    <path d="M64 51 Q62 56 60 62" stroke-width="1"/>
+    <path d="M64.2 51 Q66.6 56 68.6 62" stroke-width="1"/>
+  </g>
+
+  <!-- the GAP — dashed thread, jittered to match medium. Sits at the chest height of the right (upright) figure; the left figure's slump pulls the thread down on its end. -->
+  <path d="M21 41.5 Q40 42.4 58 41" stroke="currentColor" stroke-width=".7" fill="none" opacity=".5" stroke-dasharray="1.6 2.6" stroke-linecap="round" filter="url(#b2b-jitter)"/>
+</symbol>
     <!-- from art-semi-structured-output.html -->
     <!--
   ╔══════════════════════════════════════════════════════════════════════════╗

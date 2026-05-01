@@ -546,9 +546,13 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.04;z
 .foot a{color:var(--ink-soft);text-decoration:none;transition:color .2s}
 .foot a:hover{color:var(--azure)}
 .foot .dot{margin:0 .5em;color:var(--azure);opacity:.5}
-.foot .foot-imprint{margin:0 auto 14px;font-size:13.5px;line-height:1.75;color:var(--ink-soft);max-width:660px}
+.foot .dash{margin:0 .35em;color:var(--azure);opacity:.5}
+.foot .foot-tagline{margin:0 auto;font-size:15px;line-height:1.3;color:var(--azure);font-style:normal;letter-spacing:.01em}
+.foot .foot-imprint{margin:0 auto;font-size:13.5px;line-height:1.4;color:var(--ink-soft);max-width:660px}
 .foot .foot-imprint .name{font-style:normal;font-weight:500;color:var(--ink)}
-.foot .foot-links{margin:0;font-size:13.5px;color:var(--dim)}
+.foot .foot-meta{margin:0 auto;font-size:13px;line-height:1.5;color:var(--dim);max-width:660px}
+.foot .foot-meta a{color:var(--dim)}
+.foot .foot-meta a:hover{color:var(--azure)}
 
 @media(max-width:760px){
   .bar{padding:18px 22px}

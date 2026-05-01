@@ -5,6 +5,6 @@
 # Hard-refresh the browser after edits — http.server doesn't push reloads.
 set -euo pipefail
 
-PORT="${1:-8000}"
+PORT="${1:-8765}"
 cd "$(dirname "$0")"
 exec python3 _build/serve.py "$PORT"

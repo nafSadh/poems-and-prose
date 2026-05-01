@@ -149,6 +149,14 @@ def load_collections(site_cfg: dict) -> list[dict]:
             book["contents"] = flat
         else:
             book["contents"] = raw
+        # Entries inherit the book's lang. `mixed` books default entries to en
+        # (mirrors seed.py's detect_lang fallback) — explicit `lang: bn` on an
+        # entry still overrides.
+        default_entry_lang = book.get("lang", "en")
+        if default_entry_lang == "mixed":
+            default_entry_lang = "en"
+        for p in book["contents"]:
+            p.setdefault("lang", default_entry_lang)
         book["ill"] = entry.get("ill", "ill-life")
         book["mark"] = entry.get("mark", "mark-life")
         book["corner"] = entry.get("corner", "")
@@ -271,14 +279,15 @@ def render_body(text: str, content_type: str = "poem") -> str:
     return "\n".join(chunks)
 
 
-def parse_poem_md(path: Path, fallback_title: str, content_type: str = "poem") -> tuple[str, str, int, str]:
-    """Return (title, rendered_html_body, longest_line_chars, author). Strips
-    YAML front matter and HTML comments first (so `<!-- … -->` notes in the .md
-    never reach the page), then pulls the first `# Heading` line as the title
-    (falls back to yml title). The longest-line count drives whether to push
-    the side art into the gutter (wide) vs. tuck it near the margin note
-    (narrow). The author is extracted from `<by: …/>` or `<স্বনামে: …/>` meta
-    tags before they're stripped from the body."""
+def parse_poem_md(path: Path, fallback_title: str, content_type: str = "poem") -> tuple[str, str, int, str, str]:
+    """Return (title, rendered_html_body, longest_line_chars, author, date).
+    Strips YAML front matter and HTML comments first (so `<!-- … -->` notes in
+    the .md never reach the page), then pulls the first `# Heading` line as
+    the title (falls back to yml title). The longest-line count drives whether
+    to push the side art into the gutter (wide) vs. tuck it near the margin
+    note (narrow). The author is extracted from `<by: …/>` or `<স্বনামে: …/>`
+    meta tags, and the date from `<date: …/>` or `<তারিখ: …/>` — both before
+    they're stripped from the body."""
     text = path.read_text(encoding="utf-8")
     # Strip YAML front matter.
     text = re.sub(r"^---[\s\S]*?---\s*", "", text)
@@ -287,6 +296,11 @@ def parse_poem_md(path: Path, fallback_title: str, content_type: str = "poem") -
     # Pull author from `<by: …/>` or `<স্বনামে: …/>` before tag-strip.
     am = re.search(r"<(?:by|স্বনামে):\s*([^/<>]+?)\s*/>", text)
     author = am.group(1).strip() if am else ""
+    # Pull date from `<date: …/>` or `<তারিখ: …/>` before tag-strip. The body
+    # renderer keeps date tags inside stanzas (they become section captions for
+    # multi-part pieces); the FIRST one is the piece's overall date.
+    dm = re.search(r"<(?:date|তারিখ):\s*([^/<>]+?)\s*/>", text)
+    date = dm.group(1).strip() if dm else ""
     # Strip the file's metadata line — the first line that contains only one or
     # more <*:> tags (typically right after the title). The tag name allows
     # ASCII letters/digits/hyphens and Bengali (U+0980–U+09FF).
@@ -320,7 +334,7 @@ def parse_poem_md(path: Path, fallback_title: str, content_type: str = "poem") -
         n = sum(1 for c in s if unicodedata.category(c) not in ("Mn", "Mc"))
         if n > longest:
             longest = n
-    return title, render_body(text, content_type), longest, author
+    return title, render_body(text, content_type), longest, author, date
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -345,14 +359,13 @@ def build_footer(site: dict, lang: str) -> str:
     byline = site.get("byline_bn" if lang == "bn" else "byline_en", site["author"])
     return f'''<footer class="foot">
     <svg class="foot-swash" aria-hidden="true"><use href="#swash-sm"/></svg>
+    <p class="foot-tagline">{html.escape(site["tagline"])}</p>
     <p class="foot-imprint">
-      poems &amp; prose by <span class="name">{html.escape(site["legal_name"])}</span>, writing as {html.escape(byline)}.<br>
-      © {site["copyright_year"]}, all rights reserved <span class="dot">·</span> {html.escape(site["domain"])}
+      poems &amp; prose by <span class="name">{html.escape(site["legal_name"])}</span>, writing as {html.escape(byline)}.
     </p>
-    <p class="foot-links">
-      <a href="{html.escape(site["home_url"])}">{html.escape(site["home_label"])}</a>
-      <span class="dot">·</span>
-      <a href="{html.escape(site["instagram_url"])}" rel="me">{html.escape(site["instagram_label"])}</a>
+    <p class="foot-meta">
+      {html.escape(site["domain"])} © {site["copyright_year"]}, all rights reserved<br>
+      <a href="{html.escape(site["home_url"])}">{html.escape(site["home_label"])}</a> <span class="dot">·</span> <a href="{html.escape(site["instagram_url"])}" rel="me">{html.escape(site["instagram_label"])}</a>
     </p>
   </footer>'''
 
@@ -553,8 +566,9 @@ def build_poem(templates: dict, site_cfg: dict, collections: list[dict],
         title = p_title
         longest_line = 0
         author = ""
+        date = ""
     else:
-        title, body_html, longest_line, author = parse_poem_md(md_path, p_title, p_type)
+        title, body_html, longest_line, author, date = parse_poem_md(md_path, p_title, p_type)
 
     # Three-tier width based on longest-line graphemes. Drives where the side
     # art sits:
@@ -606,10 +620,9 @@ def build_poem(templates: dict, site_cfg: dict, collections: list[dict],
         top_art = c["ill"]
 
     # Byline under title: "AUTHOR · DATE" (either part may be empty).
-    # Date comes from yml (synced from md); author comes from md `<by:>`/`<স্বনামে:>` tag.
-    # Letter-spacing + uppercase tracking is for Latin caps; Bengali drops both
-    # (no casing, and tracking breaks up conjuncts).
-    date = p.get("date") or ""
+    # Both come from the .md: `<by:>`/`<স্বনামে:>` for author, `<date:>`/
+    # `<তারিখ:>` for date. Letter-spacing + uppercase tracking is for Latin
+    # caps; Bengali drops both (no casing, and tracking breaks up conjuncts).
     parts = [s for s in (author, date) if s]
     if parts:
         byline = " · ".join(html.escape(s) for s in parts)
@@ -731,8 +744,15 @@ def copy_static() -> None:
 # ── Main ──────────────────────────────────────────────────────────────────────
 def main() -> None:
     if OUT.exists():
-        shutil.rmtree(OUT)
-    OUT.mkdir(parents=True)
+        for child in OUT.iterdir():
+            if child.name == "_mocks":
+                continue
+            if child.is_dir():
+                shutil.rmtree(child)
+            else:
+                child.unlink()
+    else:
+        OUT.mkdir(parents=True)
 
     site_cfg = load_site_config()
     collections = load_collections(site_cfg)

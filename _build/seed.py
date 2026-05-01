@@ -185,23 +185,26 @@ def to_yaml(collection_id: str) -> str:
     if not entries:
         lines.append("  []")
     else:
-        for title, filename, date in entries:
+        # Entries inherit the book's lang. `mixed` defaults to en; only emit
+        # `lang:` when the entry differs from that default. Dates live in each
+        # `.md` as a `<date:>` / `<তারিখ:>` tag, not in yml.
+        book_lang = meta.get("lang", "en")
+        default_entry_lang = "en" if book_lang == "mixed" else book_lang
+        for title, filename, _date in entries:
             bare = filename.rsplit("/", 1)[-1]
             item_id = bare[:-3] if bare.endswith(".md") else bare
-            lang = detect_lang(title, meta.get("lang", "en"))
+            lang = detect_lang(title, book_lang)
             # Quote title safely for YAML
             t_quoted = '"' + title.replace('"', '\\"') + '"'
             # Original seed only ran on poetry collections — every entry is a poem.
             lines.append(f"  - poem: {t_quoted}")
             lines.append(f"    id: {item_id}")
-            lines.append(f"    lang: {lang}")
+            if lang != default_entry_lang:
+                lines.append(f"    lang: {lang}")
             if bare in POEM_KINDS:
                 k = POEM_KINDS[bare].get("kind")
                 if k:
                     lines.append(f"    kind: {k}")
-            if date:
-                d_quoted = '"' + date.replace('"', '\\"') + '"'
-                lines.append(f"    date: {d_quoted}")
             note = lookup_margin(title)
             if note:
                 n_quoted = '"' + note.replace('"', '\\"') + '"'

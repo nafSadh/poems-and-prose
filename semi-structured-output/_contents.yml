@@ -11,11 +11,9 @@ icon: ⚙
 contents:
   - poem: "The System"
     id: the-system
-    lang: en
     note: "also: every system"
     art: art-prison-bars
   - poem: "The Ventriloquist"
     id: the-ventriloquist
-    lang: en
     note: "who speaks? who hears?"
     art: art-puppet

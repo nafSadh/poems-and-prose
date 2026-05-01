@@ -12,215 +12,148 @@ icon: 🪞
 contents:
   - section: vaulted vows
     entries:
-      - poem: "8th and 14th"
-        id: 8th-and-14th
-        lang: en
-        date: "Feb 26, 2026"
-        art: art-phone-portrait
-      - poem: "Shattered Sweetheart"
-        id: shattered-sweetheart
-        lang: en
-        date: "Sept 16, 2025"
-        art: art-broken-heart
-      - poem: "A Monument (draft)"
-        id: a-monument
-        lang: en
-        kind: draft
-        date: "March 1, 2026"
-        art: art-box-sealed
-      - poem: "An Erosion"
-        id: erosion
-        lang: en
-        date: "Oct 21, 2025"
-        art: art-orbiting-bodies
-      - poem: "She"
-        id: she
-        lang: en
-        date: "April 17, 2026"
-        art: art-detached-rings
-      - poem: "The Faithful Lie"
-        id: faithful-lie
-        lang: en
-        date: "Feb 11, 2026"
-        art: art-glass-water
-        narrow: true
       - poem: "A Settlement"
         id: a-settlement
-        lang: en
-        date: "Aug 08, 2025"
         art: art-winding-path
 
+      - poem: "Shattered Sweetheart"
+        id: shattered-sweetheart
+        art: art-broken-heart
+      - poem: "An Erosion"
+        id: erosion
+        art: art-orbiting-bodies
+      - poem: "The Faithful Lie"
+        id: faithful-lie
+        art: art-glass-water
+        narrow: true
+      - poem: "8th and 14th"
+        id: 8th-and-14th
+        art: art-phone-portrait
+      - poem: "A Monument (draft)"
+        id: a-monument
+        kind: draft
+        art: art-box-sealed
+      - poem: "She"
+        id: she
+        art: art-detached-rings
+      - poem: "Fore."
+        id: fore
+        art: art-b2b-far-stick-f
+        narrow: true
   - section: echoing silence
     entries:
       - poem: "Cluttered with Emptiness"
         id: cluttered-with-emptiness
-        lang: en
-        date: "Sept 14, 2025"
         art: art-stacked-boxes
       - poem: "Inventory of Lot 3B"
         id: inventory-of-lot-3b
-        lang: en
-        date: "Sept 14, 2025"
         art: art-clipboard
       - poem: "Numbed Anguish"
         id: numbed-anguish
-        lang: en
-        date: "Oct 01, 2025"
         art: art-clock
-      - poem: "A View from Above"
-        id: view-from-above
-        lang: en
-        date: "Feb 19, 2026"
-        art: art-bird-eye-view
-      - poem: "just here"
-        id: just-here
-        lang: en
-        date: "Feb 27, 2026"
-        art: ta-bird
-      - poem: "Blunt"
-        id: blunt
-        lang: en
-        date: "Feb 27, 2026"
-        art: art-crescent-stars
-        wide: false
-      - poem: "shadow's edge"
-        id: shadows-edge
-        lang: en
-        date: "March 31, 2026"
-        art: art-bicycle-tracks
       - poem: "Confetti"
         id: confetti
-        lang: en
-        date: "Jan 13, 2026"
         art: art-confetti
-      - poem: "Stable"
-        id: stable
-        lang: en
-        date: "Apr 13, 2026"
-        art: art-horse
-      - poem: "Lull"
-        id: lull
-        lang: en
-        date: "March 06, 2026"
-        art: art-fork
+      - poem: "A View from Above"
+        id: view-from-above
+        art: art-bird-eye-view
+      - poem: "Blunt"
+        id: blunt
+        art: art-crescent-stars
+        wide: false
+      - poem: "just here"
+        id: just-here
+        art: ta-bird
       - poem: "They are there"
         id: they-are-there
-        lang: en
-        date: "March 01, 2026"
         art: art-cupped-hands
         wide: false
+      - poem: "Lull"
+        id: lull
+        art: art-fork
       - poem: "Wing"
         id: wing
-        lang: en
-        date: "March 21, 2026"
         art: art-wing
 
+      - poem: "shadow's edge"
+        id: shadows-edge
+        art: art-bicycle-tracks
+      - poem: "Stable"
+        id: stable
+        art: art-horse
   - section: solvent solitude
     entries:
+      - poem: "Freedom to Belong"
+        id: freedom-to-belong
+        art: art-strobe-lights
       - poem: "The Ice-cream Boy"
         id: ice-cream-boy
-        lang: en
-        date: "Jan 15, 2026"
         art: art-ice-cream-cone
+      - poem: "Barramundi Rabe"
+        id: barramundi-rabe
+        art: art-fish-plate
+      - poem: "The Tulip"
+        id: tulip
+        art: art-fallen-petal
+      - poem: "A very good Bird"
+        id: good-bird
+        art: art-bird-cube
+      - poem: "a walk?"
+        id: a-walk
+        art: art-chai-cup
       - poem: "A Bicycle and a Recliner"
         id: bicycle-and-recliner
-        lang: en
-        date: "Feb 28, 2026"
         art: art-woven-mountains
       - poem: "Lavender Miles"
         id: lavender-miles
-        lang: en
-        date: "Feb 28, 2026"
         art: "sc-seconds-lavender"
-      - poem: "a walk?"
-        id: a-walk
-        lang: en
-        date: "Feb 26, 2026"
-        art: art-chai-cup
-      - poem: "A very good Bird"
-        id: good-bird
-        lang: en
-        date: "Feb 21, 2026"
-        art: art-bird-cube
-      - poem: "The Tulip"
-        id: tulip
-        lang: en
-        date: "Feb 17, 2026"
-        art: art-fallen-petal
-      - poem: "Barramundi Rabe"
-        id: barramundi-rabe
-        lang: en
-        date: "Feb 17, 2026"
-        art: art-fish-plate
-      - poem: "Saratoga Scene"
-        id: saratoga-scene
-        lang: en
-        date: "April 18, 2026"
-        art: art-cappuccino
+      - poem: "Worlds"
+        id: worlds
+        art: art-brain-sparkling
+
       - poem: "Company"
         id: company
-        lang: en
-        date: "March 30, 2026"
         art: art-candle
+      - poem: "Saratoga Scene"
+        id: saratoga-scene
+        art: art-cappuccino
       - poem: "Barefoot"
         id: barefoot
-        lang: en
-        date: "April 28, 2026"
         art: art-distant-yard
         narrow: true
       - poem: "Staircase"
         id: staircase
-        lang: en
-        date: "April 28, 2026"
         art: art-staircase-elevator
-      - poem: "Freedom to Belong"
-        id: freedom-to-belong
-        lang: en
-        date: "Oct 01, 2025"
-        art: art-strobe-lights
-      - poem: "Worlds"
-        id: worlds
-        lang: en
-        date: "March 01, 2026"
-        art: art-brain-sparkling
-
   - section: "addenda · prelude to the conversation"
     entries:
-      - poem: "বিদায়, নীহারিকা"
-        id: বিদায়-নীহারিকা
-        lang: bn
-        date: "April-May 2025"
-        art: art-travel-bag
-      - poem: "এক টুকরো গগনে গনগনে চাঁদ"
-        id: এক-টুকরো-গগনে-গনগনে-চাঁদ
-        lang: bn
-        date: "April 2025"
-        art: art-moon-tea
       - poem: "পরশপাথর"
         id: পরশপাথর
         lang: bn
-        date: "April-May 2025"
+        art: art-heron-pond
+      - poem: "এক টুকরো গগনে গনগনে চাঁদ"
+        id: এক-টুকরো-গগনে-গনগনে-চাঁদ
+        lang: bn
+        art: art-moon-tea
+      - poem: "অন্তিম অনন্ত"
+        id: অন্তিম-অনন্ত
+        lang: bn
         art: art-heron-pond
 
+      - poem: "বিদায়, নীহারিকা"
+        id: বিদায়-নীহারিকা
+        lang: bn
+        art: art-travel-bag
   - section: "addenda · other side of the conversation"
     entries:
       - poem: "Amber Ablution"
         id: amber-ablution
-        lang: en
-        date: "Oct 04, 2025"
         art: art-coffee-cup
       - poem: "View from My Couch"
         id: view-from-my-couch
-        lang: en
-        date: "Oct 05, 2025"
         art: art-window-mountains
       - poem: "L's Dancefloor"
         id: ls-dancefloor
-        lang: en
-        date: "Feb 18, 2026"
         art: art-headphones
       - poem: "Shrimp Wonton"
         id: shrimp-wonton
-        lang: en
-        date: "Feb 22, 2026"
         art: art-wonton-bowl
