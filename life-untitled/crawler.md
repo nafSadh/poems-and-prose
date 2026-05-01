@@ -26,7 +26,7 @@ But this street is not his street. Not tonight. He boards the bus.
 
 Twenty one minutes. He chews one bamboo toothpick and a strawberry gum. Turns
 five pages of a Neil Gaiman book, doesn't read a word. The rhythm of the bus is
-comforting. The day was very hot, night is warm. The kinds of warm, you feel
+comforting. The day was very hot, night is warm. The kind of warm, you feel
 almost sweaty, but you don't sweat. A sticky sensation that clings your skin -
 it never touches you, nor does it leave. It is there, around you, surrounding
 you. A warm cloud of nothing. Not a bad thing, just a thing. A warm, sticky
