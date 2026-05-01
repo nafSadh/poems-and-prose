@@ -6,7 +6,7 @@ There is always an understated song humming in the air when you go to a coastal
 coffee shop, be it a lazy weekday afternoon or a lazy weekend; it is both
 effervescent and everlasting at the same time. Miranda is waiting in a queue,
 she needs coffee. Needs is the wrong word; she wants coffee. She thinks, maybe
-need is the right word, because she needs coffee to feel alive, "aliver". The
+'need' _is_ the right word, because she _needs_ coffee to feel alive, "aliver". The
 aroma enters her mind through her nostrils, and starts a chain reaction of magic.
 It is like a domino effect, or butterfly effect - thoughts are taking their own
 tours. Miranda steps one step forward, quickly swipes the phone without actually
