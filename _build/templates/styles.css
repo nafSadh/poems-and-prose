@@ -112,6 +112,39 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.04;z
 .divider .line{flex:1;height:1px;background:currentColor;opacity:.35}
 .divider svg{width:70px;height:22px}
 
+/* ── Home hero (home-2 design): centered sun + brand stack + horizon section break ── */
+.view-home .home-domain{display:none}
+.view-home .hero{display:flex;flex-direction:column;align-items:center;justify-content:center;max-width:none;margin:0;padding:8vh 36px 4vh;min-height:64vh;gap:22px;grid-template-columns:none;grid-template-rows:none;position:relative;z-index:1}
+.view-home .hero .h2-sun{position:relative;width:clamp(200px,28vh,300px);height:clamp(200px,28vh,300px);margin:0 auto 8px}
+.view-home .hero .h2-sun::before{content:'';position:absolute;width:145%;height:145%;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle at 48% 52%, rgba(255,220,150,.50) 0%, rgba(255,210,140,.22) 30%, rgba(250,200,130,0) 62%);pointer-events:none;z-index:0;filter:blur(2px);mix-blend-mode:multiply}
+.view-home .hero .h2-sun::after{content:'';position:absolute;width:175%;height:175%;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle at 52% 48%, rgba(220,200,170,.18) 0%, rgba(200,210,200,.10) 38%, rgba(200,210,200,0) 70%);pointer-events:none;z-index:0;filter:blur(6px)}
+.view-home .hero .h2-sun svg{color:var(--azure);position:relative;z-index:1;width:100%;height:100%;display:block}
+/* Opacity-only ray fade — clockwise cascade. Each ray holds its length and slowly emerges/recedes. */
+.view-home .hero .h2-sun svg .ray{animation:h2-ray-fade 36s ease-in-out infinite}
+.view-home .hero .h2-sun svg .ray:nth-of-type(1){animation-delay:0s}
+.view-home .hero .h2-sun svg .ray:nth-of-type(10){animation-delay:-3s}
+.view-home .hero .h2-sun svg .ray:nth-of-type(7){animation-delay:-6s}
+.view-home .hero .h2-sun svg .ray:nth-of-type(4){animation-delay:-9s}
+.view-home .hero .h2-sun svg .ray:nth-of-type(6){animation-delay:-12s}
+.view-home .hero .h2-sun svg .ray:nth-of-type(12){animation-delay:-15s}
+.view-home .hero .h2-sun svg .ray:nth-of-type(2){animation-delay:-18s}
+.view-home .hero .h2-sun svg .ray:nth-of-type(11){animation-delay:-21s}
+.view-home .hero .h2-sun svg .ray:nth-of-type(8){animation-delay:-24s}
+.view-home .hero .h2-sun svg .ray:nth-of-type(3){animation-delay:-27s}
+.view-home .hero .h2-sun svg .ray:nth-of-type(5){animation-delay:-30s}
+.view-home .hero .h2-sun svg .ray:nth-of-type(9){animation-delay:-33s}
+@keyframes h2-ray-fade{0%,100%{opacity:.35}50%{opacity:1}}
+.view-home .hero .h2-mark{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(32px,4.5vw,56px);letter-spacing:-.025em;line-height:1;margin:0;display:inline-flex;align-items:baseline;gap:.12em;font-variation-settings:"opsz" 144,"SOFT" 50}
+.view-home .hero .h2-mark .grey{color:var(--ink)}
+.view-home .hero .h2-mark .azure{color:var(--azure)}
+.view-home .hero .h2-mark .dot{width:.42em;height:.42em;color:var(--azure);display:inline-block;vertical-align:baseline;margin:0 .08em;transform:translateY(-.02em)}
+.view-home .hero .h2-desc{font-family:'Inter',sans-serif;font-weight:400;font-size:12px;letter-spacing:6px;text-transform:uppercase;color:var(--azure);margin:4px 0 0}
+.view-home .hero .h2-desc .amp{font-family:'IM Fell English',serif;font-style:italic;font-weight:400;text-transform:none;font-size:1.55em;letter-spacing:0;vertical-align:-.06em;margin:0 .14em;color:var(--azure)}
+/* Horizon section break replacing the swash divider */
+.view-home .h2-horizon{max-width:1020px;margin:0 auto;padding:22px 36px;border-top:1px dashed color-mix(in srgb, var(--azure), transparent 82%);border-bottom:1px dotted color-mix(in srgb, var(--azure), transparent 82%);display:flex;align-items:center;justify-content:center;gap:clamp(16px,2.4vw,28px)}
+.view-home .h2-horizon .h2-tag{font-family:'EB Garamond','Fraunces',serif;font-style:italic;font-weight:400;color:color-mix(in srgb, var(--ink), transparent 55%);font-size:clamp(14px,1.5vw,20px);letter-spacing:clamp(.3em,.8vw,.55em);text-transform:lowercase;line-height:1;margin:0;text-align:center;font-variation-settings:"opsz" 144,"SOFT" 50}
+.view-home .h2-horizon .h2-tag-glyph{font-family:'EB Garamond','Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(16px,1.8vw,22px);line-height:1;color:color-mix(in srgb, var(--ink), transparent 55%);display:inline-block}
+
 .sec-label{position:relative;z-index:1;max-width:1020px;margin:44px auto 6px;padding:0 36px;display:flex;align-items:baseline;justify-content:space-between;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--dim);font-weight:600}
 .sec-label em{font-family:'Fraunces',serif;font-style:italic;text-transform:none;letter-spacing:0;color:var(--azure);font-size:14px;font-weight:400}
 
@@ -822,6 +855,23 @@ body.poem-scrolled .view-read .page-wrap.is-narrow .poem-art{margin-right:64px}
     rgba(180,210,240,.10) 0%,
     rgba(140,180,225,0) 100%);
   filter:blur(60px);
+  mix-blend-mode:screen;
+}
+/* Home-2 hero glow — moon palette in dark mode, tight aura around the sun */
+[data-theme="dark"] .view-home .hero .h2-sun::before{
+  width:108%;height:108%;
+  background:radial-gradient(circle at center in oklab,
+    rgba(180,210,240,.18) 0%,
+    rgba(140,180,225,0) 70%);
+  filter:blur(18px);
+  mix-blend-mode:screen;
+}
+[data-theme="dark"] .view-home .hero .h2-sun::after{
+  width:125%;height:125%;
+  background:radial-gradient(circle at center in oklab,
+    rgba(160,190,220,.08) 0%,
+    rgba(140,180,225,0) 75%);
+  filter:blur(30px);
   mix-blend-mode:screen;
 }
 

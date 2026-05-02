@@ -1,6 +1,6 @@
 # A Monument
 
-<by: Sadh /><date: March 1, 2026 /> <status: draft />
+<by: Sadh /><date: March 1, 2026 /><status: draft />
 
 I have a box,  
 it holds the things;  

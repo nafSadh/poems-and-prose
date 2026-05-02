@@ -1,13 +1,7 @@
 <div class="view view-home active">
   <div class="home-domain">{{DOMAIN}}</div>
   <header class="hero">
-    <div class="hero-text">
-      <div class="wordmark-block">
-        <h1><em>sadh</em><svg class="hero-mark" viewBox="0 0 24 24" aria-hidden="true"><use href="#bar-mark"/></svg>ink</h1>
-        <p class="brand-caption">words in progress</p>
-      </div>
-    </div>
-    <div class="hero-art">
+    <div class="h2-sun" aria-hidden="true">
       <svg viewBox="0 0 300 300">
         <g stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none">
           <circle cx="150" cy="150" r="70" fill="currentColor" fill-opacity=".18"/>
@@ -30,11 +24,13 @@
         <circle cx="172" cy="138" r="3" fill="currentColor"/>
       </svg>
     </div>
+    <h1 class="h2-mark"><span class="grey">sadh</span><svg class="dot" viewBox="0 0 24 24" aria-hidden="true"><use href="#bar-mark"/></svg><span class="azure">ink</span></h1>
+    <p class="h2-desc">poems <span class="amp">&amp;</span> prose</p>
   </header>
-  <div class="divider">
-    <div class="line"></div>
-    <svg><use href="#swash"/></svg>
-    <div class="line"></div>
+  <div class="h2-horizon">
+    <span class="h2-tag-glyph" aria-hidden="true">&mdash;</span>
+    <p class="h2-tag">words in progress</p>
+    <span class="h2-tag-glyph" aria-hidden="true">&mdash;</span>
   </div>
   <main class="books">
 {{BOOK_CARDS}}

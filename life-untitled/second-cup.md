@@ -1,6 +1,6 @@
 # Second Cup
 
-<date: March 15, 2026 />
+<by: Sadh /><date: March 15, 2026 />
 
 The drawing above the counter showed a green sky and she almost left because of
 it.
