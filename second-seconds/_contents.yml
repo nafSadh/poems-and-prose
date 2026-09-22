@@ -154,7 +154,7 @@ contents:
         art: art-echo-ruins
       - poem: "অসমাপ্ত"
         id: osomapto
-        land: bn
+        lang: bn
   - section: "addenda · other side of the conversation"
     entries:
       - poem: "Amber Ablution"
