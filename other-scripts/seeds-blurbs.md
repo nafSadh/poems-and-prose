@@ -71,3 +71,27 @@ the brown bruise of a fuchsia
 the ornate craft of a pawned clock
 
 the floating hummingbird
+
+## Invented Words
+
+**dobokoned** (adj.) Having done the thing and found nothing in your hands. The
+state after an achievement that turns out to have been made of the wanting: no
+loss to mourn, no win to hold, just done. Flat by design; the three round o's
+don't rise because nothing in it does. _Nine days on a bug, one character, all
+tests green, and he sat there dobokoned._
+
+**dungbooshed** (adj.) Struck by the cost of your own win. The pyrrhic sibling
+of dobokoned: there's a body on the floor and it's someone you love. Two thuds,
+the second one landing. _He beat his best friend for class president and walked
+home dungbooshed._
+
+**lovugitive** (n.) One who flees a home while still loving what's in it,
+because staying would end them. A fugitive with an ambiguous charge, fleeing
+love or fleeing for it, and the word won't say which. The crushed middle
+syllable is the bruise. _By March he was a lovugitive with two suitcases and her
+key still on his ring._
+
+**lofitude** (n.) The condition of the year after. Life at reduced fidelity:
+small rooms, everything still loved, playing quietly through one bad speaker.
+Sits beside solitude and fortitude and is neither. _The lovugitive's lofitude: a
+loft, a lamp, the same three songs._
