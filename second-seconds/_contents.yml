@@ -82,6 +82,12 @@ contents:
       - poem: ".depleted."
         id: depleted
         art: art-storm-on-a-salver
+      - poem: "truth and perspective (1)"
+        id: truth-and-perspective-1
+        art: art-two-stalks
+      - poem: "truth and perspective (2)"
+        id: truth-and-perspective-2
+        art: art-pressed-flower
   - section: solvent solitude
     entries:
       - poem: "Freedom to Belong"
