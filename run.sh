@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
-# Build the site, serve _site/ on http://localhost:$PORT, and rebuild on
-# any source file change (.md / .yml / .html / .css / .py under src/).
-# Usage: ./run.sh [port]   (default 8000)
-# Hard-refresh the browser after edits — http.server doesn't push reloads.
+# Build and serve sadh.ink locally, watching for changes.
+#
+#   ./run.sh          build _site/ + serve on http://localhost:8765/ (auto-rebuilds)
+#   ./run.sh 9000     same, on port 9000
+#   ./run.sh build    build _site/ once and exit
 set -euo pipefail
-
-PORT="${1:-8765}"
 cd "$(dirname "$0")"
-# exec python3 _build/build.py
-exec python3 _build/serve.py "$PORT"
+
+case "${1:-}" in
+  build) exec python3 _build/build.py ;;
+  *)     exec python3 _build/serve.py "${1:-8765}" ;;
+esac

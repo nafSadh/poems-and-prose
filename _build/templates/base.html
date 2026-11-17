@@ -45,5 +45,18 @@
 <body>
 {{SVG_DEFS}}
 {{CONTENT}}
+<script>
+if (location.protocol === 'file:') {
+  var m = location.pathname.match(/^(.*\/_site)\//);
+  var base = m ? m[1] : location.pathname.replace(/\/index\.html$/, '').replace(/\/$/, '');
+  var link = document.querySelector('link[rel="stylesheet"][href^="/"]');
+  if (link) link.href = base + link.getAttribute('href').split('?')[0];
+  document.querySelectorAll('a[href^="/"]').forEach(function(a) {
+    var h = a.getAttribute('href');
+    if (h.startsWith('//')) return;
+    a.setAttribute('href', base + (h.endsWith('/') ? h + 'index.html' : h));
+  });
+}
+</script>
 </body>
 </html>

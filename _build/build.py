@@ -360,6 +360,13 @@ def build_footer(site: dict, lang: str) -> str:
     """Render the site footer. Byline name swaps by page language; everything
     else (legal name, copyright, links) stays constant."""
     byline = site.get("byline_bn" if lang == "bn" else "byline_en", site["author"])
+    links = [f'<a href="{html.escape(site["home_url"])}">{html.escape(site["home_label"])}</a>']
+    if site.get("studio_url"):
+        links.append(f'<a href="{html.escape(site["studio_url"])}">{html.escape(site["studio_label"])}</a>')
+    if site.get("art_url"):
+        links.append(f'<a href="{html.escape(site["art_url"])}">{html.escape(site["art_label"])}</a>')
+    links.append(f'<a href="{html.escape(site["instagram_url"])}" rel="me">{html.escape(site["instagram_label"])}</a>')
+    links_html = ' <span class="dot">·</span> '.join(links)
     return f'''<footer class="foot">
     <svg class="foot-swash" aria-hidden="true"><use href="#swash-sm"/></svg>
     <p class="foot-tagline">{html.escape(site["tagline"])}</p>
@@ -368,7 +375,7 @@ def build_footer(site: dict, lang: str) -> str:
     </p>
     <p class="foot-meta">
       {html.escape(site["domain"])} © {site["copyright_year"]}, all rights reserved<br>
-      <a href="{html.escape(site["home_url"])}">{html.escape(site["home_label"])}</a> <span class="dot">·</span> <a href="{html.escape(site["instagram_url"])}" rel="me">{html.escape(site["instagram_label"])}</a>
+      {links_html}
     </p>
   </footer>'''
 
