@@ -120,6 +120,8 @@ contents:
       - poem: "Lavender Miles"
         id: lavender-miles
         art: "sc-seconds-lavender"
+      - poem: "passenger seat"
+        id: passenger-seat
       - poem: "Worlds"
         id: worlds
         art: art-brain-sparkling
