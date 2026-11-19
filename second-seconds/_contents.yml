@@ -122,6 +122,7 @@ contents:
         art: "sc-seconds-lavender"
       - poem: "passenger seat"
         id: passenger-seat
+        art: art-passenger-seat
       - poem: "Worlds"
         id: worlds
         art: art-brain-sparkling
@@ -164,6 +165,9 @@ contents:
         id: osomapto
         lang: bn
         art: art-parapet-fog
+      - poem: "দিন শেষে, শ্রান্তিলগ্নে"
+        id: din-shese-shrantilogne
+        lang: bn
   - section: "addenda · other side of the conversation"
     entries:
       - poem: "Amber Ablution"
